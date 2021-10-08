@@ -30,10 +30,10 @@ const UserCard = () => {
   return (
     <>
       {user.data
-      ?
-      <Card style={{ width: 300 }} title={user.data.name}>
-        <p>{user.data.nickname}</p>
-      </Card>
+      ? 
+      <>
+        <h2>상세 페이지</h2>
+      </>
       :
       <Form
         initialValues={{ remember: true }}
