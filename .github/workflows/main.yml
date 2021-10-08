@@ -27,12 +27,13 @@ jobs:
       - name: Build...
         run: npm run build
         
-      - name: Deploy
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --delete
         env:
+          AWS_S3_BUCKET: "tmintalk-client"
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          aws s3 cp \
-            --recursive \
-            --region ap-northeast-2 \
-            dist s3://tmintalk-client
+          AWS_REGION: "ap-northeast-2"
+          SOURCE_DIR: "build"
