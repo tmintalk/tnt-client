@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Form, Input, Button, Checkbox, Card } from 'antd';
+import { Form, Input, Button, Checkbox } from 'antd';
 import { LOG_IN_REQUEST } from '../../reducers/user';
 
 const UserCard = () => {
