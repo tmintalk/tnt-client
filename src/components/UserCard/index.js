@@ -16,6 +16,7 @@ const UserCard = () => {
     const { email, password, remember } = values;
 
     // remember 처리
+    if (remember) {}
 
     dispatch({
       type: LOG_IN_REQUEST,

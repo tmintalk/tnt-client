@@ -1,10 +1,5 @@
-import { put, takeEvery, all, fork, call, delay } from 'redux-saga/effects';
-import axios from 'axios';
+import { put, takeEvery, all, fork, delay } from 'redux-saga/effects';
 import { LOG_IN_FAILURE, LOG_IN_REQUEST, LOG_IN_SUCCESS } from '../reducers/user';
-
-function loginAPI(loginData) {
-  return axios.post('/auth/login', loginData);
-}
 
 function* login(action) {
   try {
