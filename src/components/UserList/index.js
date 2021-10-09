@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-import { List, Avatar } from 'antd';
+import { List, Avatar, Button } from 'antd';
 
 const UserList = () => {
   const [users, setUsers] = useState();
@@ -27,7 +27,7 @@ const UserList = () => {
                 avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                 title={<p href="https://pnt.design">{item.nickname}</p>}
               />
-              <span>Chat</span>
+              <Button shape="round">Chat</Button>
             </List.Item>
           )}
         />
