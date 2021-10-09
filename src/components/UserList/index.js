@@ -27,6 +27,7 @@ const UserList = () => {
                 avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                 title={<p href="https://pnt.design">{item.nickname}</p>}
               />
+              <span>Chat</span>
             </List.Item>
           )}
         />
