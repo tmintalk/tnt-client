@@ -1,5 +1,4 @@
 import { useState, createElement } from "react";
-import axios from "axios";
 
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
