@@ -8,6 +8,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import Join from "../pages/Join";
+import PublicRoute from "./publicRoute";
+import PrivateRouter from "./privateRoute";
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -26,7 +28,8 @@ const Router = () => {
       <Header />
       <Switch>
         <Route exact path={"/"} component={Home} />
-        <Route path={"/join"} component={Join} />
+        <PublicRoute path={"/join"} component={Join} />
+        <PrivateRouter path={"/test"} component={() => (<><h1>Test</h1></>)} />
       </Switch>
       <Footer />
     </Suspense>
