@@ -12,6 +12,7 @@ const LogoutButton = () => {
     });
 
     removeCookie('Authorization');
+    window.location.href = "/"  
   }
 
   return (
