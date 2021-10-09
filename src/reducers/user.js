@@ -13,6 +13,8 @@ export const GET_ME_REQUEST = 'GET_ME_REQUEST';
 export const GET_ME_SUCCESS = 'GET_ME_SUCCESS';
 export const GET_ME_FAILURE = 'GET_ME_FAILURE';
 
+export const LOG_OUT_REQUEST = 'LOG_OUT_REQUEST';
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOG_IN_REQUEST:
@@ -51,6 +53,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: false,
       }
+    case LOG_OUT_REQUEST:
+      return initialState
     default:
       return state;
   }

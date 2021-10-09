@@ -1,15 +1,16 @@
 import { useSelector } from 'react-redux';
 
 import LoginForm from '../LoginForm';
+import LogoutButton from "../LogoutButton";
 
-const UserCard = () => {
+const Join = () => {
   const { user } = useSelector((state) => state);
 
   return (
     <>
-      {user.data ? <h2>상세 페이지</h2> : <LoginForm/>}
+      {user.data ? <LogoutButton/> : <LoginForm/>}
     </>
   )
 }
 
-export default UserCard;
+export default Join;

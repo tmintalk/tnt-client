@@ -1,9 +1,9 @@
-import UserCard from "../../components/UserCard";
+import Join from "../../components/Join";
 
 const Home = () => {
   return (
     <>
-      <UserCard />
+      <Join />
     </>
   );
 };
