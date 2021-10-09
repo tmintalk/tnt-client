@@ -4,6 +4,8 @@ import axios from "axios";
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
 import { getFormatDate } from "../../services/time";
+import { useDispatch, useSelector } from "react-redux";
+import { GET_POSTS_REQUEST } from "../../reducers/posts";
 
 const listData = [];
 for (let i = 0; i < 23; i++) {
@@ -26,24 +28,25 @@ const IconText = ({ icon, text }) => (
 );
 
 const PostList = () => {
-  const [posts, setPosts] = useState();
+  const { posts } = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   useState(() => {
-    (async () => {
-      const resp = await axios.get("/posts");
-      console.log("posts", resp);
-      setPosts(resp.data);
-    })();
-  }, []);
+    if (!posts.data) {
+      dispatch({
+        type: GET_POSTS_REQUEST
+      })
+    }
+  }, [posts]);
 
   return (
     <>
-      {posts && (
+      {posts.data && (
         <>
           <List
             itemLayout="vertical"
             size="small"
-            dataSource={posts}
+            dataSource={posts.data}
             renderItem={(item) => (
               <List.Item
                 key={item.title}

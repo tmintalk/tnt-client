@@ -2,9 +2,12 @@ import axios from 'axios';
 
 import { Form, Input, Button } from 'antd';
 import { createRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { GET_POSTS_REQUEST } from '../../reducers/posts';
 
 const PostForm = () => {
   var formRef = createRef();
+  const dispatch = useDispatch();
 
   const onFinish = async (values) => {
     const { body } = values;
@@ -14,6 +17,10 @@ const PostForm = () => {
     })
     console.log('res', res);
     formRef.current.resetFields();
+
+    dispatch({
+      type: GET_POSTS_REQUEST
+    })
   }
 
   return (
