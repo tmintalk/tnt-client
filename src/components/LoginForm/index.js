@@ -14,8 +14,6 @@ const LoginForm = () => {
       email,
       password,
     })
-    console.log('res', res)
-
 
     setCookie('Authorization', res.data.token, { path: '/', maxAge: 24 * 60 * 60 });
     window.location.href = "/"  

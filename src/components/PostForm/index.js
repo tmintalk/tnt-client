@@ -12,10 +12,9 @@ const PostForm = () => {
   const onFinish = async (values) => {
     const { body } = values;
 
-    const res = await axios.post('/posts', {
+    await axios.post('/posts', {
       body
     })
-    console.log('res', res);
     formRef.current.resetFields();
 
     dispatch({

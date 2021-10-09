@@ -9,7 +9,6 @@ const UserList = () => {
   useState(() => {
     (async() => {
       const resp = await axios.get('/users');
-      console.log('users', resp)
       setUsers(resp.data);
     })();
   }, []);
