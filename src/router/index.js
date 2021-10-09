@@ -3,10 +3,11 @@ import { Switch, Route } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 
+import { GET_ME_REQUEST } from '../reducers/user';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Home from "../pages/Home";
-import { GET_ME_REQUEST } from '../reducers/user';
+import Join from "../pages/Join";
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Router = () => {
       <Header />
       <Switch>
         <Route exact path={"/"} component={Home} />
+        <Route path={"/join"} component={Join} />
       </Switch>
       <Footer />
     </Suspense>

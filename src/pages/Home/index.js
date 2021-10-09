@@ -1,9 +1,9 @@
-import Join from "../../components/Join";
+import Login from "../../components/Login";
 
 const Home = () => {
   return (
     <>
-      <Join />
+      <Login />
     </>
   );
 };

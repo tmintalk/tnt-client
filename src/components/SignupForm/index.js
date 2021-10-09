@@ -4,15 +4,16 @@ import { useCookies } from 'react-cookie';
 import { Form, Input, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-const LoginForm = () => {
+const SignupForm = () => {
   const [, setCookie] = useCookies(['Authorization']);
 
   const onFinish = async (values) => {
-    const { email, password } = values;
+    const { email, password, nickname } = values;
 
-    const res = await axios.post('/auth/login', {
+    const res = await axios.post('/auth/join', {
       email,
       password,
+      nickname
     })
     console.log('res', res)
 
@@ -27,6 +28,13 @@ const LoginForm = () => {
         initialValues={{ remember: true }}
         onFinish={onFinish}
       >
+        <Form.Item
+          label="Nickname"
+          name="nickname"
+          rules={[{ required: true, message: '닉네임을 입력해주세요!' }]}
+        >
+          <Input />
+        </Form.Item>
         <Form.Item
           label="Email"
           name="email"
@@ -43,13 +51,13 @@ const LoginForm = () => {
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
-            로그인
+            회원가입
           </Button>
         </Form.Item>
       </Form>
-      <Link to="/join">회원가입</Link>
+      <Link to="/">로그인</Link>
     </>
   )
 }
 
-export default LoginForm
+export default SignupForm

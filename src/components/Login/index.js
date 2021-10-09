@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import LoginForm from '../LoginForm';
 import LogoutButton from "../LogoutButton";
 
-const Join = () => {
+const Login = () => {
   const { user } = useSelector((state) => state);
 
   return (
@@ -13,4 +13,4 @@ const Join = () => {
   )
 }
 
-export default Join;
+export default Login;
