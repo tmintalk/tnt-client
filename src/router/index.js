@@ -10,6 +10,7 @@ import Home from "../pages/Home";
 import Join from "../pages/Join";
 import PublicRoute from "./publicRoute";
 import PrivateRouter from "./privateRoute";
+import BottomNav from "../components/BottomNav";
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const Router = () => {
         <PrivateRouter path={"/test"} component={() => (<><h1>Test</h1></>)} />
       </Switch>
       <Footer />
+      <BottomNav />
     </Suspense>
   );
 };
