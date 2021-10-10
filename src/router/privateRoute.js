@@ -11,7 +11,7 @@ const PrivateRouter = ({ component: Component, ...rest }) => {
         isLogin() ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/" />
+          <Redirect to="/join" />
         )
       }
     />

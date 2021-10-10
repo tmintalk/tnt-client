@@ -28,7 +28,7 @@ const BottomNav = () => {
           />
         </div>
       </Link>
-      <Link to="/messages" className="nav-link" onClick={() => setActiveNav(3)}>
+      <Link to="/chat" className="nav-link" onClick={() => setActiveNav(3)}>
         <div>
           <FontAwesomeIcon
             icon="message"
