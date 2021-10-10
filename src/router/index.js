@@ -12,6 +12,7 @@ import PublicRoute from "./publicRoute";
 import PrivateRouter from "./privateRoute";
 import BottomNav from "../components/BottomNav";
 import Users from "../pages/Users";
+import MyPage from "../pages/MyPage";
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const Router = () => {
         <Route exact path={"/"} component={Home} />
         <PublicRoute path={"/join"} component={Join} />
         <PrivateRouter path={"/users"} component={Users} />
+        <PrivateRouter path={"/mypage"} component={MyPage} />
         <Redirect to="/" />
       </Switch>
       <Footer />
