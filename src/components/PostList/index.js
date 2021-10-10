@@ -65,7 +65,6 @@ const PostList = () => {
                   <Link to="/chat">
                     <IconText
                       icon={MessageOutlined}
-                      text="2"
                       key="list-vertical-message"
                     />
                   </Link>,
