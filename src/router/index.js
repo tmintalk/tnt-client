@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 
@@ -32,6 +32,7 @@ const Router = () => {
         <Route exact path={"/"} component={Home} />
         <PublicRoute path={"/join"} component={Join} />
         <PrivateRouter path={"/users"} component={Users} />
+        <Redirect to="/" />
       </Switch>
       <Footer />
       <BottomNav />
