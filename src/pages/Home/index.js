@@ -11,7 +11,6 @@ const Home = () => {
       <Login />
       {user.data && (
         <>
-          <UserList />
           <Post />
         </>
       )}

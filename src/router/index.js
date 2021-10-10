@@ -11,6 +11,7 @@ import Join from "../pages/Join";
 import PublicRoute from "./publicRoute";
 import PrivateRouter from "./privateRoute";
 import BottomNav from "../components/BottomNav";
+import Users from "../pages/Users";
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const Router = () => {
       <Switch>
         <Route exact path={"/"} component={Home} />
         <PublicRoute path={"/join"} component={Join} />
-        <PrivateRouter path={"/test"} component={() => (<><h1>Test</h1></>)} />
+        <PrivateRouter path={"/users"} component={Users} />
       </Switch>
       <Footer />
       <BottomNav />
