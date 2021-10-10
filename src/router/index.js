@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 
@@ -10,6 +10,10 @@ import Home from "../pages/Home";
 import Join from "../pages/Join";
 import PublicRoute from "./publicRoute";
 import PrivateRouter from "./privateRoute";
+import BottomNav from "../components/BottomNav";
+import Users from "../pages/Users";
+import MyPage from "../pages/MyPage";
+import Chat from "../pages/Chat";
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -29,9 +33,13 @@ const Router = () => {
       <Switch>
         <Route exact path={"/"} component={Home} />
         <PublicRoute path={"/join"} component={Join} />
-        <PrivateRouter path={"/test"} component={() => (<><h1>Test</h1></>)} />
+        <PrivateRouter path={"/users"} component={Users} />
+        <PrivateRouter path={"/mypage"} component={MyPage} />
+        <PrivateRouter path={"/chat"} component={Chat} />
+        <Redirect to="/" />
       </Switch>
       <Footer />
+      <BottomNav />
     </Suspense>
   );
 };

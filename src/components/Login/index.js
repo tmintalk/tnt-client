@@ -1,14 +1,13 @@
 import { useSelector } from 'react-redux';
 
 import LoginForm from '../LoginForm';
-import LogoutButton from "../LogoutButton";
 
 const Login = () => {
   const { user } = useSelector((state) => state);
 
   return (
     <>
-      {user.data ? <LogoutButton/> : <LoginForm/>}
+      {user.data ? <></> : <LoginForm/>}
     </>
   )
 }

@@ -4,12 +4,14 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 
 import 'antd/dist/antd.css';
+import FontAwesome from './commons/FontAwesome';
 
 import Router from "./router";
 import store from "./store";
 
 const App = () => {
   const [cookies, ] = useCookies(['Authorization']);
+  FontAwesome();
 
   axios.defaults.baseURL = "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com	";
   // axios.defaults.baseURL = "http://localhost:5000"
