@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 import { List, Avatar, Button } from 'antd';
 
 const UserList = () => {
   const [users, setUsers] = useState();
-
+  const roomName = "Test1";
   useState(() => {
     (async() => {
       const resp = await axios.get('/users');
@@ -13,6 +14,9 @@ const UserList = () => {
     })();
   }, []);
 
+  const forTest = (item) => {
+    console.log("users",users);
+  }
   return (
     <>
       {users &&
@@ -27,7 +31,8 @@ const UserList = () => {
                 avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                 title={<p href="https://pnt.design">{item.nickname}</p>}
               />
-              <Button shape="round">Chat</Button>
+              <Button onClick={forTest}>데이타 확인</Button>
+              <Link to={`/${roomName}`}><Button shape="round">Chat</Button></Link>
             </List.Item>
           )}
         />
