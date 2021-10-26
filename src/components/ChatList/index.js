@@ -4,7 +4,7 @@ import axios from "axios";
 
 import { List, Avatar, Button } from "antd";
 
-const UserList = () => {
+const ChatList = () => {
   const [users, setUsers] = useState();
   const roomName = "Test1";
   useState(() => {
@@ -34,6 +34,7 @@ const UserList = () => {
                   title={<p href="https://pnt.design">{item.nickname}</p>}
                 />
                 <Button onClick={forTest}>데이타 확인</Button>
+                <div style="font-weight:bold;">Chat</div>
               </List.Item>
             )}
           />
@@ -43,4 +44,4 @@ const UserList = () => {
   );
 };
 
-export default UserList;
+export default ChatList;

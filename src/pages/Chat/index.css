@@ -1,0 +1,12 @@
+.Split {
+  display: flex;
+}
+.Split-left {
+  flex-grow: 1;
+  padding-right: 50px;
+}
+.Split-right {
+  padding-left: 50px;
+  flex-grow: 1;
+  border-left: 6px solid lightBlue;
+}
