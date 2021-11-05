@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useState, createElement } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { MessageOutlined } from "@ant-design/icons";
+import { List, Avatar, Button, Space } from "antd";
 
-import { List, Avatar, Button } from "antd";
+const IconText = ({ icon, text }) => (
+  <Space>
+    {createElement(icon)}
+    {text}
+  </Space>
+);
 
 const UserList = () => {
   const [users, setUsers] = useState();
@@ -34,6 +41,12 @@ const UserList = () => {
                   title={<p href="https://pnt.design">{item.nickname}</p>}
                 />
                 <Button onClick={forTest}>데이타 확인</Button>
+                <Link to="/chat">
+                  <IconText
+                    icon={MessageOutlined}
+                    key="list-vertical-message"
+                  />
+                </Link>
               </List.Item>
             )}
           />

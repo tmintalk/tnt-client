@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 
-import { GET_ME_REQUEST } from '../reducers/user';
+import { GET_ME_REQUEST } from "../reducers/user";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Home from "../pages/Home";
@@ -14,16 +14,17 @@ import BottomNav from "../components/BottomNav";
 import Users from "../pages/Users";
 import MyPage from "../pages/MyPage";
 import Chat from "../pages/Chat";
+import ChatRoom from "../pages/Chat";
 
 const Router = () => {
   const dispatch = useDispatch();
-  const [cookies, ] = useCookies(['Authorization']);
+  const [cookies] = useCookies(["Authorization"]);
 
   useEffect(() => {
     if (cookies.Authorization) {
       dispatch({
-        type: GET_ME_REQUEST
-      })
+        type: GET_ME_REQUEST,
+      });
     }
   }, [cookies, dispatch]);
 
@@ -36,6 +37,7 @@ const Router = () => {
         <PrivateRouter path={"/users"} component={Users} />
         <PrivateRouter path={"/mypage"} component={MyPage} />
         <PrivateRouter path={"/chat"} component={Chat} />
+        <PrivateRouter path={"/chat/:roomId"} component={ChatRoom} />
         <Redirect to="/" />
       </Switch>
       <Footer />
