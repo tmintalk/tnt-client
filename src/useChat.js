@@ -8,7 +8,6 @@ const URL = "http://localhost:5000";
 const useChat = (roomId) => {
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
-  const [typingUsers, setTypingUsers] = useState([]);
   const { user } = useSelector((state) => state);
 
   const socketRef = useRef();

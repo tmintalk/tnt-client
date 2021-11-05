@@ -14,7 +14,7 @@ import BottomNav from "../components/BottomNav";
 import Users from "../pages/Users";
 import MyPage from "../pages/MyPage";
 import Chat from "../pages/Chat";
-import ChatRoom from "../pages/Chat";
+import ChatRoom from "../components/ChatRoom";
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -33,11 +33,12 @@ const Router = () => {
       <Header />
       <Switch>
         <Route exact path={"/"} component={Home} />
+
         <PublicRoute path={"/join"} component={Join} />
         <PrivateRouter path={"/users"} component={Users} />
         <PrivateRouter path={"/mypage"} component={MyPage} />
-        <PrivateRouter path={"/chat"} component={Chat} />
         <PrivateRouter path={"/chat/:roomId"} component={ChatRoom} />
+        <PrivateRouter path={"/chat"} component={Chat} />
         <Redirect to="/" />
       </Switch>
       <Footer />

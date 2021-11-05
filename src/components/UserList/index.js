@@ -13,7 +13,7 @@ const IconText = ({ icon, text }) => (
 
 const UserList = () => {
   const [users, setUsers] = useState();
-  const roomName = "Test1";
+  const roomId = "test1";
   useState(() => {
     (async () => {
       const resp = await axios.get("/users");
@@ -41,7 +41,8 @@ const UserList = () => {
                   title={<p href="https://pnt.design">{item.nickname}</p>}
                 />
                 <Button onClick={forTest}>데이타 확인</Button>
-                <Link to="/chat">
+
+                <Link to={`/chat/${roomId}`}>
                   <IconText
                     icon={MessageOutlined}
                     key="list-vertical-message"
