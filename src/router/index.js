@@ -38,6 +38,7 @@ const Router = () => {
         <PrivateRouter path={"/users"} component={Users} />
         <PrivateRouter path={"/mypage"} component={MyPage} />
         <PrivateRouter path={"/chat/:roomId"} component={ChatRoom} />
+        {/* Chat 페이지 화면 만들어야 함 */}
         <PrivateRouter path={"/chat"} component={Chat} />
         <Redirect to="/" />
       </Switch>

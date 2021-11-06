@@ -13,6 +13,7 @@ const IconText = ({ icon, text }) => (
 
 const UserList = () => {
   const [users, setUsers] = useState();
+  // 임시 roomId
   const roomId = "test1";
   useState(() => {
     (async () => {

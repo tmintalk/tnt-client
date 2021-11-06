@@ -1,56 +1,98 @@
 import { useEffect, useRef, useState } from "react";
-import socketIOClient from "socket.io-client";
 import { useSelector } from "react-redux";
+import socketIOClient from "socket.io-client";
 import axios from "axios";
 
-const URL = "http://localhost:5000";
+const SOCKET_SERVER_URL = "http://localhost:5000";
 
 const useChat = (roomId) => {
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
+  const [typingUsers, setTypingUsers] = useState([]);
+  const [curUser, setCurUser] = useState();
   const { user } = useSelector((state) => state);
-
   const socketRef = useRef();
 
   useEffect(() => {
-    const fetchChatUsers = async () => {
-      const response = await axios.get(`${URL}/rooms/${roomId}/users`);
+    if (user.data) {
+      setCurUser({
+        name: user.data.nickname,
+        picture:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const response = await axios.get(
+        `${SOCKET_SERVER_URL}/chat/${roomId}/users`
+      );
       const result = response.data.users;
       setUsers(result);
     };
-    fetchChatUsers();
+
+    fetchUsers();
   }, [roomId]);
 
   useEffect(() => {
-    if (!user) {
+    const fetchMessages = async () => {
+      const response = await axios.get(
+        `${SOCKET_SERVER_URL}/chat/${roomId}/messages`
+      );
+      const result = response.data.messages;
+      setMessages(result);
+    };
+
+    fetchMessages();
+  }, [roomId]);
+
+  useEffect(() => {
+    if (!user.data) {
       return;
     }
-    //User profile url 변경 필요
-    socketRef.current = socketIOClient(URL, {
+    socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
       query: {
         roomId,
-        name: user.name,
-        profile:
-          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        name: user.data.nickname,
+        picture:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
       },
     });
+
     socketRef.current.on("connect", () => {
-      console.log(`${socketRef.current.id} connected!`);
+      console.log(socketRef.current.id, "connected");
     });
+
     socketRef.current.on("user join", (user) => {
       if (user.id === socketRef.current.id) return;
+      setUsers((users) => [...users, user]);
+    });
+
+    socketRef.current.on("user leave", (user) => {
       setUsers((users) => users.filter((u) => u.id !== user.id));
     });
-    socketRef.current.on("user leave", (user) => {
-      if (user.id === socketRef.current.id) return;
-      setUsers((users) => [...users.user]);
-    });
+
     socketRef.current.on("new message", (message) => {
-      const Message = {
+      const incomingMessage = {
         ...message,
         ownedByCurrentUser: message.senderId === socketRef.current.id,
       };
-      setMessages((messages) => [...messages, Message]);
+      setMessages((messages) => [...messages, incomingMessage]);
+    });
+
+    socketRef.current.on("start typing", (typingInfo) => {
+      if (typingInfo.senderId !== socketRef.current.id) {
+        const user = typingInfo.user;
+        setTypingUsers((users) => [...users, user]);
+      }
+    });
+
+    socketRef.current.on("stop typing", (typingInfo) => {
+      if (typingInfo.senderId !== socketRef.current.id) {
+        const user = typingInfo.user;
+        setTypingUsers((users) => users.filter((u) => u.name !== user.name));
+      }
     });
 
     return () => {
@@ -60,18 +102,38 @@ const useChat = (roomId) => {
 
   const sendMessage = (messageBody) => {
     if (!socketRef.current) return;
-
     socketRef.current.emit("new message", {
       body: messageBody,
       senderId: socketRef.current.id,
       user: user,
     });
   };
+
+  const startTypingMessage = () => {
+    if (!socketRef.current) return;
+    socketRef.current.emit("start typing", {
+      senderId: socketRef.current.id,
+      user,
+    });
+  };
+
+  const stopTypingMessage = () => {
+    if (!socketRef.current) return;
+    socketRef.current.emit("stop typing", {
+      senderId: socketRef.current.id,
+      user,
+    });
+  };
+
   return {
     messages,
-    sendMessage,
     user,
     users,
+    typingUsers,
+    sendMessage,
+    startTypingMessage,
+    stopTypingMessage,
   };
 };
+
 export default useChat;
