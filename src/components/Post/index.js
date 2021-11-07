@@ -1,7 +1,6 @@
 import React from 'react'
 import './index.scss';
 
-import PostForm from "../PostForm";
 import PostList from "../PostList";
 import QuestionCard from '../QuestionCard';
 
