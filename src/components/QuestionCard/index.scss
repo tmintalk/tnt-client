@@ -1,0 +1,24 @@
+.card-container{
+  margin-top: 20px;
+  display: flex;
+  .card{
+    width:142px;
+    height:92px;
+    border-radius: 8px;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 20px;
+    .card-text{
+      font-family: NanumSquareB;
+    }
+    .card-text-high{
+      font-family: NanumSquareB;
+      color: #7B61FF;
+    }
+  }
+}
