@@ -6,8 +6,6 @@ import UserList from "../../components/UserList";
 import ChatRoom from "../../components/ChatRoom";
 import "./index.css";
 
-const socket = io.connect("http://localhost:5000");
-
 const Chat = () => {
   return (
     <>

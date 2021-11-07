@@ -14,7 +14,7 @@ const App = () => {
   FontAwesome();
 
   axios.defaults.baseURL =
-    "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com	";
+    "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
   // axios.defaults.baseURL = "http://localhost:5000"
   axios.interceptors.request.use((config) => {
     // TODO
