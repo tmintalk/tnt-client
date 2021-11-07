@@ -1,6 +1,6 @@
-import { useState, createElement } from "react";
+import { useState } from "react";
 
-import { List, Space } from "antd";
+import { List } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_POSTS_REQUEST } from "../../reducers/posts";
 import { Link } from "react-router-dom";
@@ -8,13 +8,6 @@ import { Link } from "react-router-dom";
 import { IoHeart, IoChatboxOutline } from "react-icons/io5";
 
 import './index.scss'
-
-const IconText = ({ icon, text }) => (
-  <Space>
-    {createElement(icon)}
-    {text}
-  </Space>
-);
 
 const PostList = () => {
   const { posts } = useSelector((state) => state);
