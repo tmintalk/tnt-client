@@ -1,4 +1,8 @@
 .new-message-form {
+  position: fixed;
+  bottom: 100px;
+  left: 10px;
+  right: 10px;
   display: flex;
 }
 

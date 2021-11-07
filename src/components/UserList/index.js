@@ -1,8 +1,10 @@
 import { useState, createElement } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import { MessageOutlined } from "@ant-design/icons";
 import { List, Avatar, Button, Space } from "antd";
+import { getRoomId } from "../../actions/hash.js";
 
 const IconText = ({ icon, text }) => (
   <Space>
@@ -13,8 +15,14 @@ const IconText = ({ icon, text }) => (
 
 const UserList = () => {
   const [users, setUsers] = useState();
+  const { user } = useSelector((state) => state);
+
+  if (user.data) {
+    console.log(user?.data.nickname);
+    console.log(getRoomId(user.data.nickname, "abc"));
+  }
   // 임시 roomId
-  const roomId = "test1";
+  // const roomId = "test1";
   useState(() => {
     (async () => {
       const resp = await axios.get("/users");
@@ -22,9 +30,6 @@ const UserList = () => {
     })();
   }, []);
 
-  const forTest = (item) => {
-    console.log("users", users);
-  };
   return (
     <>
       {users && (
@@ -41,9 +46,13 @@ const UserList = () => {
                   }
                   title={<p href="https://pnt.design">{item.nickname}</p>}
                 />
-                <Button onClick={forTest}>데이타 확인</Button>
-
-                <Link to={`/chat/${roomId}`}>
+                <Link
+                  to={`/chat/${
+                    user?.data
+                      ? getRoomId(user.data.nickname, item.nickname)
+                      : ""
+                  }`}
+                >
                   <IconText
                     icon={MessageOutlined}
                     key="list-vertical-message"

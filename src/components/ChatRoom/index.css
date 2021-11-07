@@ -1,9 +1,8 @@
 .chat-room-container {
-  position: fixed;
-  left: 50;
-  right: 50;
-  top: 50;
-  bottom: 50;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   margin: 16px;
