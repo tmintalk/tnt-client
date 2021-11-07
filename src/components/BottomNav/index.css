@@ -4,8 +4,14 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 45px;
+  height: 80px;
+  padding-top:15px;
   background-color: white;
+  border-top:1px;
+  box-shadow: 5px 5px 5px 5px #00000025;
+
+  display: flex;
+  justify-content: center;
 }
 
 /* nav태그 아래의 자식들을 수평정렬하기 위한 설정 */
@@ -17,20 +23,46 @@ nav {
 .nav-link {
   /* 수평정렬, 5개의 button을 각각 20% width만큼 할당 */
   float: left;
-  width: 25%;
+  width: 18%;
   text-align: center;
 
   /* 세로길이 설정 */
   height: 45px;
-  line-height: 45px;
+  /* line-height: 45px; */
+
+  /* background-color: greenyellow; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 하단 네비바의 메뉴를 눌렀을 때 색상 변경*/
 .nav-item {
-  color: grey;
+  width:20px;
+  height:20px;
+  color: #dbdbdb;
 }
 
 /* 하단 네비바의 메뉴를 눌렀을 때 색상 변경*/
 .active {
-  color: #ef5c89;
+  width:26px;
+  color: black;
+}
+
+.center-icon{
+  width: 44px;
+  height:32px;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: black;
+}
+
+.center-plus{
+  width:20px;
+  height:20px;
+  color:white;
 }

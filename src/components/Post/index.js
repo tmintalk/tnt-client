@@ -1,12 +1,23 @@
-import PostForm from "../PostForm";
+import React from 'react'
+import './index.scss';
+
 import PostList from "../PostList";
+import QuestionList from '../QuestionList';
+
 
 const Post = () => {
   return (
     <>
-      <h2>피드</h2>
-      <PostForm />
-      <PostList />
+      <div className="header-container"> 
+        {/* <div className='header-text'>TnT</div> */}
+        {/* <img className="header-title" src='../../commons/img/TnT.png'/> */}
+        <img src={require("../../commons/img/TnT.png").default} alt="title"/>
+      </div>
+      <QuestionList />
+      <div className="post-container">
+        <PostList />
+      </div>
+      
     </>
   )
 }

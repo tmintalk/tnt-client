@@ -1,0 +1,48 @@
+@import '../../index.css';
+
+.header-container{
+  width: 100vw;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .header-text{
+    font-family: NanumSquareEB;
+    font-size: 32px;
+  }
+  .header-title{
+    width: 190px;
+    height: 60px;
+  }
+}
+
+.question-container{
+  height:216px;
+  width: 100vw;
+  background-color: black;
+
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding:24px;
+  .greeting-text{
+    font-family: NanumSquareB;
+    color: white;
+    font-size: 18px;
+  }
+  .question-text{
+    font-family: NanumSquareR;
+    color: white;
+    font-size: 18px;
+  }
+}
+
+.post-container{
+  width:100vw;
+  background-color: #f6f6f6;
+  padding:16px 24px;
+}
