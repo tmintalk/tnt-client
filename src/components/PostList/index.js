@@ -1,8 +1,6 @@
 import { useState, createElement } from "react";
 
-import { List, Avatar, Space } from "antd";
-import { MessageOutlined, LikeOutlined, LikeFilled } from "@ant-design/icons";
-import { getFormatDate } from "../../services/time";
+import { List, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_POSTS_REQUEST } from "../../reducers/posts";
 import { Link } from "react-router-dom";
