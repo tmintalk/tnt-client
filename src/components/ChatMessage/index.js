@@ -1,20 +1,28 @@
-import React from "react";
-
+import { React, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import "./index.css";
 
-const ChatMessage = ({ message }) => {
+const ChatMessage = ({ message, curUser }) => {
+  const [isCurUser, setIsCurUser] = useState(false);
+  const { user } = useSelector((state) => state);
+  useEffect(() => {
+    console.log("message list", message);
+    if (user?.data) {
+      setIsCurUser(message.senderName === user.data.nickname);
+      console.log("isCurUser", message.senderName === user.data.nickname);
+    }
+  }, [user?.data]);
+
   return (
     <div
       className={`message-item ${
-        message.ownedByCurrentUser ? "my-message" : "received-message"
+        isCurUser ? "my-message" : "received-message"
       }`}
     >
-      {!message.ownedByCurrentUser && (
-        <div className="message-avatar-container">avatar</div>
-      )}
+      {!isCurUser && <div className="message-avatar-container">avatar</div>}
 
       <div className="message-body-container">
-        {!message.ownedByCurrentUser && (
+        {!isCurUser && (
           <div className="message-user-name">{message.user.name}</div>
         )}
         <div className="message-body">{message.body}</div>

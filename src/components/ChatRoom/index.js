@@ -13,7 +13,7 @@ const ChatRoom = (props) => {
   const { roomId } = props.match.params;
   const {
     messages,
-    user,
+    curUser,
     users,
     typingUsers,
     sendMessage,
@@ -44,14 +44,14 @@ const ChatRoom = (props) => {
     <div className="chat-room-container">
       <div className="chat-room-top-bar">
         <h1 className="room-name">Room: {roomId}</h1>
-        {user && <UserAvatar user={user}></UserAvatar>}
+        {curUser && <UserAvatar user={curUser}></UserAvatar>}
       </div>
       <Users users={users}></Users>
       <div className="messages-container">
         <ol className="messages-list">
           {messages.map((message, i) => (
             <li key={i}>
-              <ChatMessage message={message}></ChatMessage>
+              <ChatMessage message={message} curUser={curUser}></ChatMessage>
             </li>
           ))}
           {typingUsers.map((user, i) => (

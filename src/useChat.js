@@ -21,7 +21,7 @@ const useChat = (roomId) => {
           "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
       });
     }
-  }, []);
+  }, [user.data]);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -76,7 +76,9 @@ const useChat = (roomId) => {
     socketRef.current.on("new message", (message) => {
       const incomingMessage = {
         ...message,
-        ownedByCurrentUser: message.senderId === socketRef.current.id,
+        // ownedByCurrentUser:
+        //   message.senderId === socketRef.current.id ||
+        //   message.senderName === curUser.name,
       };
       setMessages((messages) => [...messages, incomingMessage]);
     });
@@ -105,6 +107,7 @@ const useChat = (roomId) => {
     socketRef.current.emit("new message", {
       body: messageBody,
       senderId: socketRef.current.id,
+      senderName: curUser.name,
       user: user,
     });
   };
@@ -127,7 +130,7 @@ const useChat = (roomId) => {
 
   return {
     messages,
-    user,
+    curUser,
     users,
     typingUsers,
     sendMessage,
