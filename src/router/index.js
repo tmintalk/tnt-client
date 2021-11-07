@@ -29,7 +29,7 @@ const Router = () => {
 
   return (
     <Suspense>
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route exact path={"/"} component={Home} />
         <PublicRoute path={"/join"} component={Join} />
