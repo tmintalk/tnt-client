@@ -31,7 +31,12 @@ const ChatRoom = (props) => {
   const handleSendMessage = (event) => {
     event.preventDefault();
     cancelTyping();
-    sendMessage(newMessage);
+    if (!newMessage) {
+      alert("내용을 입력하세요");
+    } else {
+      sendMessage(newMessage);
+    }
+
     setNewMessage("");
   };
 

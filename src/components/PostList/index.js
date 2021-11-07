@@ -1,11 +1,12 @@
 import { useState, createElement } from "react";
-
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, LikeFilled } from "@ant-design/icons";
 import { getFormatDate } from "../../services/time";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_POSTS_REQUEST } from "../../reducers/posts";
+import { GET_ME_REQUEST } from "../../reducers/user";
 import { Link } from "react-router-dom";
+import { getRoomId } from "../../actions/hash.js";
 
 const IconText = ({ icon, text }) => (
   <Space>
@@ -15,7 +16,8 @@ const IconText = ({ icon, text }) => (
 );
 
 const PostList = () => {
-  const { posts } = useSelector((state) => state);
+  const { posts, user } = useSelector((state) => state);
+  const [curUser, setCurUser] = useState();
   const dispatch = useDispatch();
 
   const [showNameList, setShowNameList] = useState([]); // TODO: 서버랑 연결
@@ -27,6 +29,16 @@ const PostList = () => {
       });
     }
   }, [posts]);
+  useState(() => {
+    if (user.data) {
+      console.log("username", user.data.nickname);
+      setCurUser({
+        name: user.data.nickname,
+        picture:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      });
+    }
+  }, [user.data]);
 
   const onClickChat = async (id) => {
     console.log(id);
@@ -62,7 +74,13 @@ const PostList = () => {
                       />
                     )}
                   </div>,
-                  <Link to="/chat">
+                  <Link
+                    to={`/chat/${
+                      curUser?.name && item?.User?.nickname != curUser?.name
+                        ? getRoomId(curUser.name, item?.User?.nickname)
+                        : "Access Fail"
+                    }`}
+                  >
                     <IconText
                       icon={MessageOutlined}
                       key="list-vertical-message"

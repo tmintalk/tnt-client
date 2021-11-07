@@ -6,10 +6,8 @@ const ChatMessage = ({ message, curUser }) => {
   const [isCurUser, setIsCurUser] = useState(false);
   const { user } = useSelector((state) => state);
   useEffect(() => {
-    console.log("message list", message);
     if (user?.data) {
       setIsCurUser(message.senderName === user.data.nickname);
-      console.log("isCurUser", message.senderName === user.data.nickname);
     }
   }, [user?.data]);
 
