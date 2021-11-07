@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import UserAvatar from "../UserAvatar";
 import "./index.css";
 
 const ChatMessage = ({ message, curUser }) => {
@@ -17,7 +18,11 @@ const ChatMessage = ({ message, curUser }) => {
         isCurUser ? "my-message" : "received-message"
       }`}
     >
-      {!isCurUser && <div className="message-avatar-container">avatar</div>}
+      {!isCurUser && (
+        <div className="message-avatar-container">
+          <UserAvatar user={message.user}></UserAvatar>
+        </div>
+      )}
 
       <div className="message-body-container">
         {!isCurUser && (

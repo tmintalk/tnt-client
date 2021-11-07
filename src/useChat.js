@@ -108,7 +108,7 @@ const useChat = (roomId) => {
       body: messageBody,
       senderId: socketRef.current.id,
       senderName: curUser.name,
-      user: user,
+      user: curUser,
     });
   };
 

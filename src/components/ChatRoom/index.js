@@ -51,7 +51,7 @@ const ChatRoom = (props) => {
         <h1 className="room-name">Room: {roomId}</h1>
         {curUser && <UserAvatar user={curUser}></UserAvatar>}
       </div>
-      <Users users={users}></Users>
+      {/* <Users users={users}></Users> */}
       <div className="messages-container">
         <ol className="messages-list">
           {messages.map((message, i) => (
