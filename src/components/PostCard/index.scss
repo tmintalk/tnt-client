@@ -1,0 +1,87 @@
+@import '../../index.css';
+
+.list-post-container{
+  //background-color: #f4f4f4;
+  display: flex;
+  .list-post-profile{
+    width:48px;
+    height:48px;
+    border-radius: 24px;
+    background-color: gray;
+  }
+  .list-post-content{
+    margin-left: 20px;
+    .list-post-name{
+      font-family: NanumSquareEB;
+      font-size: 14px;
+    }
+    .sentence{
+      display: flex;
+      align-items: center;
+      margin-top: 8px;
+      .list-post-text{
+        font-family: NanumSquareB;
+        font-size: 14px;
+      }
+      .list-post-money{
+        padding:2px 6px;
+        border-radius: 5px;
+        background-color: #EbEBEB;
+
+        margin-left: 6px;
+
+        font-family: NanumSquareB;
+        font-size: 14px;
+      }
+      .list-post-item{
+        padding:2px 6px;
+        border-radius: 5px;
+        background-color: #3746EA;
+
+        margin-left: 6px;
+
+        font-family: NanumSquareB;
+        font-size: 14px;
+        color:white;
+      }          
+      .list-post-kind{
+        padding:2px 6px;
+        border-radius: 5px;
+        background-color: #EA706B;
+
+        margin-left: 6px;
+
+        font-family: NanumSquareB;
+        font-size: 14px;
+        color:white;
+      }
+    }
+    .list-post-story{
+      font-family: NanumSquarR;
+      font-size: 14px;
+
+      margin-top: 15px;
+    }
+    .list-icon-container{
+      display: flex;
+      margin-top: 20px;
+      .heart-active{
+        width: 20px;
+        height:18px;
+        color: #EA4841,
+      }
+      .heart-inactive{
+        width: 20px;
+        height:18px;
+        color: #dbdbdb
+      }
+      .chatbox-icon{
+        width: 20px;
+        height:18px;
+        color: #c4c4c4;
+
+        margin-left:16px;
+      }
+    }
+  }
+}
