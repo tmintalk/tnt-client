@@ -8,7 +8,8 @@ import './index.scss'
 import PostCard from "../PostCard";
 
 const PostList = () => {
-  const { posts } = useSelector((state) => state);
+  const { posts, user } = useSelector((state) => state);
+  const [curUser, setCurUser] = useState();
   const dispatch = useDispatch();
 
   useState(() => {
@@ -18,6 +19,16 @@ const PostList = () => {
       });
     }
   }, [posts]);
+  useState(() => {
+    if (user.data) {
+      console.log("username", user.data.nickname);
+      setCurUser({
+        name: user.data.nickname,
+        picture:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      });
+    }
+  }, [user.data]);
 
   return (
     <>
