@@ -33,37 +33,44 @@ const QuestionCard = (props) => {
     form.resetFields();
     setIsModalVisible(false);
   }
-  
+
   return (
     <>
       <div className="card" onClick={showModal}>
         <div className="card-text">{props?.text}</div>
       </div>
 
-      <Modal 
+      <Modal
         visible={isModalVisible}
         footer={null}
         onCancel={() => setIsModalVisible(false)}
       >
+        <div className="question-text">
+          {props?.text}
+        </div>
+
         <Form
           form={form}
           layout="vertical"
           onFinish={answerQuestion}
         >
-          <Form.Item 
+          <Form.Item
             name="answer"
-            label={props?.text}
+            rules={[{ required: true, message: 'Please input your Answer!' }]}
           >
             <TextArea showCount maxLength={100} rows={4} />
-            {/* <button onClick={answerQuestion}>talk</button> */}
           </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
+          {/* <button onClick={answerQuestion}>talk</button> */}
+
+
+          <Form.Item >
+            <Button type="primary" htmlType="submit" className="submit-button">
               talk
             </Button>
           </Form.Item>
         </Form>
       </Modal>
+
     </>
   );
 };

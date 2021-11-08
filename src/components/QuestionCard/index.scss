@@ -9,7 +9,9 @@
   justify-content: center;
   align-items: center;
 
+  padding:20px;
   margin-left: 20px;
+  text-align: center;
   .card-text{
     font-family: NanumSquareB;
   }
@@ -17,4 +19,32 @@
     font-family: NanumSquareB;
     color: #7B61FF;
   }
+}
+
+.ant-modal-content{
+  border-radius: 10px;
+.ant-modal-body{
+  background-color: white;
+  font-size: 24px;
+  border-radius: 10px;
+  padding:24px;
+  .question-text{
+    font-family: NanumSquareB;
+    font-size: 20px;
+    text-align: center;
+    color: #000;
+
+    margin: 15px 0 30px 0;
+  }
+  .submit-button{
+    width: 100%;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    background-color: black;
+    border-color: black;   
+    
+    margin-top:20px ;
+  }
+}
 }
