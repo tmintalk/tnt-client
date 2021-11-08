@@ -3,11 +3,15 @@ import axios from "axios";
 
 import { List, Avatar } from "antd";
 import { Link } from "react-router-dom";
- 
+import { getRoomId } from "../../actions/hash.js";
 
-import { IoPersonAddOutline, IoSearchCircle, IoChatboxOutline } from "react-icons/io5";
+import {
+  IoPersonAddOutline,
+  IoSearchCircle,
+  IoChatboxOutline,
+} from "react-icons/io5";
 
-import './index.scss'
+import "./index.scss";
 import { useSelector } from "react-redux";
 
 const UserList = () => {
@@ -41,15 +45,23 @@ const UserList = () => {
           </div>
           <div class="search-container">
             <div class="search-box-container">
-              <input type="text" class="form-control" placeholder="   search your friend"/>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="   search your friend"
+              />
               <span class="input-group-btn">
-                <button class="search-btn" type="button"> <IoSearchCircle className="search-icon" /></button>
+                <button class="search-btn" type="button">
+                  {" "}
+                  <IoSearchCircle className="search-icon" />
+                </button>
               </span>
             </div>
-                <button class="add-friend-btn" type="button"> <IoPersonAddOutline className="friend-add-icon" /></button>
-
+            <button class="add-friend-btn" type="button">
+              {" "}
+              <IoPersonAddOutline className="friend-add-icon" />
+            </button>
           </div>
-
 
           <div className="ant-list">
             <List
@@ -71,7 +83,18 @@ const UserList = () => {
                       </div>
                     </div>
                     <div className="list-icon-container">
-                      <button class="chat-btn" type="button"> <IoChatboxOutline className="chatbox-icon" /></button>
+                      <Link
+                        to={`/chat/${
+                          user?.data
+                            ? getRoomId(user.data.nickname, item.nickname)
+                            : ""
+                        }`}
+                      >
+                        <button class="chat-btn" type="button">
+                          {" "}
+                          <IoChatboxOutline className="chatbox-icon" />
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </List.Item>
