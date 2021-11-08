@@ -11,13 +11,11 @@ const MyProfileCard = () => {
 
   return (
     <>
-      <div className="header-container"> 
-        <div className="empty1"></div>
+      <div className="myprofile-header-container"> 
         {/* <button class="back-btn" type="button"> <IoArrowBack className="back-icon" /></button> */}
         {/* <div className='header-text'>TnT</div> */}
         {/* <img className="header-title" src='../../commons/img/TnT.png'/> */}
         <img src={require("../../commons/img/TnT.png").default} alt="title"/>
-        <div className="empty2"></div>     
       </div>
       <div className="my-profile-container"> 
         <div className="my-profile-photo"></div>

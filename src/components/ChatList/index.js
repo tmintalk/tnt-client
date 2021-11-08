@@ -14,7 +14,7 @@ import {
 import "./index.scss";
 import { useSelector } from "react-redux";
 
-const UserList = () => {
+const ChatList = () => {
   const [users, setUsers] = useState();
   const { user } = useSelector((state) => state);
 
@@ -35,7 +35,7 @@ const UserList = () => {
     <>
       {users && (
         <>
-          <div className="user-header-container">
+          <div className="chat-header-container">
             {/* <div className='header-text'>TnT</div> */}
             {/* <img className="header-title" src='../../commons/img/TnT.png'/> */}
             <img
@@ -43,27 +43,21 @@ const UserList = () => {
               alt="title"
             />
           </div>
-          <div class="search-container">
-            <div class="search-box-container">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="   search your friend"
-              />
-              <span class="input-group-btn">
-                <button class="search-btn" type="button">
-                  {" "}
-                  <IoSearchCircle className="search-icon" />
-                </button>
-              </span>
-            </div>
-            <button class="add-friend-btn" type="button">
-              {" "}
-              <IoPersonAddOutline className="friend-add-icon" />
-            </button>
+          <div class="chat-search-box-container">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="   search your friend"
+            />
+            <span class="input-group-btn">
+              <button class="search-btn" type="button">
+                {" "}
+                <IoSearchCircle className="search-icon" />
+              </button>
+            </span>
           </div>
 
-          <div className="user-ant-list">
+          <div className="chat-ant-list">
             <List
               itemLayout="horizontal"
               dataSource={users}
@@ -107,4 +101,4 @@ const UserList = () => {
   );
 };
 
-export default UserList;
+export default ChatList;

@@ -1,14 +1,12 @@
 
-.header-container{
+.myprofile-header-container{
   width: 100vw;
   height: 60px;
   background-color: white;
   border-bottom: 1px solid #e7e7e7;
   display: flex;
-  justify-content: space-between;
-  .empty1{
-    width: 10px;
-  }
+  align-items: center;
+  justify-content: center;
   .header-text{
     font-family: NanumSquareEB;
     font-size: 32px;
@@ -16,9 +14,6 @@
   .header-title{
     width: 190px;
     height: 60px;
-  }
-  .empty2{
-    width: 10px;
   }
 }
 

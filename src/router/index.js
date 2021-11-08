@@ -37,11 +37,11 @@ const Router = () => {
         <Route exact path={"/"} component={Home} />
 
         <PublicRoute path={"/join"} component={Join} />
-        <PrivateRouter path={"/users"} component={FriendProfile} />
+        <PrivateRouter path={"/users"} component={Users} />
         <PrivateRouter path={"/mypage"} component={MyPage} />
         <PrivateRouter path={"/chat/:roomId"} component={ChatRoom} />
         {/* Chat 페이지 화면 만들어야 함 */}
-        <PrivateRouter path={"/chat"} component={Home} />
+        <PrivateRouter path={"/chat"} component={Chat} />
         <PrivateRouter path={"/friendprofile"} component={FriendProfile} />
 
         <Redirect to="/" />

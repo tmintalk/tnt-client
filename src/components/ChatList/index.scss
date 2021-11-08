@@ -1,6 +1,6 @@
 // @import '../../index.css';
 
-.user-header-container {
+.chat-header-container {
   width: 100vw;
   height: 60px;
   background-color: white;
@@ -8,84 +8,65 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  .header-text {
-    font-family: NanumSquareEB;
-    font-size: 32px;
-  }
-  .header-title {
-    width: 190px;
-    height: 60px;
-  }
 }
 
-.search-container {
-  height: 50px;
-  background-color: white;
+
+.chat-search-box-container {
+  height: 40px;
+  background-color: black;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 24px;
   margin-left: 24px;
   margin-right: 24px;
-
-  .search-box-container {
-    height: 40px;
-    width: 80vw;
+  .form-control {
+    height: 30px;
+    width: 85vw;
+    padding: 2px 2px 2px 2px;
+    vertical-align: middle;
+    text-align: left; /* left, center, right */
+    color: white;
+    border: #000000 0.1px solid;
+    font-family: NanumSquareR;
     background-color: black;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-    .form-control {
-      height: 30px;
-      width: 75vw;
-      padding: 2px 2px 2px 2px;
-      vertical-align: middle;
-      text-align: left; /* left, center, right */
-      color: white;
-      border: #000000 0.1px solid;
-      font-family: NanumSquareR;
-      background-color: black;
-    }
-    .search-btn {
-      border: 0;
-      outline: 0;
-      background: transparent;
-      .search-icon {
-        width: 35px;
-        height: 35px;
-        color: white;
-      }
-    }
   }
-    
-  .add-friend-btn {
+  .search-btn {
     border: 0;
     outline: 0;
     background: transparent;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    margin-right: 24px;
-    margin-left: 5px;
-    .friend-add-icon {
-      width: 30px;
-      height: 25px;
-      color: black;
+    .search-icon {
+      width: 35px;
+      height: 35px;
+      color: white;
     }
+  }
+}
+.search-btn {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  .search-icon {
+    width: 35px;
+    height: 35px;
+    color: white;
+    align-items: center;
+    justify-content: center;
   }
 }
 
 
-.user-ant-list {
-  display: flex;
-  justify-content: center;
+.chat-ant-list {
   .ant-list-item {
     color: gray;
     border-radius: 8px;
     box-shadow: 0px 0px 2px 0px #00000025;
-  padding: 24px;
-    width: 90vw;
-    margin: 24px 24px 0px 24px;
+
+    padding: 24px;
+    margin-right: 24px;
+    margin-left: 24px;
+    margin-top: 24px;
+    margin-bottom: 10px;
 
     .list-friend-container {
       width: 90vw;
