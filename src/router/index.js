@@ -15,6 +15,7 @@ import Users from "../pages/Users";
 import MyPage from "../pages/MyPage";
 import Chat from "../pages/Chat";
 import ChatRoom from "../components/ChatRoom";
+import FriendProfile from "../pages/FriendProfile";
 
 const Router = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ const Router = () => {
         <PrivateRouter path={"/chat/:roomId"} component={ChatRoom} />
         {/* Chat 페이지 화면 만들어야 함 */}
         <PrivateRouter path={"/chat"} component={Chat} />
+        <PrivateRouter path={"/friendprofile"} component={FriendProfile} />
         <Redirect to="/" />
       </Switch>
       <Footer />

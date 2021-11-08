@@ -1,0 +1,107 @@
+
+ .profile-card-header-container{
+  width: 100vw;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .back-btn{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    
+    .back-icon{
+      width: 35px;
+      height: 35px;
+      color: black;
+      align-items:center;
+      justify-content :center;
+    }
+  }
+  .header-text{
+    font-family: NanumSquareEB;
+    font-size: 32px;
+  }
+  .header-title{
+    width: 190px;
+    height: 60px;
+  }
+  .empty{
+    width: 47px;
+    height: 35px;
+  }
+}
+
+.profile-container{
+  width: 100vw;
+  height: 275px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .friend-profile-photo{
+    width:124px;
+    height:124px;
+    border-radius: 62px;
+    background-color: #C4C4C4; 
+  }
+  .friend-name{
+    font-family: NanumSquareEB;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
+  .subscription-date{
+    color: gray;
+  }
+  
+  .btn-container{
+    display: flex;
+
+    .following-btn{
+      display: flex;
+      flex-direction: row;
+      height: 30px;
+      border: solid white;
+      border-width: 1px;
+      background-color: black;
+      border-radius: 15px;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      .following-text{
+        font-family: NanumSquareR;
+        margin-left: 6px;
+        color: white;
+      }
+      .following-icon{
+        margin-left: 5px;
+        margin-right: 5px;
+        color: white;
+      }
+    }
+    .message-btn{
+      height: 30px;
+      border: solid white;
+      border-width: 1px;
+      background-color: black;
+      border-radius: 15px;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+      .message-text{
+        font-family: NanumSquareR;
+        color: white;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+
+  }
+}

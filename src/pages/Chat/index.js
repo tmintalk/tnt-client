@@ -5,11 +5,13 @@ import io from "socket.io-client";
 import UserList from "../../components/UserList";
 import ChatRoom from "../../components/ChatRoom";
 import "./index.css";
+import ChatList from "../../components/ChatList";
 
 const Chat = () => {
   return (
     <>
-      <div>이것은 채팅 페이지입니다.(유미누님이 할 것)</div>
+      <h1> 여기서부터 시작 </h1>
+      <ChatList />
     </>
   );
 };

@@ -1,0 +1,93 @@
+.consumption-pattern-container{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  .title{
+    font-family: NanumSquareEB;
+    font-size: 15px;
+    color: black;
+    margin-left: 28px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .pattern-list-container{
+    height: 180px;
+    box-shadow: 1px 1px 5px rgb(208, 208, 208);
+    background-color: white;
+    border-radius: 7px;
+    margin-left: 24px;
+    margin-right: 24px;
+    padding: 18px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    .first-pattern{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .first-character{
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        background-color: #C4C4C4; 
+        margin-right: 18px;
+      }
+
+      .first-content-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .first-comment{
+          font-size: 13px;
+          color: #898A8D;
+          font-family: NanumSquareR;
+        }
+        .first-title{
+          font-size: 20px;
+          color: #3746EA;
+          font-family: NanumSquareEB;
+        }
+      }
+    }
+    .partition{
+      height: 0.5px;
+      width: 70vw;
+      background-color: #cccccc;
+      margin: auto;
+      justify-content: center;
+    }
+    .second-pattern{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      .second-character{
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        background-color: #C4C4C4; 
+        margin-right: 20px;
+      }
+
+      .second-content-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .second-comment{
+          font-size: 13px;
+          color: #898A8D;
+          font-family: NanumSquareR;
+        }
+        .second-title{
+          font-size: 20px;
+          color: #3746EA;
+          font-family: NanumSquareEB;
+        }
+      }
+    }
+  }
+}
