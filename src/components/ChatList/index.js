@@ -56,7 +56,7 @@ const ChatList = () => {
               </button>
             </span>
           </div>
-          
+
           <div className="chat-ant-list">
             <List
               itemLayout="horizontal"
@@ -74,12 +74,14 @@ const ChatList = () => {
                       <div className="list-friend-profile"></div>
                       <div className="list-chat-content">
                         <div className="list-friend-name">{item.nickname}</div>
-                        <div className="list-chat-content"> 여기에 채팅 내용 </div>
+                        <div className="list-chat-content">
+                          {" "}
+                          여기에 채팅 내용{" "}
+                        </div>
                       </div>
                     </div>
                     <div className="chat-date"> 2021.11.09 </div>
                   </div>
-                  
                 </List.Item>
               )}
             />
