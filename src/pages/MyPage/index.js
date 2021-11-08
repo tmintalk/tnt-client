@@ -1,13 +1,15 @@
 import ProfileAnswerList from "../../components/ProfileAnswerList";
-import ProfileCard from "../../components/ProfileCard";
-import ProfileQuestionList from "../../components/ProfileQuestionList";
+import MyProfileCard from "../../components/MyProfileCard";
+import ProfileQuestionGrid from "../../components/ProfileQuestionGrid";
+import ConsumptionPattern from '../../components/ConsumptionPattern';
 
 const MyPage = () => {
   return (
     <>
-      <ProfileCard />
-      <ProfileAnswerList />
-      <ProfileQuestionList />
+      <MyProfileCard />
+      <ConsumptionPattern />
+      <ProfileQuestionGrid />
+
     </>
   );
 };
