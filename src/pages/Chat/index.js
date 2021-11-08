@@ -9,7 +9,7 @@ import "./index.css";
 const Chat = () => {
   return (
     <>
-      <ChatRoom />
+      <div>이것은 채팅 페이지입니다.(유미누님이 할 것)</div>
     </>
   );
 };
