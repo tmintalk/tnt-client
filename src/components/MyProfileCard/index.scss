@@ -1,0 +1,58 @@
+
+.myprofile-header-container{
+  width: 100vw;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .header-text{
+    font-family: NanumSquareEB;
+    font-size: 32px;
+  }
+  .header-title{
+    width: 190px;
+    height: 60px;
+  }
+}
+
+.my-profile-container{
+  width: 100vw;
+  height: 200px;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  padding: 24px;
+  justify-content: space-between;
+
+  .my-profile-photo{
+    width:124px;
+    height:124px;
+    border-radius: 62px;
+    background-color: #C4C4C4; 
+    margin: auto;
+  }
+
+  .my-profile-content{
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    .my-name{
+      font-family: NanumSquareEB;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+    .my-email{
+      font-family: NanumSquareR;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: gray;
+    }
+  }
+}

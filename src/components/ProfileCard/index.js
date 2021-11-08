@@ -13,7 +13,7 @@ const ProfileCard = () => {
   return (
     <>
 
-      <div className="header-container"> 
+      <div className="profile-card-header-container"> 
         <button class="back-btn" type="button"> <IoArrowBack className="back-icon" /></button>
         {/* <div className='header-text'>TnT</div> */}
         {/* <img className="header-title" src='../../commons/img/TnT.png'/> */}
