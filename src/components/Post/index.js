@@ -1,9 +1,8 @@
 import React from 'react'
 import './index.scss';
 
-import PostForm from "../PostForm";
 import PostList from "../PostList";
-import QuestionCard from '../QuestionCard';
+import QuestionList from '../QuestionList';
 
 
 const Post = () => {
@@ -12,14 +11,9 @@ const Post = () => {
       <div className="header-container"> 
         {/* <div className='header-text'>TnT</div> */}
         {/* <img className="header-title" src='../../commons/img/TnT.png'/> */}
-        <img src={require("../../commons/img/TnT.png").default}/>
+        <img src={require("../../commons/img/TnT.png").default} alt="title"/>
       </div>
-      <div className="question-container">
-        <div className="greeting-text">Hi Taewoo!</div>
-        <div className="question-text">오늘의 소비는 어땠어?</div>
-        <QuestionCard/>
-      </div>
-      {/* <PostForm /> */}
+      <QuestionList />
       <div className="post-container">
         <PostList />
       </div>

@@ -11,7 +11,14 @@ import './index.scss'
 
 const UserList = () => {
   const [users, setUsers] = useState();
+  const { user } = useSelector((state) => state);
 
+  if (user.data) {
+    console.log(user?.data.nickname);
+    console.log(getRoomId(user.data.nickname, "abc"));
+  }
+  // 임시 roomId
+  // const roomId = "test1";
   useState(() => {
     (async () => {
       const resp = await axios.get("/users");

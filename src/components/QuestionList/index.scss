@@ -1,0 +1,29 @@
+@import '../../index.css';
+
+.question-container{
+  height:216px;
+  width: 100vw;
+  background-color: black;
+
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding:24px;
+  .greeting-text{
+    font-family: NanumSquareB;
+    color: white;
+    font-size: 18px;
+  }
+  .question-text{
+    font-family: NanumSquareR;
+    color: white;
+    font-size: 18px;
+  }
+}
+
+.card-container{
+  margin-top: 20px;
+  display: flex;
+}

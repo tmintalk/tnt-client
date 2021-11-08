@@ -1,9 +1,15 @@
-import './index.scss'
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import TextField from "@material-ui/core/TextField";
+import io from "socket.io-client";
+import UserList from "../../components/UserList";
+import ChatRoom from "../../components/ChatRoom";
+import "./index.css";
 
 const Chat = () => {
   return (
     <>
-      <div className="todo-text">TODO: 태우가 해줄 예정</div>
+      <ChatRoom />
     </>
   );
 };
