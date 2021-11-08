@@ -1,0 +1,142 @@
+// @import '../../index.css';
+
+.header-container{
+  width: 100vw;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .header-text{
+    font-family: NanumSquareEB;
+    font-size: 32px;
+  }
+  .header-title{
+    width: 190px;
+    height: 60px;
+  }
+}
+
+
+.search-container{
+    height: 50px;
+    background-color: white;
+    display: flex;
+
+    .search-box-container{
+    height:40px;
+    width: 85vw;
+    background-color: black;
+    margin-left: 24px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    
+    padding:24px;
+        .form-control{
+            height: 30px;
+            width: 85vw;
+            padding: 2px 2px 2px 2px; 
+            vertical-align:middle;
+            text-align: left; /* left, center, right */
+            color: white;
+            border: #000000 0.1px solid;
+            font-family: NanumSquareR;
+            background-color: black;
+        }
+        .search-btn{
+            border: 0;
+            outline: 0;
+            background: transparent;
+            .search-icon{
+                width: 35px;
+                height: 35px;
+                color: white;
+                align-items:center;
+                justify-content :center;
+
+            }
+        }
+    }
+
+    .add-friend-btn{
+        border: 0;
+        outline: 0;
+        background: transparent;
+        align-items: center;
+        text-align: center;
+        justify-content :center;
+        margin-right: 24px;
+        margin-left: 5px; 
+        .friend-add-icon{
+            width: 30px;
+            height: 25px;
+            color: black;
+        }
+    }
+    
+}
+
+
+.ant-list{
+    .ant-list-item{
+        color: gray; 
+        border-radius: 8px;
+        box-shadow: 0px 0px 2px 0px #00000025;
+    
+        padding: 24px;
+        width: 90vw;
+        margin-right: 24px;
+        margin-left: 24px;
+        margin-top: 24px;
+        margin-bottom: 10px;
+
+
+        .list-friend-container{
+            width: 90vw;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            .list-profile-container{
+                display: flex;
+                .list-friend-profile{
+                    width:48px;
+                    height:48px;
+                    border-radius: 24px;
+                    background-color: black; 
+                }
+                .list-friend-content{
+                    margin-left: 20px;
+                    display: flex;
+
+                    .list-friend-name{
+                    color: black;
+                    font-family: NanumSquareEB;
+                    font-size: 14px;
+                    }
+                }   
+            }  
+              
+            .list-icon-container{
+                .chat-btn{
+                background-color: transparent;
+                border: 0;
+                outline: 0;
+                margin-top: 20px;
+                margin-right: 24px;
+                align-items: center;
+                justify-content: flex-end;
+                    .chatbox-icon{
+                        width: 30px;
+                        height:25px;
+                        color: black;
+                    }
+
+                }   
+
+            }
+
+        }
+    }
+}

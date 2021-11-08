@@ -1,17 +1,13 @@
-import { useState, createElement } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { MessageOutlined } from "@ant-design/icons";
-import { List, Avatar, Button, Space } from "antd";
-import { getRoomId } from "../../actions/hash.js";
 
-const IconText = ({ icon, text }) => (
-  <Space>
-    {createElement(icon)}
-    {text}
-  </Space>
-);
+import { List, Avatar } from "antd";
+import { Link } from "react-router-dom";
+ 
+
+import { IoPersonAddOutline, IoSearchCircle, IoChatboxOutline } from "react-icons/io5";
+
+import './index.scss'
 
 const UserList = () => {
   const [users, setUsers] = useState();
@@ -34,33 +30,53 @@ const UserList = () => {
     <>
       {users && (
         <>
-          <h2>친구 목록</h2>
-          <List
-            itemLayout="horizontal"
-            dataSource={users}
-            renderItem={(item) => (
-              <List.Item>
+          <div className="header-container">
+            {/* <div className='header-text'>TnT</div> */}
+            {/* <img className="header-title" src='../../commons/img/TnT.png'/> */}
+            <img
+              src={require("../../commons/img/TnT.png").default}
+              alt="title"
+            />
+          </div>
+          <div class="search-container">
+            <div class="search-box-container">
+              <input type="text" class="form-control" placeholder="   search your friend"/>
+              <span class="input-group-btn">
+                <button class="search-btn" type="button"> <IoSearchCircle className="search-icon" /></button>
+              </span>
+            </div>
+                <button class="add-friend-btn" type="button"> <IoPersonAddOutline className="friend-add-icon" /></button>
+
+          </div>
+
+
+          <div className="ant-list">
+            <List
+              itemLayout="horizontal"
+              dataSource={users}
+              renderItem={(item) => (
+                <List.Item>
+                  {/*
                 <List.Item.Meta
-                  avatar={
-                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                  }
+                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                   title={<p href="https://pnt.design">{item.nickname}</p>}
                 />
-                <Link
-                  to={`/chat/${
-                    user?.data
-                      ? getRoomId(user.data.nickname, item.nickname)
-                      : ""
-                  }`}
-                >
-                  <IconText
-                    icon={MessageOutlined}
-                    key="list-vertical-message"
-                  />
-                </Link>
-              </List.Item>
-            )}
-          />
+                */}
+                  <div className="list-friend-container">
+                    <div className="list-profile-container">
+                      <div className="list-friend-profile"></div>
+                      <div className="list-friend-content">
+                        <div className="list-friend-name">{item.nickname}</div>
+                      </div>
+                    </div>
+                    <div className="list-icon-container">
+                      <button class="chat-btn" type="button"> <IoChatboxOutline className="chatbox-icon" /></button>
+                    </div>
+                  </div>
+                </List.Item>
+              )}
+            />
+          </div>
         </>
       )}
     </>
