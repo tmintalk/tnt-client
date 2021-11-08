@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { IoPersonAddOutline, IoSearchCircle, IoChatboxOutline } from "react-icons/io5";
 
 import './index.scss'
+import { useSelector } from "react-redux";
 
 const UserList = () => {
   const [users, setUsers] = useState();
@@ -15,7 +16,7 @@ const UserList = () => {
 
   if (user.data) {
     console.log(user?.data.nickname);
-    console.log(getRoomId(user.data.nickname, "abc"));
+    // console.log(getRoomId(user.data.nickname, "abc"));
   }
   // 임시 roomId
   // const roomId = "test1";
