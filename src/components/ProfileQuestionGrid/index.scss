@@ -1,0 +1,99 @@
+@import '../../index.css';
+
+.partition{
+  height: 0.3px;
+  background-color: #cccccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.question-title{
+  font-family: NanumSquareEB;
+  font-size: 15px;
+  margin-left: 24px;
+  margin-bottom: 10px;
+}
+
+.question-list-container{
+  margin-left: 24px;
+  margin-right: 24px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+
+  .first-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .first-question {
+      height: 80px;
+      width: 40vw;
+      box-shadow: 1px 1px 5px rgb(208, 208, 208);
+      border-radius: 7px;
+      padding: 30px 0;
+
+      .first-text{
+        font-family: NanumSquareR;
+        font-size: 14px;
+        color: black;
+        text-align:center;
+      }
+    }
+    
+    .second-question {
+      height: 80px;
+      width: 40vw;
+      box-shadow: 1px 1px 5px rgb(208, 208, 208);
+      border-radius: 7px;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 0;
+
+      .second-text{
+        font-family: NanumSquareR;
+        font-size: 14px;
+        color: black;
+        text-align:center;
+      }
+    }
+  }
+
+  
+  .second-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .third-question {
+      height: 80px;
+      width: 40vw;
+      box-shadow: 1px 1px 5px rgb(208, 208, 208);
+      border-radius: 7px;
+      padding: 30px 0;
+
+      .third-text{
+        font-family: NanumSquareR;
+        font-size: 14px;
+        color: black;
+        text-align:center;
+      }
+    }
+    
+    .last-question {
+      height: 80px;
+      width: 40vw;
+      box-shadow: 1px 1px 5px rgb(208, 208, 208);
+      border-radius: 7px;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 0;
+
+      .last-text{
+        font-family: NanumSquareR;
+        font-size: 14px;
+        color: black;
+        text-align:center;
+      }
+    }
+  }
+}
