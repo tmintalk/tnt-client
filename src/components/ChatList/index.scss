@@ -42,37 +42,32 @@
     }
   }
 }
-.search-btn {
-  border: 0;
-  outline: 0;
-  background: transparent;
-  .search-icon {
-    width: 35px;
-    height: 35px;
-    color: white;
-    align-items: center;
-    justify-content: center;
-  }
-}
+
 
 
 .chat-ant-list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+
   .ant-list-item {
     color: gray;
     border-radius: 8px;
     box-shadow: 0px 0px 2px 0px #00000025;
+   // width: 100vw;
+    display: flex;
 
-    padding: 24px;
-    margin-right: 24px;
-    margin-left: 24px;
     margin-top: 24px;
     margin-bottom: 10px;
 
     .list-friend-container {
-      width: 90vw;
+      width: 100vw;
+      //padding: 24px;
       background-color: white;
       display: flex;
       justify-content: space-between;
+
       .list-profile-container {
         display: flex;
         .list-friend-profile {
@@ -80,35 +75,31 @@
           height: 48px;
           border-radius: 24px;
           background-color: black;
-        }
-        .list-friend-content {
           margin-left: 20px;
+        }
+        .list-chat-content {
+          margin-left: 24px;
           display: flex;
+          flex-direction: column;
 
           .list-friend-name {
+            //width: 80vw;
             color: black;
             font-family: NanumSquareEB;
+            font-size: 16px;
+          }
+          .list-chat-content {
+            color: #353535;
+            font-family: NanumSquareR;
             font-size: 14px;
           }
         }
       }
-
-      .list-icon-container {
-        .chat-btn {
-          background-color: transparent;
-          border: 0;
-          outline: 0;
-          margin-top: 20px;
-          margin-right: 24px;
-          align-items: center;
-          justify-content: flex-end;
-          cursor: pointer;
-          .chatbox-icon {
-            width: 30px;
-            height: 25px;
-            color: black;
-          }
-        }
+      .chat-date{
+        color: #353535;
+        font-family: NanumSquareR;
+        font-size: 14px;
+        margin-right: 24px;
       }
     }
   }
