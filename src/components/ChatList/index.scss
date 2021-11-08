@@ -10,7 +10,6 @@
   justify-content: center;
 }
 
-
 .chat-search-box-container {
   height: 40px;
   background-color: black;
@@ -43,26 +42,22 @@
   }
 }
 
-
-
 .chat-ant-list {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 24px;
-
+  align-items: stretch;
+  margin: 24px;
+  flex-direction: column;
   .ant-list-item {
     color: gray;
     border-radius: 8px;
     box-shadow: 0px 0px 2px 0px #00000025;
-   // width: 100vw;
     display: flex;
-
     margin-top: 24px;
     margin-bottom: 10px;
 
     .list-friend-container {
-      width: 100vw;
+      // width: 100vw;
       //padding: 24px;
       background-color: white;
       display: flex;
@@ -95,7 +90,7 @@
           }
         }
       }
-      .chat-date{
+      .chat-date {
         color: #353535;
         font-family: NanumSquareR;
         font-size: 14px;
