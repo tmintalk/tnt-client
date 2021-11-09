@@ -9,7 +9,6 @@ const SOCKET_SERVER_URL = "http://localhost:5000";
 
 const useChat = (roomId) => {
   const [messages, setMessages] = useState([]);
-  const [lastMessage, setLastMessage] = useState("");
   const [users, setUsers] = useState([]);
   const [typingUsers, setTypingUsers] = useState([]);
   const [curUser, setCurUser] = useState();
@@ -45,9 +44,6 @@ const useChat = (roomId) => {
       );
       const result = response.data.messages;
 
-      // if (result.length > 0) {
-      //   setLastMessage(result[result.length - 1].body);
-      // }
       setMessages(result);
     };
 
@@ -116,6 +112,7 @@ const useChat = (roomId) => {
       senderId: socketRef.current.id,
       senderName: curUser.name,
       user: curUser,
+      timeStamp: new Date(),
     });
   };
 
@@ -137,7 +134,6 @@ const useChat = (roomId) => {
 
   return {
     messages,
-    lastMessage,
     curUser,
     users,
     typingUsers,

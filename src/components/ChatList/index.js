@@ -44,11 +44,18 @@ const ChatList = () => {
   }, []);
 
   const GetLastMessage = (roomId) => {
-    // const { messages } = useChat(roomId);
     const roomMessages = messages.filter((message) => message.room === roomId);
-    console.log(roomMessages);
     const len = roomMessages.length;
     return roomMessages.length > 0 ? roomMessages[len - 1].body : null;
+  };
+  const GetLastDate = (roomId) => {
+    const roomMessages = messages.filter((message) => message.room === roomId);
+    const len = roomMessages.length;
+    if (roomMessages.length <= 0) return null;
+    else {
+      let date = new Date(roomMessages[len - 1].timeStamp);
+      return date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate();
+    }
   };
 
   return (
@@ -109,7 +116,11 @@ const ChatList = () => {
                               </div>
                             </div>
                           </div>
-                          <div className="chat-date"> 2021.11.09 </div>
+                          <div className="chat-date">
+                            {GetLastDate(
+                              getRoomId(user.data.nickname, item.nickname)
+                            )}
+                          </div>
                         </div>
                       </List.Item>
                     ) : null
