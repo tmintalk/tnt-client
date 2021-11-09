@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./index.scss";
-
-import QuestionCard from "../QuestionCard";
 import axios from "axios";
 import { useSelector } from "react-redux";
+
+import "./index.scss";
+import ProfileAnswerCard from "../ProfileAnswerCard";
 
 const ProfileQuestionGrid = () => {
   const { user } = useSelector(state => state)
@@ -21,7 +21,7 @@ const ProfileQuestionGrid = () => {
       <div className = "partition"></div>
       <div className="question-title"> 오늘의 질문에 이렇게 답했어요! </div>
       <div className="question-list-container">
-        <div className="first-line">
+        {/* <div className="first-line">
           <div className="first-question">
             <div className="first-text"> 후회되는 지출이 있어?😥 </div>
           </div>
@@ -37,7 +37,16 @@ const ProfileQuestionGrid = () => {
           <div className="last-question">
             <div className="last-text"> 마지막 질문은?💸 </div>
           </div>          
-        </div>
+        </div> */}
+          {
+            user.data &&
+              user.data.Answers.map(answer => (
+                <ProfileAnswerCard 
+                  question={answer.Question.text}
+                  answer={answer.answer}
+                />
+              ))
+          }
       </div>
     </>
   );

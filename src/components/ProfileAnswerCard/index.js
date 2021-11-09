@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import { Modal } from 'antd';
+import './index.scss'
 
 const ProfileAnswerCard = (props) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  }
+
   return (
     <>
-      <h2>Question: {props?.question}</h2>
-      <h3>Answer: {props?.answer}</h3>
+      <div className="question" onClick={showModal}>
+        <div className="text">Question: {props?.question}</div>
+      </div>
+
+      <Modal
+        visible={isModalVisible}
+        footer={null}
+        onCancel={() => setIsModalVisible(false)}
+      >
+        <div>
+          {props?.answer}
+        </div>
+      </Modal>
     </>
   )
 }
