@@ -50,56 +50,62 @@ const UserList = () => {
                 class="form-control"
                 placeholder="   search your friend"
               />
-              <span class="input-group-btn">
+
+              <div class="input-group-btn">
                 <button class="search-btn" type="button">
                   {" "}
                   <IoSearchCircle className="search-icon" />
                 </button>
-              </span>
+
+                <button class="add-friend-btn" type="button">
+                  {" "}
+                  <IoPersonAddOutline className="friend-add-icon" />
+                </button>
+              </div>
             </div>
-            <button class="add-friend-btn" type="button">
-              {" "}
-              <IoPersonAddOutline className="friend-add-icon" />
-            </button>
           </div>
 
           <div className="user-ant-list">
-            <List
-              itemLayout="horizontal"
-              dataSource={users}
-              renderItem={(item) => (
-                <List.Item>
-                  {/*
-                <List.Item.Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                  title={<p href="https://pnt.design">{item.nickname}</p>}
-                />
-                */}
-                  <div className="list-friend-container">
-                    <div className="list-profile-container">
-                      <div className="list-friend-profile"></div>
-                      <div className="list-friend-content">
-                        <div className="list-friend-name">{item.nickname}</div>
+            <div className="ant-list-user">
+              <List
+                itemLayout="horizontal"
+                dataSource={users}
+                renderItem={(item) => (
+                  <List.Item>
+                    {/*
+                  <List.Item.Meta
+                    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                    title={<p href="https://pnt.design">{item.nickname}</p>}
+                  />
+                  */}
+                    <div className="user-list-friend-container">
+                      <div className="list-profile-container">
+                        <div className="list-friend-profile"></div>
+                        <div className="list-friend-content">
+                          <div className="list-friend-name">
+                            {item.nickname}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="list-icon-container">
+                        <Link
+                          to={`/chat/${
+                            user?.data
+                              ? getRoomId(user.data.nickname, item.nickname)
+                              : ""
+                          }`}
+                        >
+                          <button class="chat-btn" type="button">
+                            {" "}
+                            <IoChatboxOutline className="chatbox-icon" />
+                          </button>
+                        </Link>
                       </div>
                     </div>
-                    <div className="list-icon-container">
-                      <Link
-                        to={`/chat/${
-                          user?.data
-                            ? getRoomId(user.data.nickname, item.nickname)
-                            : ""
-                        }`}
-                      >
-                        <button class="chat-btn" type="button">
-                          {" "}
-                          <IoChatboxOutline className="chatbox-icon" />
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                </List.Item>
-              )}
-            />
+                  </List.Item>
+                )}
+              />
+            </div>
           </div>
         </>
       )}

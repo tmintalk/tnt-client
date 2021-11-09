@@ -3,10 +3,13 @@ import { useSelector } from "react-redux";
 import socketIOClient from "socket.io-client";
 import axios from "axios";
 
-const SOCKET_SERVER_URL = "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
+// const SOCKET_SERVER_URL =
+//   "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
+const SOCKET_SERVER_URL = "http://localhost:5000";
 
 const useChat = (roomId) => {
   const [messages, setMessages] = useState([]);
+  const [lastMessage, setLastMessage] = useState("");
   const [users, setUsers] = useState([]);
   const [typingUsers, setTypingUsers] = useState([]);
   const [curUser, setCurUser] = useState();
@@ -41,6 +44,10 @@ const useChat = (roomId) => {
         `${SOCKET_SERVER_URL}/chat/${roomId}/messages`
       );
       const result = response.data.messages;
+
+      // if (result.length > 0) {
+      //   setLastMessage(result[result.length - 1].body);
+      // }
       setMessages(result);
     };
 
@@ -130,6 +137,7 @@ const useChat = (roomId) => {
 
   return {
     messages,
+    lastMessage,
     curUser,
     users,
     typingUsers,
