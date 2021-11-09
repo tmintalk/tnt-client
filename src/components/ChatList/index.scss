@@ -48,6 +48,11 @@
   align-items: stretch;
   margin: 24px;
   flex-direction: column;
+  .ant-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
   .ant-list-item {
     color: gray;
     border-radius: 8px;
@@ -60,6 +65,7 @@
       // width: 100vw;
       //padding: 24px;
       background-color: white;
+      width: 100%;
       display: flex;
       justify-content: space-between;
 
