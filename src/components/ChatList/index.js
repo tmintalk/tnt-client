@@ -17,15 +17,10 @@ const SOCKET_SERVER_URL =
   "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
 const ChatList = () => {
   const [users, setUsers] = useState();
+  const [sortedUsers, setSortedUsers] = useState();
   const [messages, setMessages] = useState();
   const { user } = useSelector((state) => state);
 
-  if (user.data) {
-    console.log(user?.data.nickname);
-    // console.log(getRoomId(user.data.nickname, "abc"));
-  }
-  // 임시 roomId
-  // const roomId = "test1";
   useState(() => {
     (async () => {
       const resp = await axios.get("/users");
@@ -42,6 +37,36 @@ const ChatList = () => {
     };
     fetchMessages();
   }, []);
+
+  useEffect(() => {
+    if (!users) return;
+
+    //유저마다 대화했던 최근 메세지만 모은 arr
+    let LastMessages = users?.map((u) => {
+      const roomId = getRoomId(user?.data?.nickname, u.nickname);
+
+      const userMessages = messages?.filter(
+        (message) => message.room == roomId
+      );
+      const len = userMessages?.length;
+      if (len > 0) {
+        return userMessages[len - 1];
+      }
+    });
+    LastMessages = LastMessages?.filter((m) => m !== undefined);
+    LastMessages?.sort((a, b) => {
+      a = new Date(a.timeStamp);
+      b = new Date(b.timeStamp);
+      return a > b ? -1 : a < b ? 1 : 0;
+    });
+    const matchUsers = LastMessages?.map((u) => {
+      const splitNames = u.room.split(" and ");
+      const friendName =
+        splitNames[0] === user?.data?.nickname ? splitNames[1] : splitNames[0];
+      return users.find((e) => e.nickname === friendName);
+    });
+    setSortedUsers(matchUsers);
+  }, [users, sortedUsers]);
 
   const GetLastMessage = (roomId) => {
     const roomMessages = messages.filter((message) => message.room === roomId);
@@ -60,7 +85,7 @@ const ChatList = () => {
 
   return (
     <>
-      {users && (
+      {sortedUsers && (
         <>
           <div className="chat-header-container">
             {/* <div className='header-text'>TnT</div> */}
@@ -75,6 +100,7 @@ const ChatList = () => {
               type="text"
               class="form-control"
               placeholder="   search your friend"
+              // onChange={handleSearch}
             />
             <span class="input-group-btn">
               <button class="search-btn" type="button">
@@ -87,7 +113,7 @@ const ChatList = () => {
           <div className="chat-ant-list">
             <List
               itemLayout="horizontal"
-              dataSource={users}
+              dataSource={sortedUsers}
               renderItem={(item) => (
                 <Link
                   to={`/chat/${

@@ -13,7 +13,6 @@ const ChatMessage = ({ message, curUser }) => {
   }, [user?.data]);
 
   const dateFrame = (date) => {
-    console.log(typeof date);
     let hours =
       date.getHours() > 12
         ? `오후 ${date.getHours() - 12}시`
