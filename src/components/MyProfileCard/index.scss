@@ -7,10 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  .header-text{
-    font-family: NanumSquareEB;
-    font-size: 32px;
-  }
+  
+  font-family: NanumSquareB;
+  font-size: 16px;
   .header-title{
     width: 190px;
     height: 60px;
@@ -21,38 +20,52 @@
   width: 100vw;
   height: 200px;
   background-color: black;
+
   display: flex;
   flex-direction: row;
   padding: 24px;
-  justify-content: space-between;
+  align-items: center;
 
   .my-profile-photo{
-    width:124px;
-    height:124px;
+    width:100px;
+    height:100px;
     border-radius: 62px;
     background-color: #C4C4C4; 
-    margin: auto;
   }
 
   .my-profile-content{
-    width: 50vw;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 20px;
     .my-name{
       font-family: NanumSquareEB;
-      margin-top: 15px;
-      margin-bottom: 10px;
-      font-size: 20px;
-      font-weight: bold;
+      font-size: 18px;
       color: white;
     }
     .my-email{
       font-family: NanumSquareR;
-      margin-top: 15px;
-      margin-bottom: 10px;
-      font-size: 16px;
+      margin-top: 8px;
+      font-size: 12px;
       color: gray;
+    }
+    .my-post{
+      width: 80px;
+      height: 30px;
+      border-radius: 15px;
+      background-color: black;
+      border:1px solid white;
+      padding:5px;
+
+      font-family: NanumSquareR;
+      font-size: 12px;
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 20px;
     }
   }
 }

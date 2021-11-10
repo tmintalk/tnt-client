@@ -6,7 +6,7 @@ const ConsumptionPattern = () => {
     <>
     {/* <h3> 소비패턴 할 차례야</h3> */}
     <div className="consumption-pattern-container"> 
-      <div className="title"> Consumption Pattern </div>
+      <div className="title">나의 소비패턴은?</div>
       <div className="pattern-list-container">
         <div className="first-pattern">
           <div className="first-character"></div>
