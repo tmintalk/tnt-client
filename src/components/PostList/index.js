@@ -34,7 +34,7 @@ const PostList = () => {
     <>
       {posts.data && (
         <>
-          <div className="ant-list">
+          <div className="post-ant-list">
             <List
               itemLayout="vertical"
               size="small"

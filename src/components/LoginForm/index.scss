@@ -1,0 +1,64 @@
+.login-header-container{
+  width: 100vw;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .login-signup-text {
+    font-size: 18px;
+    font-family: NanumSquareR;
+    color: black;
+  }
+}
+
+.login-container{
+  background-color: black; 
+  padding: 45px;
+
+  .login-greeting-text{
+    font-size: 24px;
+    font-family: NanumSquareB;
+    color: white;
+    margin-bottom: 10px;
+  }
+  .login-greeting-text2{
+    font-size: 12px;
+    font-family: NanumSquareB;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+
+  .login-form-container{
+    .ant-form-item {
+      .ant-form-item-label{
+        .ant-form-item-required{
+          margin-left: 10px;
+          color: white;
+        }
+      }
+    } 
+  }
+
+  .login-and-join{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    .ant-row{
+      margin-bottom: 0px;
+    }
+    .ant-btn{
+      background-color: #7B61FF;
+      border: 0;
+      margin-right: 20px;
+    }
+    .login-link-to-join{
+      color: #7B61FF;
+    }
+  }
+
+}

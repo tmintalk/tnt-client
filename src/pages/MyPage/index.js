@@ -9,7 +9,6 @@ const MyPage = () => {
       <MyProfileCard />
       <ConsumptionPattern />
       <ProfileQuestionGrid />
-
     </>
   );
 };

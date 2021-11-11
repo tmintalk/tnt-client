@@ -22,6 +22,7 @@ const PostCard = (props) => {
       });
     }
   }, [posts]);
+
   useState(() => {
     if (user.data) {
       console.log("username", user.data.nickname);
@@ -38,6 +39,7 @@ const PostCard = (props) => {
     temp_arr.push(id);
     setShowNameList(temp_arr);
   };
+  
 
   return (
     <>
@@ -52,22 +54,22 @@ const PostCard = (props) => {
           <div className="sentence">
             <div className="list-post-text">spent</div>
             {/* 금액데이터 */}
-            <div className="list-post-money">12,000won</div>
+            <div className="list-post-money">{`${props?.item?.price} won`}</div>
           </div>
 
           <div className="sentence">
             <div className="list-post-text">for</div>
             {/* 상품데이터 */}
-            <div className="list-post-item">4 cups of Americano</div>
+            <div className="list-post-item">{props?.item?.item}</div>
           </div>
 
           <div className="sentence">
             <div className="list-post-text">and</div>
             {/* 소비종류데이터 */}
-            <div className="list-post-kind">FLEX!</div>
+            <div className="list-post-kind">{props?.item?.about}</div>
           </div>
 
-          <div className="list-post-story">{props?.item?.body}</div>
+          <div className="list-post-story">{props?.item?.description}</div>
           <div className="list-icon-container">
             <div onClick={() => onClickChat(props?.item?.id)}>
               {showNameList.includes(props?.item?.id) ? (
@@ -76,10 +78,10 @@ const PostCard = (props) => {
                 <IoHeart className="heart-inactive" />
               )}
             </div>
-            {curUser?.name != props?.item?.User?.nickname && (
+            {curUser?.name !== props?.item?.User?.nickname && (
               <Link
                 to={`/chat/${
-                  curUser?.name && props?.item?.User?.nickname != curUser?.name
+                  curUser?.name && props?.item?.User?.nickname !== curUser?.name
                     ? getRoomId(curUser?.name, props.item?.User?.nickname)
                     : null
                 }`}
