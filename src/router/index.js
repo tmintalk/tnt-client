@@ -17,6 +17,7 @@ import Chat from "../pages/Chat";
 import ChatRoom from "../components/ChatRoom";
 import FriendProfile from "../pages/FriendProfile";
 import ChatTest from "../components/ChatTest";
+import Post from "../pages/Post";
 
 
 const Router = () => {
@@ -45,6 +46,7 @@ const Router = () => {
         <PrivateRouter path={"/chat"} component={Chat} />
         <PrivateRouter path={"/friendprofile"} component={FriendProfile} />
         <PrivateRouter path={"/chatTest"} component={ChatTest} />
+        <PrivateRouter path={"/posts"} component={Post} />
 
         <Redirect to="/" />
       </Switch>
