@@ -34,12 +34,12 @@ const ProfileAnswerCard = (props) => {
           {props?.answer}
         </div>
       </Modal> */}
-      <div className="my-question-card">
+      <div className="my-question-card" onClick={Opened} >
         <div className="question-line">
             {props?.question}
           <div className="down-icon">
-            {isOpened ? <IoChevronUp className="icon" onClick={Opened} />
-              : <IoChevronDown className="icon" onClick={Opened} />
+            {isOpened ? <IoChevronUp className="icon"/>
+              : <IoChevronDown className="icon"/>
             }
 
           </div>

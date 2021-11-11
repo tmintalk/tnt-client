@@ -12,6 +12,10 @@
   flex-direction: column;
   justify-content: center;
   
+  cursor:pointer;
+  &:hover {
+    background-color: #fafafa;
+  }
   .question-line{
     width: 100%;
 
