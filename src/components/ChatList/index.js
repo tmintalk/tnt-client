@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 import { getRoomId } from "../../actions/hash.js";
 
 import {
+  IoSearchOutline,
+} from "react-icons/io5";
+
+import {
   IoPersonAddOutline,
   IoSearchCircle,
   IoChatboxOutline,
@@ -87,75 +91,71 @@ const ChatList = () => {
     <>
       {sortedUsers && (
         <>
-          <div className="chat-header-container">
-            {/* <div className='header-text'>TnT</div> */}
-            {/* <img className="header-title" src='../../commons/img/TnT.png'/> */}
-            <img
-              src={require("../../commons/img/TnT.png").default}
-              alt="title"
-            />
-          </div>
-          <div class="chat-search-box-container">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="   search your friend"
-              // onChange={handleSearch}
-            />
-            <span class="input-group-btn">
-              <button class="search-btn" type="button">
-                {" "}
-                <IoSearchCircle className="search-icon" />
-              </button>
-            </span>
+          <div className="user-header-container">
+            채팅
           </div>
 
-          <div className="chat-ant-list">
-            <List
-              itemLayout="horizontal"
-              dataSource={sortedUsers}
-              renderItem={(item) => (
-                <Link
-                  to={`/chat/${
-                    user?.data
-                      ? getRoomId(user.data.nickname, item.nickname)
-                      : ""
-                  }`}
-                >
-                  {user?.data ? (
-                    GetLastMessage(
-                      getRoomId(user.data.nickname, item.nickname)
-                    ) ? (
-                      <List.Item>
-                        <div className="list-friend-container">
-                          <div className="list-profile-container">
-                            <div className="list-friend-profile"></div>
-                            <div className="list-chat-content">
-                              <div className="list-friend-name">
-                                {item.nickname}
-                              </div>
+          <div className="full-container">
+            <div className="search-container">
+              <div className="search-bar">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="search your friend"
+                />
+                {/* serach button */}
+                <div className="search-button">
+                  <IoSearchOutline className="search-icon" />
+                </div>
+              </div>
+            </div>
 
+            <div className="chat-ant-list">
+              <List
+                itemLayout="horizontal"
+                dataSource={sortedUsers}
+                renderItem={(item) => (
+                  <Link
+                    to={`/chat/${user?.data
+                        ? getRoomId(user.data.nickname, item.nickname)
+                        : ""
+                      }`}
+                  >
+                    {user?.data ? (
+                      GetLastMessage(
+                        getRoomId(user.data.nickname, item.nickname)
+                      ) ? (
+                        <List.Item>
+                          <div className="list-friend-container">
+                            <div className="list-profile-container">
+                              <div className="list-friend-profile"></div>
                               <div className="list-chat-content">
-                                {GetLastMessage(
-                                  getRoomId(user.data.nickname, item.nickname)
-                                )}
+                                <div className="list-friend-name">
+                                  {item.nickname}
+                                </div>
+
+                                <div className="list-chat-text">
+                                  {GetLastMessage(
+                                    getRoomId(user.data.nickname, item.nickname)
+                                  )}
+                                </div>
                               </div>
                             </div>
+                            <div className="chat-date">
+                              {GetLastDate(
+                                getRoomId(user.data.nickname, item.nickname)
+                              )}
+                            </div>
                           </div>
-                          <div className="chat-date">
-                            {GetLastDate(
-                              getRoomId(user.data.nickname, item.nickname)
-                            )}
-                          </div>
-                        </div>
-                      </List.Item>
-                    ) : null
-                  ) : (
-                    ""
-                  )}
-                </Link>
-              )}
-            />
+                        </List.Item>
+                      ) : null
+                    ) : (
+                      ""
+                    )}
+                  </Link>
+                )}
+              />
+            </div>
           </div>
         </>
       )}

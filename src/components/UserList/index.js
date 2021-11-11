@@ -42,6 +42,7 @@ const UserList = () => {
             /> */}
             친구 목록
           </div>
+
           <div className="full-container">
             <div className="search-container">
               <div className="search-bar">
@@ -69,25 +70,6 @@ const UserList = () => {
                   renderItem={(item) => (
                     <List.Item>
                       <div className="user-list-friend-container">
-                        {/* <div className="list-profile-container">
-                          <div className="list-friend-profile"></div>
-                          <div className="list-friend-content">
-                            <div className="list-friend-name">{item.nickname}</div>
-                          </div>
-                        </div>
-                        <div className="list-icon-container">
-                          <Link
-                            to={`/chat/${user?.data
-                              ? getRoomId(user.data.nickname, item.nickname)
-                              : ""
-                              }`}
-                          >
-                            <button class="chat-btn" type="button">
-                              {" "}
-                              <IoChatboxOutline className="chatbox-icon" />
-                            </button>
-                          </Link>
-                        </div> */}
                         <div className="list-profile-container">
                           <div className="list-friend-profile"></div>
                           <div className="list-friend-name">

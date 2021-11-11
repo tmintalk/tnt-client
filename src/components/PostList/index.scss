@@ -1,6 +1,4 @@
 .post-ant-list{
-  display: flex;
-  justify-content: center;
   .ant-list-sm .ant-list-item {    
     background-color: white;
     border-radius: 8px;
@@ -76,12 +74,18 @@
           .heart-active{
             width: 20px;
             height:18px;
-            color: #EA4841,
+            color: #EA4841;
+
+            display: flex;
+            align-items: center;
           }
           .heart-inactive{
             width: 20px;
             height:18px;
-            color: #dbdbdb
+            color: #dbdbdb;
+
+            display: flex;
+            align-items: center;
           }
           .chatbox-icon{
             width: 20px;
