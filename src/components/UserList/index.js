@@ -90,13 +90,16 @@ const UserList = () => {
                         </div> */}
                         <div className="list-profile-container">
                           <div className="list-friend-profile"></div>
-                          <div className="list-friend-name">{item.nickname}</div>
+                          <div className="list-friend-name">
+                            {item.nickname}
+                          </div>
                         </div>
                         <Link
-                          to={`/chat/${user?.data
-                            ? getRoomId(user.data.nickname, item.nickname)
-                            : ""
-                            }`}
+                          to={`/chat/${
+                            user?.data
+                              ? getRoomId(user.data.nickname, item.nickname)
+                              : ""
+                          }`}
                         >
                           <div class="chat-btn" type="button">
                             {" "}

@@ -12,6 +12,15 @@ const ChatMessage = ({ message, curUser }) => {
     }
   }, [user?.data]);
 
+  const dateFrame = (date) => {
+    let hours =
+      date.getHours() > 12
+        ? `오후 ${date.getHours() - 12}시`
+        : `오전 ${date.getHours()}시`;
+    let miniutes = date.getMinutes() + "분";
+    return hours + " " + miniutes;
+  };
+
   return (
     <div
       className={`message-item ${
@@ -29,6 +38,7 @@ const ChatMessage = ({ message, curUser }) => {
           <div className="message-user-name">{message.user.name}</div>
         )}
         <div className="message-body">{message.body}</div>
+        <div>{dateFrame(new Date(message.timeStamp))}</div>
       </div>
     </div>
   );

@@ -19,7 +19,6 @@ import FriendProfile from "../pages/FriendProfile";
 import ChatTest from "../components/ChatTest";
 import Post from "../pages/Post";
 
-
 const Router = () => {
   const dispatch = useDispatch();
   const [cookies] = useCookies(["Authorization"]);
@@ -37,7 +36,6 @@ const Router = () => {
       {/* <Header /> */}
       <Switch>
         <Route exact path={"/"} component={Home} />
-
         <PublicRoute path={"/join"} component={Join} />
         <PrivateRouter path={"/users"} component={Users} />
         <PrivateRouter path={"/mypage"} component={MyPage} />
