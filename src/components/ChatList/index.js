@@ -7,8 +7,7 @@ import { getRoomId } from "../../actions/hash.js";
 
 import {
   IoPersonAddOutline,
-  IoSearchCircle,
-  IoChatboxOutline,
+  IoSearchOutline
 } from "react-icons/io5";
 
 import "./index.scss";
@@ -36,55 +35,57 @@ const ChatList = () => {
       {users && (
         <>
           <div className="chat-header-container">
-            {/* <div className='header-text'>TnT</div> */}
-            {/* <img className="header-title" src='../../commons/img/TnT.png'/> */}
-            <img
+            {/* <img
               src={require("../../commons/img/TnT.png").default}
               alt="title"
-            />
-          </div>
-          <div class="chat-search-box-container">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="   search your friend"
-            />
-            <span class="input-group-btn">
-              <button class="search-btn" type="button">
-                {" "}
-                <IoSearchCircle className="search-icon" />
-              </button>
-            </span>
+            /> */}
+            <div>채팅</div>
           </div>
 
-          <div className="chat-ant-list">
-            <List
-              itemLayout="horizontal"
-              dataSource={users}
-              renderItem={(item) => (
-                <List.Item>
-                  {/*
-                <List.Item.Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                  title={<p href="https://pnt.design">{item.nickname}</p>}
+          <div className="full-container">
+            <div className="search-container">
+              <div className="search-bar">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="search your friend"
                 />
-                */}
-                  <div className="list-friend-container">
-                    <div className="list-profile-container">
-                      <div className="list-friend-profile"></div>
-                      <div className="list-chat-content">
-                        <div className="list-friend-name">{item.nickname}</div>
+                {/* serach button */}
+                <div className="search-button">
+                  <IoSearchOutline className="search-icon" />
+                </div>
+              </div>
+            </div>
+
+
+            <div className="chat-ant-list">
+              <List
+                itemLayout="horizontal"
+                dataSource={users}
+                renderItem={(item) => (
+                  <List.Item>
+                    {/*
+                  <List.Item.Meta
+                    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                    title={<p href="https://pnt.design">{item.nickname}</p>}
+                  />
+                  */}
+                    <div className="list-friend-container">
+                      <div className="list-profile-container">
+                        <div className="list-friend-profile"></div>
                         <div className="list-chat-content">
-                          {" "}
-                          여기에 채팅 내용{" "}
+                          <div className="list-friend-name">{item.nickname}</div>
+                          <div className="list-chat-text">
+                            여기에 채팅 내용
+                          </div>
                         </div>
                       </div>
+                      <div className="chat-date"> 2021.11.09 </div>
                     </div>
-                    <div className="chat-date"> 2021.11.09 </div>
-                  </div>
-                </List.Item>
-              )}
-            />
+                  </List.Item>
+                )}
+              />
+            </div>
           </div>
         </>
       )}

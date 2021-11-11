@@ -48,7 +48,7 @@ const Router = () => {
 
         <Redirect to="/" />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
       <BottomNav />
     </Suspense>
   );

@@ -1,7 +1,7 @@
 @import '../../index.css';
 
 .question-container{
-  height:216px;
+  height:260px;
   width: 100vw;
   background-color: black;
 
@@ -24,6 +24,18 @@
 }
 
 .card-container{
-  margin-top: 20px;
+  width: 100vw;
   display: flex;
+  justify-content: center;
+  .card-scroll{
+    padding: 0 24px;
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    // .card:last-child{
+    //   margin-right: 0;
+    // }    
+  }  
 }

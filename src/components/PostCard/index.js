@@ -22,6 +22,7 @@ const PostCard = (props) => {
       });
     }
   }, [posts]);
+
   useState(() => {
     if (user.data) {
       console.log("username", user.data.nickname);
@@ -38,6 +39,7 @@ const PostCard = (props) => {
     temp_arr.push(id);
     setShowNameList(temp_arr);
   };
+  
 
   return (
     <>

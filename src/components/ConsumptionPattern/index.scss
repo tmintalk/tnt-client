@@ -1,29 +1,26 @@
 .consumption-pattern-container{
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding:24px;
+  background-color: #f6f6f6;
   .title{
     font-family: NanumSquareEB;
     font-size: 15px;
     color: black;
-    margin-left: 28px;
-    margin-top: 10px;
-    margin-bottom: 10px;
   }
-  .pattern-list-container{
-    height: 180px;
+
+  .pattern-list-container{    
     box-shadow: 1px 1px 5px rgb(208, 208, 208);
     background-color: white;
-    border-radius: 7px;
-    margin-left: 24px;
-    margin-right: 24px;
-    padding: 18px;
-    justify-content: center;
+    border-radius: 8px;
+    
+    padding: 24px;
+    margin-top: 10px;
+    
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     .first-pattern{
       display: flex;
-      flex-direction: row;
       align-items: center;
       justify-content: center;
 
@@ -31,8 +28,7 @@
         width: 60px;
         height: 60px;
         border-radius: 30px;
-        background-color: #C4C4C4; 
-        margin-right: 18px;
+        background-color: #C4C4C4;
       }
 
       .first-content-container{
@@ -40,8 +36,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        margin: 0 16px;
         .first-comment{
-          font-size: 13px;
+          font-size: 12px;
           color: #898A8D;
           font-family: NanumSquareR;
         }
@@ -52,24 +50,23 @@
         }
       }
     }
+
     .partition{
-      height: 0.5px;
-      width: 70vw;
+      height: 0.3px;
       background-color: #cccccc;
-      margin: auto;
-      justify-content: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
     .second-pattern{
       display: flex;
-      flex-direction: row;
       align-items: center;
       justify-content: center;
+
       .second-character{
-        width: 40px;
-        height: 40px;
-        border-radius: 30px;
-        background-color: #C4C4C4; 
-        margin-right: 20px;
+        width: 44px;
+        height: 44px;
+        border-radius: 22px;
+        background-color: #C4C4C4;
       }
 
       .second-content-container{
@@ -77,13 +74,15 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        margin: 0 16px;
         .second-comment{
-          font-size: 13px;
+          font-size: 12px;
           color: #898A8D;
           font-family: NanumSquareR;
         }
         .second-title{
-          font-size: 20px;
+          font-size: 18px;
           color: #3746EA;
           font-family: NanumSquareEB;
         }

@@ -7,7 +7,7 @@ import { getRoomId } from "../../actions/hash.js";
 
 import {
   IoPersonAddOutline,
-  IoSearchCircle,
+  IoSearchOutline,
   IoChatboxOutline,
 } from "react-icons/io5";
 
@@ -36,74 +36,78 @@ const UserList = () => {
       {users && (
         <>
           <div className="user-header-container">
-            {/* <div className='header-text'>TnT</div> */}
-            {/* <img className="header-title" src='../../commons/img/TnT.png'/> */}
-            <img
+            {/* <img
               src={require("../../commons/img/TnT.png").default}
               alt="title"
-            />
+            /> */}
+            친구 목록
           </div>
-          <div class="search-container">
-            <div class="search-box-container">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="   search your friend"
-              />
-              
-              <div class="input-group-btn">
-                <button class="search-btn" type="button">
-                  {" "}
-                  <IoSearchCircle className="search-icon" />
-                </button>
-              
-              <button class="add-friend-btn" type="button">
-                {" "}
-                <IoPersonAddOutline className="friend-add-icon" />
-              </button>
+          <div className="full-container">
+            <div className="search-container">
+              <div className="search-bar">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="search your friend"
+                />
+                {/* serach button */}
+                <div className="search-button">
+                  <IoSearchOutline className="search-icon" />
+                </div>
+              </div>
+              {/* 친구추가 버튼 */}
+              <div className="add-friend">
+                <IoPersonAddOutline />
               </div>
             </div>
-          </div>
 
-          <div className="user-ant-list">
-            <div className="ant-list-user">
-              
-              <List
-                itemLayout="horizontal"
-                dataSource={users}
-                renderItem={(item) => (
-                  <List.Item>
-                    {/*
-                  <List.Item.Meta
-                    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                    title={<p href="https://pnt.design">{item.nickname}</p>}
-                  />
-                  */}
-                    <div className="user-list-friend-container">
-                      <div className="list-profile-container">
-                        <div className="list-friend-profile"></div>
-                        <div className="list-friend-content">
-                          <div className="list-friend-name">{item.nickname}</div>
+            <div className="user-ant-list">
+              <div className="ant-list-user">
+                <List
+                  itemLayout="horizontal"
+                  dataSource={users}
+                  renderItem={(item) => (
+                    <List.Item>
+                      <div className="user-list-friend-container">
+                        {/* <div className="list-profile-container">
+                          <div className="list-friend-profile"></div>
+                          <div className="list-friend-content">
+                            <div className="list-friend-name">{item.nickname}</div>
+                          </div>
                         </div>
-                      </div>
-                      <div className="list-icon-container">
-                        <Link
-                          to={`/chat/${
-                            user?.data
+                        <div className="list-icon-container">
+                          <Link
+                            to={`/chat/${user?.data
                               ? getRoomId(user.data.nickname, item.nickname)
                               : ""
-                          }`}
+                              }`}
+                          >
+                            <button class="chat-btn" type="button">
+                              {" "}
+                              <IoChatboxOutline className="chatbox-icon" />
+                            </button>
+                          </Link>
+                        </div> */}
+                        <div className="list-profile-container">
+                          <div className="list-friend-profile"></div>
+                          <div className="list-friend-name">{item.nickname}</div>
+                        </div>
+                        <Link
+                          to={`/chat/${user?.data
+                            ? getRoomId(user.data.nickname, item.nickname)
+                            : ""
+                            }`}
                         >
-                          <button class="chat-btn" type="button">
+                          <div class="chat-btn" type="button">
                             {" "}
                             <IoChatboxOutline className="chatbox-icon" />
-                          </button>
+                          </div>
                         </Link>
                       </div>
-                    </div>
-                  </List.Item>
-                )}
-              />
+                    </List.Item>
+                  )}
+                />
+              </div>
             </div>
           </div>
         </>
