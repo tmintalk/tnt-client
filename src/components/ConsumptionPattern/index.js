@@ -15,7 +15,9 @@ const ConsumptionPattern = () => {
             <div className="first-title"> MU신사 VIP </div>
           </div>
         </div>
+
         <div className="partition"></div>
+        
         <div className="second-pattern">
           <div className="second-character"></div>
           <div className="second-content-container">
