@@ -64,7 +64,7 @@ const PostCard = (props) => {
           </div>
 
           <div className="sentence">
-            <div className="list-post-text">and</div>
+            <div className="list-post-text">and I</div>
             {/* 소비종류데이터 */}
             <div className="list-post-kind">{props?.item?.about}</div>
           </div>
