@@ -77,8 +77,11 @@
         padding: 16px;
         margin-bottom: 10px;
 
+        &:hover {
+          background-color: #fafafa;
+        }
         .user-list-friend-container {
-          background-color: white;
+          
           width: 100%;
 
           display: flex;

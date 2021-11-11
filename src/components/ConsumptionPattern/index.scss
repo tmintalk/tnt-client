@@ -1,6 +1,6 @@
 .consumption-pattern-container{
   padding:24px;
-  background-color: #f6f6f6;
+  
   .title{
     font-family: NanumSquareEB;
     font-size: 15px;
@@ -52,11 +52,11 @@
     }
 
     .partition{
-      height: 0.3px;
-      background-color: #cccccc;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
+  height: 0.3px;
+  background-color: #cccccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
     .second-pattern{
       display: flex;
       align-items: center;

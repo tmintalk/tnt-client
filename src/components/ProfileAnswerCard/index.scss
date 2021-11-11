@@ -1,16 +1,43 @@
 @import '../../index.css';
 
-.question {
-  height: 80px;
-  width: 40vw;
+.my-question-card{
   box-shadow: 1px 1px 5px rgb(208, 208, 208);
-  border-radius: 7px;
-  padding: 30px 0;
+  background-color: white;
+  border-radius: 8px;
+  
+  padding: 24px;
+  margin-top: 10px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  .question-line{
+    width: 100%;
 
-  .text{
-    font-family: NanumSquareR;
-    font-size: 14px;
-    color: black;
-    text-align:center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: NanumSquareB;
+    font-size: 15px;
+    .down-icon{
+      width: 16px;
+      height: 16px;
+      .icon{
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+  .question-answer-container{
+    margin-top: 16px;
+    padding-top: 16px;
+
+    border-top: 0.3px #cccccc solid;
+    .question-answer{
+      margin-bottom: 12px;
+      font-family: NanumSquareR;
+    }
   }
 }

@@ -5,19 +5,10 @@ import { useSelector } from "react-redux";
 import "./index.scss";
 import ProfileAnswerCard from "../ProfileAnswerCard";
 
-import {
-  IoChevronDown,
-  IoChevronUp
-} from "react-icons/io5";
-
 const ProfileQuestionGrid = () => {
   const { user } = useSelector(state => state)
   const [questions, setQuestions] = useState([]);
-  const [isOpened, setOpened] = useState(false);
 
-  const Opened = () => {
-    setOpened(!isOpened)
-  }
 
   useEffect(() => {
     axios
@@ -31,7 +22,7 @@ const ProfileQuestionGrid = () => {
       <div className="consumption-pattern-container">
         <div className="title"> 오늘의 질문에 이렇게 답했어요! </div>
         <div className="my-question-list-container">
-          {/* {
+          {
             user.data &&
             user.data.Answers.map(answer => (
               <ProfileAnswerCard
@@ -39,8 +30,8 @@ const ProfileQuestionGrid = () => {
                 answer={answer.answer}
               />
             ))
-          } */}
-          <div className="my-question-card">
+          }
+          {/* <div className="my-question-card">
             <div className="question-line">
               후회되는 지출이 있어?
               <div className="down-icon">
@@ -58,7 +49,7 @@ const ProfileQuestionGrid = () => {
               </div>
               : <></>
             }
-          </div>
+          </div> */}
         </div>
       </div>
     </>
