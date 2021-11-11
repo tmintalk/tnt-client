@@ -1,0 +1,85 @@
+
+.signup-header-container{
+  width: 100vw;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .header-text{
+    font-family: NanumSquareEB;
+    font-size: 32px;
+  }
+  .header-title{
+    width: 190px;
+    height: 60px;
+  }
+}
+
+.signup-container{
+
+  display: flex;
+  flex-direction: column;
+  //padding: 24px;
+  background-color: white;
+  //text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  .signup-greeting-text{
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    width: 100%;
+    background-color: black;
+    padding: 50px 24px;
+    align-items: center;
+    justify-content: center;
+    .greeting-text-first{
+      font-size: 24px;
+      font-family: NanumSquareB;
+      color: white;
+      margin-bottom: 10px;
+    }
+    .greeting-text-second{
+      font-size: 12px;
+      font-family: NanumSquareB;
+      color: white;
+      margin-bottom: 10px;
+    }
+  }
+  .signup-profile-photo{
+    height: 128px;
+    width: 128px;
+    border-radius: 50%;
+    background-color: #cecece;
+    margin: 20px 0px;
+  }
+  .signup-form-container{
+    width: 100%;
+    padding: 0px 24px;
+    //background-color: white;
+    .ant-form-item-required{
+      //background-color: olive;
+      color: black;
+    }
+    .join-and-login{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 24px;
+      .ant-row{
+        margin-bottom: 0;
+        .ant-btn{
+          background-color: #7B61FF;
+          border: 0;
+          margin-right: 10px;
+        }
+      }
+      .link-to-login{
+        color: #7B61FF;
+      }
+    }
+  }
+}
