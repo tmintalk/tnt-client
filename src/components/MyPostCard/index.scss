@@ -65,24 +65,38 @@
     }
     .list-icon-container{
       display: flex;
+      align-items: center;
+      text-align:center;
       margin-top: 20px;
-      .heart-active{
-        width: 20px;
-        height:18px;
-        color: #EA4841,
-      }
-      .heart-inactive{
-        width: 20px;
-        height:18px;
-        color: #dbdbdb
-      }
-      .chatbox-icon{
-        width: 20px;
-        height:18px;
-        color: #c4c4c4;
+      .heart{
+        display: flex;
+        align-items: center;
+        margin-right: 5px;
 
-        margin-left:16px;
+        .heart-active{
+          width: 20px;
+          height:18px;
+          color: #EA4841,
+        }
+        .heart-inactive{
+          width: 20px;
+          height:18px;
+          color: #dbdbdb
+        }
       }
+
+      .liked-number{
+        font-family: NanumSquareB;
+        font-size: 15px;
+        color: black;
+      }
+      // .chatbox-icon{
+      //   width: 20px;
+      //   height:18px;
+      //   color: #c4c4c4;
+
+      //   margin-left:16px;
+      // }
     }
   }
 }

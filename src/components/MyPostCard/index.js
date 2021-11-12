@@ -71,13 +71,14 @@ const MyPostCard = (props) => {
 
           <div className="list-post-story">{props?.item?.description}</div>
           <div className="list-icon-container">
-            <div onClick={() => onClickChat(props?.item?.id)}>
+            <div className="heart" onClick={() => onClickChat(props?.item?.id)}>
               {showNameList.includes(props?.item?.id) ? (
                 <IoHeart className="heart-active" />
               ) : (
                 <IoHeart className="heart-inactive" />
               )}
             </div>
+            <div className="liked-number"> 3k </div>
             {curUser?.name !== props?.item?.User?.nickname && (
               <Link
                 to={`/chat/${
