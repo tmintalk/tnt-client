@@ -68,28 +68,30 @@ const UserList = () => {
                   itemLayout="horizontal"
                   dataSource={users}
                   renderItem={(item) => (
-                    <List.Item>
-                      <div className="user-list-friend-container">
-                        <div className="list-profile-container">
-                          <div className="list-friend-profile"></div>
-                          <div className="list-friend-name">
-                            {item.nickname}
+                    <Link to={`/users/${item.id}`}>
+                      <List.Item>
+                          <div className="user-list-friend-container">
+                            <div className="list-profile-container">
+                              <div className="list-friend-profile"></div>
+                              <div className="list-friend-name">
+                                {item.nickname}
+                              </div>
+                            </div>
+                            <Link
+                              to={`/chat/${
+                                user?.data
+                                  ? getRoomId(user.data.nickname, item.nickname)
+                                  : ""
+                              }`}
+                            >
+                              <div class="chat-btn" type="button">
+                                {" "}
+                                <IoChatboxOutline className="chatbox-icon" />
+                              </div>
+                            </Link>
                           </div>
-                        </div>
-                        <Link
-                          to={`/chat/${
-                            user?.data
-                              ? getRoomId(user.data.nickname, item.nickname)
-                              : ""
-                          }`}
-                        >
-                          <div class="chat-btn" type="button">
-                            {" "}
-                            <IoChatboxOutline className="chatbox-icon" />
-                          </div>
-                        </Link>
-                      </div>
-                    </List.Item>
+                      </List.Item>
+                    </Link>
                   )}
                 />
               </div>

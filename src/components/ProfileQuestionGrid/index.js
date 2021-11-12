@@ -7,8 +7,7 @@ import ProfileAnswerCard from "../ProfileAnswerCard";
 
 const ProfileQuestionGrid = () => {
   const { user } = useSelector(state => state)
-  const [questions, setQuestions] = useState([]);
-
+  const [, setQuestions] = useState([]);
 
   useEffect(() => {
     axios
@@ -31,25 +30,6 @@ const ProfileQuestionGrid = () => {
               />
             ))
           }
-          {/* <div className="my-question-card">
-            <div className="question-line">
-              후회되는 지출이 있어?
-              <div className="down-icon">
-                {isOpened ? <IoChevronUp className="icon" onClick={Opened} /> 
-              : <IoChevronDown className="icon" onClick={Opened} /> 
-              }
-                
-              </div>
-            </div>
-            {isOpened ?
-              <div className="question-answer-container">
-                <div className="question-answer">첫번째 대답</div>
-                <div className="question-answer">두번째 대답</div>
-                <div className="question-answer">첫번째 대답</div>
-              </div>
-              : <></>
-            }
-          </div> */}
         </div>
       </div>
     </>
