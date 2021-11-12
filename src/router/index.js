@@ -15,7 +15,7 @@ import Users from "../pages/Users";
 import MyPage from "../pages/MyPage";
 import Chat from "../pages/Chat";
 import ChatRoom from "../components/ChatRoom";
-import FriendProfile from "../pages/FriendProfile";
+import UserProfile from "../pages/UserProfile";
 import ChatTest from "../components/ChatTest";
 import Post from "../pages/Post";
 
@@ -37,15 +37,16 @@ const Router = () => {
       <Switch>
         <Route exact path={"/"} component={Home} />
         <PublicRoute path={"/join"} component={Join} />
-        <PrivateRouter path={"/users"} component={Users} />
         <PrivateRouter path={"/mypage"} component={MyPage} />
-        <PrivateRouter path={"/chat/:roomId"} component={ChatRoom} />
-        {/* Chat 페이지 화면 만들어야 함 */}
-        <PrivateRouter path={"/chat"} component={Chat} />
-        <PrivateRouter path={"/friendprofile"} component={FriendProfile} />
-        <PrivateRouter path={"/chatTest"} component={ChatTest} />
         <PrivateRouter path={"/posts"} component={Post} />
 
+        <PrivateRouter path={"/users/:id"} component={UserProfile} />
+        <PrivateRouter path={"/users"} component={Users} />
+        
+        <PrivateRouter path={"/chat/:roomId"} component={ChatRoom} />
+        <PrivateRouter path={"/chat"} component={Chat} />
+        <PrivateRouter path={"/chatTest"} component={ChatTest} />
+        
         <Redirect to="/" />
       </Switch>
       {/* <Footer /> */}

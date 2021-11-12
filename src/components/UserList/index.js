@@ -45,21 +45,20 @@ const UserList = () => {
 
           <div className="full-container">
             <div className="search-container">
+              <div className="search-button">
+                <IoSearchOutline className="search-icon" />
+              </div>
               <div className="search-bar">
                 <input
                   type="text"
                   class="form-control"
                   placeholder="search your friend"
-                />
-                {/* serach button */}
-                <div className="search-button">
-                  <IoSearchOutline className="search-icon" />
-                </div>
+                />                
               </div>
               {/* 친구추가 버튼 */}
-              <div className="add-friend">
+              {/* <div className="add-friend">
                 <IoPersonAddOutline />
-              </div>
+              </div> */}
             </div>
 
             <div className="user-ant-list">
@@ -68,28 +67,30 @@ const UserList = () => {
                   itemLayout="horizontal"
                   dataSource={users}
                   renderItem={(item) => (
-                    <List.Item>
-                      <div className="user-list-friend-container">
-                        <div className="list-profile-container">
-                          <div className="list-friend-profile"></div>
-                          <div className="list-friend-name">
-                            {item.nickname}
+                    <Link to={`/users/${item.id}`}>
+                      <List.Item>
+                          <div className="user-list-friend-container">
+                            <div className="list-profile-container">
+                              <div className="list-friend-profile"></div>
+                              <div className="list-friend-name">
+                                {item.nickname}
+                              </div>
+                            </div>
+                            <Link
+                              to={`/chat/${
+                                user?.data
+                                  ? getRoomId(user.data.nickname, item.nickname)
+                                  : ""
+                              }`}
+                            >
+                              <div class="chat-btn" type="button">
+                                {" "}
+                                <IoChatboxOutline className="chatbox-icon" />
+                              </div>
+                            </Link>
                           </div>
-                        </div>
-                        <Link
-                          to={`/chat/${
-                            user?.data
-                              ? getRoomId(user.data.nickname, item.nickname)
-                              : ""
-                          }`}
-                        >
-                          <div class="chat-btn" type="button">
-                            {" "}
-                            <IoChatboxOutline className="chatbox-icon" />
-                          </div>
-                        </Link>
-                      </div>
-                    </List.Item>
+                      </List.Item>
+                    </Link>
                   )}
                 />
               </div>
