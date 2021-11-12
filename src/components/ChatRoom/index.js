@@ -38,6 +38,9 @@ const ChatRoom = (props) => {
 
   const { isTyping, startTyping, stopTyping, cancelTyping } = useTyping();
 
+  const goBack = () => {
+    props.history.goBack();
+  };
   const handleNewMessageChange = (event) => {
     setNewMessage(event.target.value);
   };
@@ -62,7 +65,7 @@ const ChatRoom = (props) => {
   return (
     <>
       <div className="chatRoom-header-container">
-        <button class="back-btn" type="button">
+        <button class="back-btn" type="button" onClick={goBack}>
           {" "}
           <IoArrowBack className="back-icon" />
         </button>
