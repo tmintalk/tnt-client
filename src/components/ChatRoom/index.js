@@ -64,29 +64,13 @@ const ChatRoom = (props) => {
 
   return (
     <>
-      <div className="chatRoom-header-container">
-        <button class="back-btn" type="button" onClick={goBack}>
-          {" "}
-          <IoArrowBack className="back-icon" />
-        </button>
-        <img src={require("../../commons/img/TnT.png").default} alt="title" />
+      {/* <div className="header-container">
+        채팅화면
         <div class="empty"></div>
-      </div>
+      </div> */}
 
       <div class="chatRoom-container">
-        <div class="chatRoom-chatbox">
-          <div class="chatRoom-top-bar">
-            <div className="chatRoom-profile">
-              <div class="chatRoom-profile-photo"></div>
-              <div class="chatRoom-counterperson"> {friendName} </div>
-            </div>
-            <div class="chatRoom-menu">
-              <button class="menu-btn" type="button">
-                {" "}
-                <IoEllipsisVertical className="menu-icon" />
-              </button>
-            </div>
-          </div>
+        <div class="chatRoom-chatbox">     
 
           <div className="chatRoom-middle">
             <ol className="chatRoom-chatting-container">
@@ -105,6 +89,24 @@ const ChatRoom = (props) => {
               ))}
             </ol>
           </div>
+
+          <div class="chatRoom-top-bar">
+            <button class="back-btn" type="button" onClick={goBack}>
+              {" "}
+              <IoArrowBack className="back-icon" />
+            </button>
+            <div className="chatRoom-profile">
+              <div class="chatRoom-profile-photo"></div>
+              <div class="chatRoom-counterperson"> {friendName} </div>
+            </div>
+            {/* <div class="chatRoom-menu">
+              <button class="menu-btn" type="button">
+                {" "}
+                <IoEllipsisVertical className="menu-icon" />
+              </button>
+            </div> */}
+          </div>
+          
           <NewMessageForm
             newMessage={newMessage}
             handleNewMessageChange={handleNewMessageChange}

@@ -21,16 +21,23 @@
   padding: 0 24px 90px 24px;
   .search-container {
     width: 100%;
-    padding: 24px 0;
+    padding: 24px 0 12px 0;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .search-button {
+      width: 15px;
+      height: 15px;
+      display: flex;
+      align-self: center;
+
+      margin-right: 10px;
+    }
     .search-bar {
       width: 100%;
       border-radius: 10px;
       background-color: black;
-      padding: 0 16px 0 0;
 
       display: flex;
       color: white;
@@ -44,13 +51,7 @@
         font-family: NanumSquareR;
         background-color: black;
         //margin-left: 20px;
-      }
-      .search-button {
-        width: 15px;
-        height: 15px;
-        display: flex;
-        align-self: center;
-      }
+      }      
     }
     .add-friend {
       width: 30px;
@@ -74,14 +75,15 @@
     .ant-list-user {
       .ant-list-item {
         background-color: white;
-        border-radius: 8px;
-        box-shadow: 0px 0px 2px 0px #00000025;
-        padding: 16px;
-        margin-bottom: 10px;
+        //border-radius: 8px;
+        //box-shadow: 0px 0px 2px 0px #00000025;
+        border-bottom: 1px #e7e7e7 solid;
+        padding: 16px 0;
+        //margin-bottom: 10px;
 
-        &:hover {
-          background-color: #fafafa;
-        }
+        // &:hover {
+        //   background-color: #fafafa;
+        // }
         .user-list-friend-container {
           
           width: 100%;
@@ -97,7 +99,7 @@
               width: 48px;
               height: 48px;
               border-radius: 24px;
-              background-color: black;
+              background-color: #e7e7e7;
             }
             .list-friend-name {
               color: black;

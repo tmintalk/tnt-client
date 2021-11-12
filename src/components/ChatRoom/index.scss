@@ -40,25 +40,12 @@
   align-items: center;
   justify-content: space-between;
 
-  .back-btn {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    align-items: center;
-    justify-content: center;
-
-    .back-icon {
-      width: 35px;
-      height: 35px;
-      color: black;
-      cursor: pointer;
-    }
-  }
   .empty {
     width: 47px;
     height: 35px;
   }
 }
+
 .chatRoom-container {
   background-color: pink;
   width: 100vw;
@@ -79,31 +66,47 @@
       width: 100%;
       height: 60px;
       background-color: black;
+
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
+      position:fixed;
+      top:0;
 
+      padding: 0 10px;
+
+      .back-btn {
+        border: 0;
+        outline: 0;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        .back-icon {
+          width: 20px;
+          height: 20px;
+          color: white;
+          cursor: pointer;
+        }
+      }
       .chatRoom-profile {
         display: flex;
         align-items: center;
+
+        margin-left: 10px;
         .chatRoom-profile-photo {
-          width: 40px;
-          height: 40px;
+          width: 36px;
+          height: 36px;
           background-color: gray;
           border-radius: 50%;
-          top: 11px;
-          left: 15px;
-          margin-left: 30px;
-          margin-right: 24px;
         }
 
         .chatRoom-counterperson {
-          font-family: NanumSquareEB;
-          //text-transform: uppercase;
+          font-family: NanumSquareB;
+          margin-left: 10px;
           color: white;
-          font-size: 18px;
-          letter-spacing: 2px;
-          font-weight: 500;
+          font-size: 16px;
         }
       }
 
@@ -130,6 +133,8 @@
       background: white;
       width: 100%;
       height: 100%;
+
+      margin-top: 60px;
       .chatRoom-chatting-container {
         width: 100%;
         height: 100%;
