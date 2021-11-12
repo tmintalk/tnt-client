@@ -97,17 +97,17 @@ const ChatList = () => {
 
           <div className="full-container">
             <div className="search-container">
-              <div className="search-bar">
+              {/* <div className="search-bar">
                 <input
                   type="text"
                   class="form-control"
                   placeholder="search your friend"
                 />
                 {/* serach button */}
-                <div className="search-button">
+                {/* <div className="search-button">
                   <IoSearchOutline className="search-icon" />
                 </div>
-              </div>
+              </div> */} 
             </div>
 
             <div className="chat-ant-list">
