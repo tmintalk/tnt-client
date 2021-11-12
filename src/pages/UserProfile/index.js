@@ -8,8 +8,11 @@ const FriendProfile = (props) => {
   return (
     <>
       <UserProfileCard id={id}/>
-      <ConsumptionPattern />
-      <UserProfileQuestionGrid id={id} />
+      <div className="mypage-bottom-container">
+        <ConsumptionPattern />
+        <UserProfileQuestionGrid id={id} />
+      </div>
+      
     </>
   );
 };
