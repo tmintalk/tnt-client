@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { Form, Input, Button, Select, DatePicker, InputNumber } from 'antd';
+import { Form, Input, Button, Select, DatePicker, InputNumber, Upload, message } from 'antd';
 import { createRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { GET_POSTS_REQUEST } from '../../reducers/posts';
@@ -10,9 +10,27 @@ import './index.scss'
 
 import {
   IoArrowBack,
+  IoImageOutline,
+  IoLockOpenOutline
 } from "react-icons/io5";
 
 const { Option } = Select;
+
+const props = {
+  name: 'file',
+  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+  listType: "picture",
+  onChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
+};
 
 const PostForm = () => {
   let history = useHistory()
@@ -83,7 +101,7 @@ const PostForm = () => {
             </div>
 
             <div className="flex-container">
-              and I  
+              and I
               <Form.Item name="about" rules={[{ required: true }]}>
                 <Select
                   placeholder="feeling"
@@ -96,7 +114,7 @@ const PostForm = () => {
             </div>
 
             <div className="detail-container">
-                <Form.Item
+              <Form.Item
                 name="description"
                 rules={[{ required: false, message: '내용을 입력해주세요' }]}
               >
@@ -104,12 +122,23 @@ const PostForm = () => {
               </Form.Item>
             </div>
           </div>
+
+        </div>
+        <div className="post-upload-container">
+          <Upload {...props} className="post-upload-icon-container">
+            <Button icon={<IoImageOutline />}></Button>
+          </Upload>
+          {/* <div className="post-upload-lock-container">
+            <IoLockOpenOutline />
+            <div>People can check my profile</div>
+          </div> */}
         </div>
         {/* <Form.Item>
           <Button type="primary" htmlType="submit">
             작성
           </Button>
         </Form.Item> */}
+
       </Form>
     </>
   )

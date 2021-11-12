@@ -4,7 +4,7 @@
     border-radius: 8px;
     box-shadow: 0px 0px 2px 0px #00000025;
 
-    padding: 24px;
+    padding: 20px;
     margin-bottom: 10px;
     .list-post-container{
       //background-color: #f4f4f4;
@@ -63,25 +63,25 @@
           }
         }
         .list-post-story{
-          font-family: NanumSquarR;
+          font-family: NanumSquareR;
           font-size: 14px;
 
           margin-top: 15px;
         }
         .list-icon-container{
           display: flex;
-          margin-top: 20px;
+          margin-top: 12px;
           .heart-active{
-            width: 20px;
-            height:18px;
+            width: 22px;
+            height:22px;
             color: #EA4841;
 
             display: flex;
             align-items: center;
           }
           .heart-inactive{
-            width: 20px;
-            height:18px;
+            width: 22px;
+            height:22px;
             color: #dbdbdb;
 
             display: flex;
