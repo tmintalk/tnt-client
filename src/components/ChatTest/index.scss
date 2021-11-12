@@ -1,6 +1,4 @@
-
-
- .chatTest-header-container{
+.chatTest-header-container {
   width: 100vw;
   height: 60px;
   background-color: white;
@@ -9,61 +7,53 @@
   align-items: center;
   justify-content: space-between;
 
-  .back-btn{
+  .back-btn {
     border: 0;
     outline: 0;
     background: transparent;
-    align-items:center;
-    justify-content :center;   
+    align-items: center;
+    justify-content: center;
 
-    .back-icon{
+    .back-icon {
       width: 35px;
       height: 35px;
       color: black;
-
+      cursor: pointer;
     }
   }
-  .empty{
+  .empty {
     width: 47px;
     height: 35px;
   }
 }
 
-
 .chatTest-container {
-  //position: relative;
-  //margin-left: 24px;
-  //margin-right: 24px;
   background-color: pink;
   width: 100vw;
-  //height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
   .chatTest-chatbox {
-    position: absolute; 
+    position: absolute;
     background-color: palegoldenrod;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 
-    //border-radius: 10px;
-    //box-shadow: 5px 5px 15px gray;
-    margin-bottom: 300px;    
+    margin-bottom: 300px;
     .chatTest-top-bar {
       width: 100%;
       height: 60px;
       background-color: black;
-      //border-radius: 10px 10px 0 0;
       display: flex;
-      align-items:center;
-      justify-content:space-between;
+      align-items: center;
+      justify-content: space-between;
 
-      .chatTest-profile{
+      .chatTest-profile {
         display: flex;
-        align-items:center;
+        align-items: center;
         .chatTest-profile-photo {
           width: 40px;
           height: 40px;
@@ -74,7 +64,7 @@
           margin-left: 30px;
           margin-right: 24px;
         }
-              
+
         .chatTest-counterperson {
           font-family: NanumSquareEB;
           //text-transform: uppercase;
@@ -85,87 +75,86 @@
         }
       }
 
-      .chatTest-menu{
-        .menu-btn{
+      .chatTest-menu {
+        .menu-btn {
           border: 0;
           outline: 0;
           background: transparent;
           margin-right: 24px;
-          align-items:center;
-          justify-content :center;
+          align-items: center;
+          justify-content: center;
 
-          .menu-icon{
+          .menu-icon {
             width: 25px;
             height: 25px;
             color: white;
-
+            cursor: pointer;
           }
-        }        
+        }
       }
-    } 
+    }
 
-    .chatTest-middle{
+    .chatTest-middle {
       //position: absolute;
       background: white;
       width: 100%;
       height: 100%;
-      .chatTest-chatting-container{
+      .chatTest-chatting-container {
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: stretch;
         background-color: white;
-        .chatTest-receiving{
+        padding: 0px;
+        .chatTest-receiving {
           //position: absolute;
-          
+
           //height: 100%;
           padding: 20px;
           .bubble {
             width: 60%;
             padding: 10px;
-            background-color:#c4c4c4;
+            background-color: #c4c4c4;
             margin-bottom: 10px;
             padding: 10px;
             border-radius: 0px 10px 10px 10px;
-
-          }  
+          }
         }
-        .chatTest-sending{
+        .chatTest-sending {
           //position: absolute;
           padding: 20px;
           height: 100%;
           float: right;
           .bubble {
             width: 60%;
-            background: #7B61FF;
+            background: #7b61ff;
             float: right;
             margin-bottom: 10px;
             padding: 10px;
             border-radius: 10px 0px 10px 10px;
           }
-          .bubble-lower{
-            background: #7B61FF;
+          .bubble-lower {
+            background: #7b61ff;
             float: right;
             margin-bottom: 10px;
             padding: 10px;
             border-radius: 10px 0px 10px 10px;
           }
         }
-        .chatTest-typing{
-         
-         margin-bottom: 150px;
+        .chatTest-typing {
+          margin-bottom: 150px;
           .writing-bubble {
             width: 40px;
             height: 25px;
             border-radius: 10px;
             margin-left: 24px;
-            background: #C4C4C4;
+            background: #c4c4c4;
             //padding: 5px 110px 5px 10px;
             display: flex;
-            flex-direction: row; 
+            flex-direction: row;
             align-items: center;
-            justify-content: space-between;           
+            justify-content: space-between;
             .ellipsis {
               width: 5px;
               height: 5px;
@@ -190,11 +179,9 @@
           }
         }
       }
-
     }
 
-    .chatTest-bottom-bar{
- 
+    .chatTest-bottom-bar {
       //position: absolute;
       width: 100%;
       height: 55px;
@@ -203,7 +190,7 @@
       background: white;
       position: fixed;
       bottom: 80px;
-      align-items: center;       
+      align-items: center;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -212,11 +199,10 @@
 
       //   display: flex;
       //   flex-direction: row;
-      //   //align-items: center; 
+      //   //align-items: center;
       //   justify-content: space-between;
 
       .chatTest-input-box {
-
         padding: 7px;
         width: 80%;
         border: 0;
@@ -225,27 +211,24 @@
         border-radius: 15px;
       }
 
-      .chatTest-submit-btn{
-        
+      .chatTest-submit-btn {
         border: 0;
         outline: 0;
-        background: #7B61FF;
+        background: #7b61ff;
         padding-top: 6px;
-        justify-content: center;   
+        justify-content: center;
         margin-right: 24px;
         margin-left: 10px;
         border-radius: 5px;
-        .send-icon{
+        .send-icon {
           width: 20px;
           height: 20px;
           color: white;
           align-items: center;
-          justify-content: center;  
+          justify-content: center;
         }
       }
     }
     // }
-
   }
-
 }

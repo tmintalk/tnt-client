@@ -1,6 +1,6 @@
 import React from "react";
-import "./index.css";
-
+import "./index.scss";
+import { IoPaperPlaneOutline } from "react-icons/io5";
 const NewMessageForm = ({
   newMessage,
   handleNewMessageChange,
@@ -9,26 +9,29 @@ const NewMessageForm = ({
   handleSendMessage,
 }) => {
   return (
-    <div className="new-message-container">
-      <form className="new-message-form">
-        <input
-          type="text"
-          value={newMessage}
-          onChange={handleNewMessageChange}
-          placeholder="Aa"
-          className="new-message-input-field"
-          onKeyPress={handleStartTyping}
-          onKeyUp={handleStopTyping}
-        />
-        <button
-          type="submit"
-          onClick={handleSendMessage}
-          className="send-message-button"
-        >
-          Send
-        </button>
-      </form>
-    </div>
+    <>
+      <div className="new-message-container">
+        <form className="new-message-form">
+          <input
+            type="text"
+            value={newMessage}
+            onChange={handleNewMessageChange}
+            placeholder="Send a message..."
+            className="new-message-input-field"
+            onKeyPress={handleStartTyping}
+            onKeyUp={handleStopTyping}
+          />
+          <button
+            class="chatTest-submit-btn"
+            type="button"
+            onClick={handleSendMessage}
+          >
+            {" "}
+            <IoPaperPlaneOutline className="send-icon" />
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 
