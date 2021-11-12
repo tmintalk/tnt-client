@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   IoPaperPlaneOutline,
   IoEllipsisVertical,
@@ -29,12 +29,21 @@ const ChatRoom = (props) => {
   } = useChat(roomId);
   const [newMessage, setNewMessage] = useState("");
   const [friendName, setFriendName] = useState("");
+  const messagesEndRef = useRef();
   useEffect(() => {
     const splitNames = roomId?.split(" and ");
     const friend =
       splitNames[0] === user?.data?.nickname ? splitNames[1] : splitNames[0];
     setFriendName(friend);
   }, [friendName]);
+
+  useEffect(() => {
+    messagesEndRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  }, [messages]);
 
   const { isTyping, startTyping, stopTyping, cancelTyping } = useTyping();
 
@@ -105,6 +114,7 @@ const ChatRoom = (props) => {
               ))}
             </ol>
           </div>
+          <div ref={messagesEndRef} />
           <NewMessageForm
             newMessage={newMessage}
             handleNewMessageChange={handleNewMessageChange}

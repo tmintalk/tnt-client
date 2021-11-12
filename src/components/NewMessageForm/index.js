@@ -21,14 +21,16 @@ const NewMessageForm = ({
             onKeyPress={handleStartTyping}
             onKeyUp={handleStopTyping}
           />
-          <button
-            class="chatTest-submit-btn"
-            type="button"
-            onClick={handleSendMessage}
-          >
-            {" "}
-            <IoPaperPlaneOutline className="send-icon" />
-          </button>
+          <a href="#new-message">
+            <button
+              class="chatTest-submit-btn"
+              type="submit"
+              onClick={handleSendMessage}
+            >
+              {" "}
+              <IoPaperPlaneOutline className="send-icon" />
+            </button>
+          </a>
         </form>
       </div>
     </>
