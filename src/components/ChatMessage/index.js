@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import UserAvatar from "../UserAvatar";
 import "./index.css";
+import "./index.scss";
 
 const ChatMessage = ({ message, curUser }) => {
   const [isCurUser, setIsCurUser] = useState(false);
@@ -23,22 +24,24 @@ const ChatMessage = ({ message, curUser }) => {
 
   return (
     <div
-      className={`message-item ${
-        isCurUser ? "my-message" : "received-message"
+      className={`${
+        isCurUser ? "chatMessage-my-message" : "chatMessage-received-message"
       }`}
     >
       {!isCurUser && (
-        <div className="message-avatar-container">
+        <div className="chatMessage-avatar-container">
           <UserAvatar user={message.user}></UserAvatar>
         </div>
       )}
 
-      <div className="message-body-container">
+      <div className="chatMessage-body-container">
         {!isCurUser && (
-          <div className="message-user-name">{message.user.name}</div>
+          <div className="chatMessage-user-name">{message.user.name}</div>
         )}
-        <div className="message-body">{message.body}</div>
-        <div>{dateFrame(new Date(message.timeStamp))}</div>
+        <div className="chatMessage-body">{message.body}</div>
+      </div>
+      <div className="chatMessage-date">
+        {dateFrame(new Date(message.timeStamp))}
       </div>
     </div>
   );

@@ -1,0 +1,144 @@
+.chat-room-container {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+}
+
+.chat-room-top-bar {
+  display: flex;
+  align-items: center;
+}
+
+.chat-room-top-bar h1 {
+  flex: 1;
+}
+
+.messages-container {
+  flex: 1;
+  min-height: 100px;
+  overflow: auto;
+  border-radius: 7px 7px 0 0;
+  margin-bottom: 8px;
+}
+
+.messages-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* -------------------------- */
+.chatRoom-header-container {
+  width: 100vw;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .back-btn {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+
+    .back-icon {
+      width: 35px;
+      height: 35px;
+      color: black;
+      cursor: pointer;
+    }
+  }
+  .empty {
+    width: 47px;
+    height: 35px;
+  }
+}
+.chatRoom-container {
+  background-color: pink;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .chatRoom-chatbox {
+    position: absolute;
+    background-color: palegoldenrod;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 300px;
+    .chatRoom-top-bar {
+      width: 100%;
+      height: 60px;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .chatRoom-profile {
+        display: flex;
+        align-items: center;
+        .chatRoom-profile-photo {
+          width: 40px;
+          height: 40px;
+          background-color: gray;
+          border-radius: 50%;
+          top: 11px;
+          left: 15px;
+          margin-left: 30px;
+          margin-right: 24px;
+        }
+
+        .chatRoom-counterperson {
+          font-family: NanumSquareEB;
+          //text-transform: uppercase;
+          color: white;
+          font-size: 18px;
+          letter-spacing: 2px;
+          font-weight: 500;
+        }
+      }
+
+      .chatRoom-menu {
+        .menu-btn {
+          border: 0;
+          outline: 0;
+          background: transparent;
+          margin-right: 24px;
+          align-items: center;
+          justify-content: center;
+
+          .menu-icon {
+            width: 25px;
+            height: 25px;
+            color: white;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .chatRoom-middle {
+      //position: absolute;
+      background: white;
+      width: 100%;
+      height: 100%;
+      .chatRoom-chatting-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        background-color: white;
+        padding: 0px;
+        list-style-type: none;
+      }
+    }
+  }
+}
