@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import useChat from "../../useChat";
-import { List, Avatar } from "antd";
+import { List, Avatar, Badge } from "antd";
 import { Link } from "react-router-dom";
 import { getRoomId } from "../../actions/hash.js";
 
-import {
-  IoSearchOutline,
-} from "react-icons/io5";
+import { IoSearchOutline } from "react-icons/io5";
 
 import {
   IoPersonAddOutline,
@@ -19,33 +17,44 @@ import "./index.scss";
 import { useSelector } from "react-redux";
 const SOCKET_SERVER_URL =
   "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
+// const SOCKET_SERVER_URL = "http://localhost:5000";
 const ChatList = () => {
   const [users, setUsers] = useState();
-  const [sortedUsers, setSortedUsers] = useState();
+  const [sortedUsers, setSortedUsers] = useState([]);
   const [messages, setMessages] = useState();
+  const [myReadCnt, setMyReadCnt] = useState();
+  const [unreadNum, setUnreadNum] = useState(0);
   const { user } = useSelector((state) => state);
 
   useState(() => {
     (async () => {
-      const resp = await axios.get("/users");
+      const resp = await axios.get(`${SOCKET_SERVER_URL}/users`);
       setUsers(resp.data);
+      console.log(resp.data);
     })();
   }, []);
 
   useEffect(() => {
     const fetchMessages = async () => {
-      const response = await axios.get(`/chat/allMessages`);
+      const response = await axios.get(`${SOCKET_SERVER_URL}/chat/allMessages`);
       const result = response.data.messages;
-      // console.log(result[0]);
       setMessages(result);
     };
     fetchMessages();
-  }, []);
+    const fetchReadCnt = async () => {
+      const response = await axios.get(
+        `${SOCKET_SERVER_URL}/chat/${user?.data?.nickname}/readCnt`
+      );
+      const result = response.data.myReadCnt;
+      console.log(result);
+      setMyReadCnt(result);
+    };
+    fetchReadCnt();
+  }, [user?.data]);
 
   useEffect(() => {
-    if (!users) return;
-
     //유저마다 대화했던 최근 메세지만 모은 arr
+    if (!users || !user?.data) return;
     let LastMessages = users?.map((u) => {
       const roomId = getRoomId(user?.data?.nickname, u.nickname);
 
@@ -70,11 +79,12 @@ const ChatList = () => {
       return users.find((e) => e.nickname === friendName);
     });
     setSortedUsers(matchUsers);
-  }, [users, sortedUsers]);
+  }, [users, user?.data]);
 
   const GetLastMessage = (roomId) => {
     const roomMessages = messages.filter((message) => message.room === roomId);
     const len = roomMessages.length;
+    // console.log(roomId, len);
     return roomMessages.length > 0 ? roomMessages[len - 1].body : null;
   };
   const GetLastDate = (roomId) => {
@@ -86,40 +96,34 @@ const ChatList = () => {
       return date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate();
     }
   };
+  const GetUnreadMessage = (roomId) => {
+    const totalNum = messages.length;
+    if (myReadCnt?.find((i) => i.roomId == roomId)) {
+      const readNum = myReadCnt?.find((i) => i.roomId == roomId)?.messageCnt;
+      setUnreadNum(totalNum - readNum);
+      return totalNum - readNum;
+    } else {
+      return null;
+    }
+  };
 
   return (
     <>
       {sortedUsers && (
         <>
-          <div className="user-header-container">
-            채팅
-          </div>
-
+          <div className="user-header-container">채팅</div>
           <div className="full-container">
-            {/* <div className="search-container">
-              <div className="search-bar">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="search your friend"
-                />
-                serach button 
-                <div className="search-button">
-                  <IoSearchOutline className="search-icon" />
-                </div> 
-              </div> 
-            </div> */}
-
             <div className="chat-ant-list">
               <List
                 itemLayout="horizontal"
                 dataSource={sortedUsers}
                 renderItem={(item) => (
                   <Link
-                    to={`/chat/${user?.data
+                    to={`/chat/${
+                      user?.data
                         ? getRoomId(user.data.nickname, item.nickname)
                         : ""
-                      }`}
+                    }`}
                   >
                     {user?.data ? (
                       GetLastMessage(
@@ -133,7 +137,6 @@ const ChatList = () => {
                                 <div className="list-friend-name">
                                   {item.nickname}
                                 </div>
-
                                 <div className="list-chat-text">
                                   {GetLastMessage(
                                     getRoomId(user.data.nickname, item.nickname)
@@ -141,10 +144,22 @@ const ChatList = () => {
                                 </div>
                               </div>
                             </div>
-                            <div className="chat-date">
-                              {GetLastDate(
-                                getRoomId(user.data.nickname, item.nickname)
-                              )}
+                            <div className="chat-right-container">
+                              <div className="chat-date">
+                                {GetLastDate(
+                                  getRoomId(user.data.nickname, item.nickname)
+                                )}
+                              </div>
+                              <div className="chat-unread">
+                                <Badge
+                                  count={GetUnreadMessage(
+                                    getRoomId(user.data.nickname, item.nickname)
+                                  )}
+                                  style={{
+                                    backgroundColor: "#7b61ff",
+                                  }}
+                                />
+                              </div>
                             </div>
                           </div>
                         </List.Item>

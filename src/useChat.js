@@ -32,6 +32,7 @@ const useChat = (roomId) => {
       );
       const result = response.data.users;
       setUsers(result);
+      console.log(result);
     };
 
     fetchUsers();
@@ -43,7 +44,6 @@ const useChat = (roomId) => {
         `${SOCKET_SERVER_URL}/chat/${roomId}/messages`
       );
       const result = response.data.messages;
-
       setMessages(result);
     };
 

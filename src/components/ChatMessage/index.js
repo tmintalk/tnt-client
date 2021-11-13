@@ -22,11 +22,9 @@ const ChatMessage = ({ message, messages, index, curUser }) => {
         ? `오후 ${date.getHours() - 12}시`
         : `오전 ${date.getHours()}시`;
     let miniutes = date.getMinutes() + "분";
-    // console.log(date.getDate());
     return hours + " " + miniutes;
   };
   const newDate = (date) => {
-    console.log(prevDate, date.getDate());
     if (prevDate !== date.getDate()) {
       const dateStr =
         date.getFullYear() +
