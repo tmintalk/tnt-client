@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { IoChevronDown, IoArrowBack } from "react-icons/io5";
 import axios from "axios";
 
@@ -9,25 +9,27 @@ const UserProfileCard = (props) => {
 
   useEffect(() => {
     if (props.id) {
-      axios.get(`/users/${props.id}`)
-        .then(res => {
-          setUser(res.data);
-        })
+      axios.get(`/users/${props.id}`).then((res) => {
+        setUser(res.data);
+      });
     }
-  }, [props?.id])
+  }, [props?.id]);
 
   return (
     <>
-      {user &&
+      {user && (
         <>
           <div className="profile-card-header-container">
-            <button class="back-btn" type="button">
+            <button class="back-btn" type="button" onClick={props.goBack}>
               {" "}
               <IoArrowBack className="back-icon" />
             </button>
             {/* <div className='header-text'>TnT</div> */}
             {/* <img className="header-title" src='../../commons/img/TnT.png'/> */}
-            <img src={require("../../commons/img/TnT.png").default} alt="title" />
+            <img
+              src={require("../../commons/img/TnT.png").default}
+              alt="title"
+            />
             <div class="empty"></div>
           </div>
           <div className="profile-container">
@@ -52,7 +54,7 @@ const UserProfileCard = (props) => {
             </div>
           </div>
         </>
-      }
+      )}
     </>
   );
 };

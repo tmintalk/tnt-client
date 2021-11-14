@@ -1,5 +1,4 @@
-
- .profile-card-header-container{
+.profile-card-header-container {
   width: 100vw;
   height: 60px;
   background-color: white;
@@ -7,34 +6,34 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .back-btn{
+  .back-btn {
     border: 0;
     outline: 0;
     background: transparent;
-    
-    .back-icon{
+    cursor: pointer;
+    .back-icon {
       width: 35px;
       height: 35px;
       color: black;
-      align-items:center;
-      justify-content :center;
+      align-items: center;
+      justify-content: center;
     }
   }
-  .header-text{
+  .header-text {
     font-family: NanumSquareEB;
     font-size: 32px;
   }
-  .header-title{
+  .header-title {
     width: 190px;
     height: 60px;
   }
-  .empty{
+  .empty {
     width: 47px;
     height: 35px;
   }
 }
 
-.profile-container{
+.profile-container {
   width: 100vw;
   height: 275px;
   background-color: black;
@@ -43,13 +42,13 @@
   align-items: center;
   justify-content: center;
 
-  .friend-profile-photo{
-    width:124px;
-    height:124px;
+  .friend-profile-photo {
+    width: 124px;
+    height: 124px;
     border-radius: 62px;
-    background-color: #C4C4C4; 
+    background-color: #c4c4c4;
   }
-  .friend-name{
+  .friend-name {
     font-family: NanumSquareEB;
     margin-top: 15px;
     margin-bottom: 10px;
@@ -57,14 +56,14 @@
     font-weight: bold;
     color: white;
   }
-  .subscription-date{
+  .subscription-date {
     color: gray;
   }
-  
-  .btn-container{
+
+  .btn-container {
     display: flex;
 
-    .following-btn{
+    .following-btn {
       display: flex;
       flex-direction: row;
       height: 30px;
@@ -75,18 +74,18 @@
       align-items: center;
       justify-content: center;
       margin-right: 10px;
-      .following-text{
+      .following-text {
         font-family: NanumSquareR;
         margin-left: 6px;
         color: white;
       }
-      .following-icon{
+      .following-icon {
         margin-left: 5px;
         margin-right: 5px;
         color: white;
       }
     }
-    .message-btn{
+    .message-btn {
       height: 30px;
       border: solid white;
       border-width: 1px;
@@ -95,13 +94,12 @@
       align-items: center;
       justify-content: center;
       margin-left: 10px;
-      .message-text{
+      .message-text {
         font-family: NanumSquareR;
         color: white;
         margin-left: 5px;
         margin-right: 5px;
       }
     }
-
   }
 }
