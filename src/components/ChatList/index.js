@@ -15,9 +15,9 @@ import {
 
 import "./index.scss";
 import { useSelector } from "react-redux";
-// const SOCKET_SERVER_URL =
-// "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
-const SOCKET_SERVER_URL = "http://localhost:5000";
+const SOCKET_SERVER_URL =
+  "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
+// const SOCKET_SERVER_URL = "http://localhost:5000";
 const ChatList = () => {
   const [users, setUsers] = useState();
   const [sortedUsers, setSortedUsers] = useState([]);

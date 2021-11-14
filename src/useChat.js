@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import socketIOClient from "socket.io-client";
 import axios from "axios";
 
-// const SOCKET_SERVER_URL =
-// "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
-const SOCKET_SERVER_URL = "http://localhost:5000";
+const SOCKET_SERVER_URL =
+  "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
+// const SOCKET_SERVER_URL = "http://localhost:5000";
 
 const useChat = (roomId) => {
   const [messages, setMessages] = useState([]);
