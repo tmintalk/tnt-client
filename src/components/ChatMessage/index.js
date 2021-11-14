@@ -8,13 +8,17 @@ import { Tag } from "antd";
 const ChatMessage = ({ message, messages, index, curUser }) => {
   const [isCurUser, setIsCurUser] = useState(false);
   const { user } = useSelector((state) => state);
-  const dateStr = null;
+  const [isdiffTime, setIsdiffTime] = useState(true);
   const prevDate = new Date(messages[index - 1]?.timeStamp).getDate();
   useEffect(() => {
     if (user?.data) {
       setIsCurUser(message.senderName === user.data.nickname);
     }
   }, [user?.data]);
+
+  useEffect(() => {
+    isTimeDifferent();
+  }, [messages]);
 
   const dateFrame = (date) => {
     let hours =
@@ -38,6 +42,27 @@ const ChatMessage = ({ message, messages, index, curUser }) => {
       return 0;
     }
   };
+  const isTimeDifferent = () => {
+    const isSenderSame =
+      messages[index - 1]?.senderName === message?.senderName;
+    const isMinSame =
+      new Date(messages[index - 1]?.timeStamp).getMinutes() ==
+      new Date(message.timeStamp).getMinutes();
+    const isHourSame =
+      new Date(messages[index - 1]?.timeStamp).getHours() ==
+      new Date(message.timeStamp).getHours();
+    const isDateSame =
+      new Date(messages[index - 1]?.timeStamp).getDate() ==
+      new Date(message.timeStamp).getDate();
+    if (isSenderSame && isHourSame && isMinSame && isDateSame) {
+      console.log("same Time");
+      setIsdiffTime(false);
+    } else {
+      console.log("diff Time");
+      setIsdiffTime(true);
+    }
+  };
+
   return (
     <>
       {newDate(new Date(message.timeStamp)) ? (
@@ -52,21 +77,32 @@ const ChatMessage = ({ message, messages, index, curUser }) => {
           isCurUser ? "chatMessage-my-message" : "chatMessage-received-message"
         }`}
       >
-        {!isCurUser && (
-          <div className="chatMessage-avatar-container">
-            <UserAvatar user={message.user}></UserAvatar>
-          </div>
-        )}
+        {!isCurUser &&
+          (isdiffTime ? (
+            <div className="chatMessage-avatar-container">
+              <UserAvatar user={message.user}></UserAvatar>
+            </div>
+          ) : (
+            <div className="chatMessage-nonavatar-container"></div>
+          ))}
 
         <div className="chatMessage-body-container">
-          {!isCurUser && (
+          {!isCurUser && isdiffTime && (
             <div className="chatMessage-user-name">{message.user.name}</div>
           )}
-          <div className="chatMessage-body">{message.body}</div>
+          <div
+            className={`${
+              isdiffTime ? "chatMessage-body" : "chatMessage-body sametime"
+            }`}
+          >
+            {message.body}
+          </div>
         </div>
-        <div className="chatMessage-date">
-          {dateFrame(new Date(message.timeStamp))}
-        </div>
+        {isdiffTime && (
+          <div className="chatMessage-date">
+            {dateFrame(new Date(message.timeStamp))}
+          </div>
+        )}
       </div>
     </>
   );
