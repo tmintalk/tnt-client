@@ -23,7 +23,7 @@ const NewMessageForm = ({
           />
           <a href="#new-message">
             <button
-              class="chatTest-submit-btn"
+              class="new-message-submit-btn"
               type="submit"
               onClick={handleSendMessage}
             >
