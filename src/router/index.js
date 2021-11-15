@@ -49,7 +49,7 @@ const Router = () => {
         <PrivateRouter path={"/chat"} component={Chat} />
         <PrivateRouter path={"/chatTest"} component={ChatTest} />
         
-        <PrivateRouter path={"/addFriend"} component={AddFriend} />
+        <PrivateRouter path={"/find/:nickname"} component={AddFriend} />
 
         <Redirect to="/" />
       </Switch>

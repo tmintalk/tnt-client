@@ -39,12 +39,11 @@ const PostCard = (props) => {
     temp_arr.push(id);
     setShowNameList(temp_arr);
   };
-  
 
   return (
     <>
       <div className="list-post-container">
-        <div className="list-post-profile"></div>
+        <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
         <div className="list-post-content">
           <div className="list-post-name">
             {showNameList.includes(props?.item?.id) || props?.isShow
@@ -68,6 +67,8 @@ const PostCard = (props) => {
             {/* 소비종류데이터 */}
             <div className="list-post-kind">{props?.item?.about}</div>
           </div>
+
+          {props?.item?.imageUrl && <img src={props?.item?.imageUrl} alt="post" />}
 
           <div className="list-post-story">{props?.item?.description}</div>
           <div className="list-icon-container">
