@@ -46,7 +46,6 @@ const ChatList = () => {
         `${SOCKET_SERVER_URL}/chat/${user?.data?.nickname}/readCnt`
       );
       const result = response.data.myReadCnt;
-      console.log(result);
       setMyReadCnt(result);
     };
     fetchReadCnt();
@@ -78,8 +77,9 @@ const ChatList = () => {
         splitNames[0] === user?.data?.nickname ? splitNames[1] : splitNames[0];
       return users.find((e) => e.nickname === friendName);
     });
+    console.log("matchUsers", matchUsers);
     setSortedUsers(matchUsers);
-  }, [users, user?.data]);
+  }, [users, user?.data, messages]);
 
   const GetLastMessage = (roomId) => {
     const roomMessages = messages.filter((message) => message.room === roomId);
