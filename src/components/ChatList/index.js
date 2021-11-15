@@ -133,7 +133,7 @@ const ChatList = () => {
                         <List.Item>
                           <div className="list-friend-container">
                             <div className="list-profile-container">
-                              <div className="list-friend-profile"></div>
+                              <img src={item?.thumbnailUrl} alt="chag" className="list-friend-profile" />
                               <div className="list-chat-content">
                                 <div className="list-friend-name">
                                   {item.nickname}
