@@ -19,6 +19,8 @@ import UserProfile from "../pages/UserProfile";
 import ChatTest from "../components/ChatTest";
 import Post from "../pages/Post";
 
+import AddFriend from "../components/AddFriend";
+
 const Router = () => {
   const dispatch = useDispatch();
   const [cookies] = useCookies(["Authorization"]);
@@ -47,6 +49,8 @@ const Router = () => {
         <PrivateRouter path={"/chat"} component={Chat} />
         <PrivateRouter path={"/chatTest"} component={ChatTest} />
         
+        <PrivateRouter path={"/addFriend"} component={AddFriend} />
+
         <Redirect to="/" />
       </Switch>
       {/* <Footer /> */}
