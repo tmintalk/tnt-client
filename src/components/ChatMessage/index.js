@@ -9,6 +9,7 @@ const ChatMessage = ({ message, messages, index, curUser }) => {
   const [isCurUser, setIsCurUser] = useState(false);
   const { user } = useSelector((state) => state);
   const [isdiffTime, setIsdiffTime] = useState(true);
+  const [isdiffTime2, setIsdiffTime2] = useState(true);
   const prevDate = new Date(messages[index - 1]?.timeStamp).getDate();
   useEffect(() => {
     if (user?.data) {
@@ -18,7 +19,8 @@ const ChatMessage = ({ message, messages, index, curUser }) => {
 
   useEffect(() => {
     isTimeDifferent();
-  }, [messages]);
+    isTimeDifferent2();
+  }, []);
 
   const dateFrame = (date) => {
     let hours =
@@ -62,6 +64,26 @@ const ChatMessage = ({ message, messages, index, curUser }) => {
       setIsdiffTime(true);
     }
   };
+  const isTimeDifferent2 = () => {
+    const isSenderSame =
+      messages[index + 1]?.senderName === message?.senderName;
+    const isMinSame =
+      new Date(messages[index + 1]?.timeStamp).getMinutes() ==
+      new Date(message.timeStamp).getMinutes();
+    const isHourSame =
+      new Date(messages[index + 1]?.timeStamp).getHours() ==
+      new Date(message.timeStamp).getHours();
+    const isDateSame =
+      new Date(messages[index + 1]?.timeStamp).getDate() ==
+      new Date(message.timeStamp).getDate();
+    if (isSenderSame && isHourSame && isMinSame && isDateSame) {
+      console.log("same Time2");
+      setIsdiffTime2(false);
+    } else {
+      console.log("diff Time2");
+      setIsdiffTime2(true);
+    }
+  };
 
   return (
     <>
@@ -98,7 +120,7 @@ const ChatMessage = ({ message, messages, index, curUser }) => {
             {message.body}
           </div>
         </div>
-        {isdiffTime && (
+        {isdiffTime2 && (
           <div className="chatMessage-date">
             {dateFrame(new Date(message.timeStamp))}
           </div>

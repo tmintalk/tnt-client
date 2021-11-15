@@ -18,6 +18,7 @@ const BottomNav = () => {
   useEffect(() => {
     window.localStorage.setItem("activeNav", JSON.stringify(activeNav));
   }, [activeNav]);
+
   return (
     <nav className="wrapper">
       {/* 하단 네비게이션 최상위 태그 */}
