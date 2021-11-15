@@ -1,5 +1,4 @@
-
-.myprofile-header-container{
+.myprofile-header-container {
   width: 100vw;
   height: 60px;
   background-color: white;
@@ -7,16 +6,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   font-family: NanumSquareB;
   font-size: 16px;
-  .header-title{
+  .myprofile-logoutButton {
+    position: absolute;
+    margin-right: 18px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .header-title {
     width: 190px;
     height: 60px;
   }
 }
 
-.my-profile-container{
+.my-profile-container {
   width: 100vw;
   height: 200px;
   background-color: black;
@@ -26,36 +34,36 @@
   padding: 24px;
   align-items: center;
 
-  .my-profile-photo{
-    width:100px;
-    height:100px;
+  .my-profile-photo {
+    width: 100px;
+    height: 100px;
     border-radius: 62px;
-    background-color: #C4C4C4; 
+    background-color: #c4c4c4;
   }
 
-  .my-profile-content{
+  .my-profile-content {
     display: flex;
     flex-direction: column;
 
     margin-left: 20px;
-    .my-name{
+    .my-name {
       font-family: NanumSquareEB;
       font-size: 18px;
       color: white;
     }
-    .my-email{
+    .my-email {
       font-family: NanumSquareR;
       margin-top: 8px;
       font-size: 12px;
       color: gray;
     }
-    .my-post{
+    .my-post {
       width: 80px;
       height: 30px;
       border-radius: 15px;
       background-color: black;
-      border:1px solid white;
-      padding:5px;
+      border: 1px solid white;
+      padding: 5px;
 
       font-family: NanumSquareR;
       font-size: 12px;
