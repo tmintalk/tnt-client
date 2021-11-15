@@ -57,10 +57,10 @@ const ChatMessage = ({ message, messages, index, curUser }) => {
       new Date(messages[index - 1]?.timeStamp).getDate() ==
       new Date(message.timeStamp).getDate();
     if (isSenderSame && isHourSame && isMinSame && isDateSame) {
-      console.log("same Time");
+      // console.log("same Time");
       setIsdiffTime(false);
     } else {
-      console.log("diff Time");
+      // console.log("diff Time");
       setIsdiffTime(true);
     }
   };
@@ -77,10 +77,10 @@ const ChatMessage = ({ message, messages, index, curUser }) => {
       new Date(messages[index + 1]?.timeStamp).getDate() ==
       new Date(message.timeStamp).getDate();
     if (isSenderSame && isHourSame && isMinSame && isDateSame) {
-      console.log("same Time2");
+      // console.log("same Time2");
       setIsdiffTime2(false);
     } else {
-      console.log("diff Time2");
+      // console.log("diff Time2");
       setIsdiffTime2(true);
     }
   };

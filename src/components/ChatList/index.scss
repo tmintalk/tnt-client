@@ -30,7 +30,7 @@
 
       .list-profile-container {
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         .list-friend-profile {
           width: 48px;
           height: 48px;
@@ -45,15 +45,18 @@
           flex-direction: column;
 
           .list-friend-name {
-            //width: 80vw;
             color: black;
             font-family: NanumSquareB;
+            overflow: visible;
             font-size: 14px;
           }
           .list-chat-text {
+            // width: 250px;
             color: #353535;
             font-family: NanumSquareR;
             font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
         }
       }
