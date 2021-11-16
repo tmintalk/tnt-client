@@ -55,13 +55,16 @@ const PostCard = (props) => {
   return (
     <>
       <div className="list-post-container">
-        {props?.item?.User?.id == user?.data?.id ?
-        <Link to={`/mypage`}>
-          <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
-        </Link> :
-        <Link to={`/users/${props?.item?.User?.id}`}>
-          <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
-        </Link>
+        {
+          props?.item?.like ?
+            props?.item?.User?.id === user?.data?.id ?
+              <Link to={`/mypage`}>
+                <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
+              </Link> :
+              <Link to={`/users/${props?.item?.User?.id}`}>
+                <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
+              </Link>
+          : <img src="https://tmi-image.s3.ap-northeast-2.amazonaws.com/profile.png" alt="tumbnail" className="list-post-profile" />
         }
       
         <div className="list-post-content">
