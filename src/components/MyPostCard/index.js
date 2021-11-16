@@ -56,6 +56,8 @@ const MyPostCard = (props) => {
             <div className="list-post-kind">{props?.item?.about}</div>
           </div>
 
+          {props?.item?.imageUrl && <img src={props?.item?.imageUrl} alt="post" />}
+
           <div className="list-post-story">{props?.item?.description}</div>
           <div className="list-icon-container">
             <div className="heart">
