@@ -1,13 +1,18 @@
+import { useState } from "react";
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
-import { Form, Input, Button, Upload } from 'antd';
+import { Form, Input, Button, Upload, message } from 'antd';
 import { Link } from 'react-router-dom';
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+
 
 import './index.scss';
 
 const SignupForm = () => {
   const [, setCookie] = useCookies(['Authorization']);
+  const [loading, setLoading] = useState();
+  const [imageUrl, setImageUrl] = useState('');
 
   const onFinish = async (values) => {
     const { email, password, nickname, image } = values;
@@ -21,43 +26,54 @@ const SignupForm = () => {
     })
 
     setCookie('Authorization', res.data.token, { path: '/', maxAge: 24 * 60 * 60 });
-    window.location.href = "/"  
+    window.location.href = "/"
+  }
+
+  const handleChange = (info) => {
+    console.log(info);
+    if (info.file.response) {
+      setImageUrl(info.file.response.uri)
+      console.log(info.file.response.uri)
+    }
   }
 
   return (
     <>
-
-      <div className="signup-header-container"> 
-        {/* <div className='header-text'>TnT</div> */}
-        {/* <img className="header-title" src='../../commons/img/TnT.png'/> */}
-        <img src={require("../../commons/img/TnT.png").default} alt="title"/>
-      </div>
       <div className="signup-container">
         <div className="signup-greeting-text">
           <div className="greeting-text-first">
-            안녕하세요! <br/> TnT 입니다.
+            안녕하세요! <br /> TnT 입니다.
           </div>
           <div className="greeting-text-second">
             서비스 이용을 위해 회원가입이 필요해요.
           </div>
+          <div className="form-title">Profile Image</div>
         </div>
-        <div className="signup-profile-photo"></div>
+        
         <div className="signup-form-container">
           <Form
             initialValues={{ remember: true }}
             onFinish={onFinish}
           >
             <Form.Item
-              label="썸네일 이미지"
               name="image"
             >
-              <Upload 
+              <Upload
                 name="image"
+                listType="picture-card"
+                className="avatar-uploader"
+                showUploadList={false}
                 action={'http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com/uploads'}
+                onChange={handleChange}
               >
-                <button>선택</button>
+                {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> 
+                : <div>
+                  <PlusOutlined style={{color:'#ffffff70'}}/>
+                  {/* <div style={{ marginTop: 8 , color:'#ffffff'}}>Profile</div> */}
+                </div>}
               </Upload>
             </Form.Item>
+
             <Form.Item
               label="Nickname"
               name="nickname"
