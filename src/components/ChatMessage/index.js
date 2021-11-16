@@ -90,10 +90,7 @@ const ChatMessage = ({ message, messages, index, curUser }) => {
       {newDate(new Date(message.timeStamp)) ? (
         <div className="chatMessage-newDate-container">
           <div className="chatMessage-newDate">
-            {/* <Tag>{newDate(new Date(message.timeStamp))}</Tag> */}
-            {/* <div className="newDatecontainer"> */}
             {newDate(new Date(message.timeStamp))}
-            {/* </div> */}
           </div>  
         </div>
       ) : null}

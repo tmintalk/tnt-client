@@ -25,6 +25,7 @@ const PostCard = (props) => {
   useState(() => {
     if (user.data) {
       console.log("username", user.data.nickname);
+      //console.log("userId", user.data.id);
       setCurUser({
         name: user.data.nickname,
         picture:
@@ -54,7 +55,15 @@ const PostCard = (props) => {
   return (
     <>
       <div className="list-post-container">
-        <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
+        {props?.item?.User?.id == user?.data?.id ?
+        <Link to={`/mypage`}>
+          <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
+        </Link> :
+        <Link to={`/users/${props?.item?.User?.id}`}>
+          <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
+        </Link>
+        }
+      
         <div className="list-post-content">
           <div className="list-post-name">
             {props?.item?.like
