@@ -1,29 +1,25 @@
 import { useState } from "react";
 import axios from "axios";
 
-import { List, Avatar } from "antd";
+import { List, Input } from "antd";
 import { Link } from "react-router-dom";
 import { getRoomId } from "../../actions/hash.js";
 
 import {
-  IoPersonAddOutline,
   IoSearchOutline,
   IoChatboxOutline,
 } from "react-icons/io5";
+import { useHistory } from 'react-router';
 
 import "./index.scss";
 import { useSelector } from "react-redux";
 
 const UserList = () => {
+  let history = useHistory();
   const [users, setUsers] = useState();
+  const [search, setSearch] = useState('');
   const { user } = useSelector((state) => state);
 
-  if (user.data) {
-    console.log(user?.data.nickname);
-    // console.log(getRoomId(user.data.nickname, "abc"));
-  }
-  // 임시 roomId
-  // const roomId = "test1";
   useState(() => {
     (async () => {
       const resp = await axios.get("/users");
@@ -31,34 +27,33 @@ const UserList = () => {
     })();
   }, []);
 
+  const doSearch = () => {
+    history.push(`/find/${search}`)
+  }
+
   return (
     <>
       {users && (
         <>
           <div className="user-header-container">
-            {/* <img
-              src={require("../../commons/img/TnT.png").default}
-              alt="title"
-            /> */}
             친구 목록
           </div>
 
           <div className="full-container">
             <div className="search-container">
-              <div className="search-button">
+              <div className="search-button" onClick={doSearch}>
                 <IoSearchOutline className="search-icon" />
               </div>
               <div className="search-bar">
-                <input
+                <Input
+                  value={search}
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="search your friend"
+                  onChange={(e) => {setSearch(e.target.value)}}
+                  onPressEnter={doSearch}
                 />                
               </div>
-              {/* 친구추가 버튼 */}
-              {/* <div className="add-friend">
-                <IoPersonAddOutline />
-              </div> */}
             </div>
 
             <div className="user-ant-list">
@@ -71,7 +66,7 @@ const UserList = () => {
                       <List.Item>
                           <div className="user-list-friend-container">
                             <div className="list-profile-container">
-                              <div className="list-friend-profile"></div>
+                              <img className="list-friend-profile" src={item.thumbnailUrl} alt="thumbnail" />
                               <div className="list-friend-name">
                                 {item.nickname}
                               </div>

@@ -1,0 +1,91 @@
+
+.addFriend-header-container {
+  width: 100vw;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: NanumSquareB;
+  font-size: 16px;
+  .header-title {
+    width: 190px;
+    height: 60px;
+  }
+}
+.addFriend-search-container {
+  width: 100%;
+  padding: 0px 24px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .search-button {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-self: center;
+
+    margin-right: 10px;
+  }
+  .search-bar {
+    width: 100%;
+    border-radius: 10px;
+    background-color: black;
+
+    display: flex;
+    color: white;
+    .form-control {
+      height: 40px;
+      width: 100%;
+      border-radius: 10px;
+      padding: 2px 20px;
+      color: white;
+      border: #000000 0.1px solid;
+      font-family: NanumSquareR;
+      background-color: black;
+      //margin-left: 20px;
+    }      
+  }
+  .add-friend {
+    width: 30px;
+    height: 25px;
+    color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    cursor: pointer;
+  }
+  
+}
+.addFriend-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 24px;
+  margin-top: 24px;
+  border-bottom: 1px #e7e7e7 solid;
+  .list-profile-container {
+    display: flex;
+    align-items: center;
+    margin: 15px 0px;
+    .list-friend-profile {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      background-color: #e7e7e7;
+    }
+    .list-friend-name {
+      color: black;
+      font-family: NanumSquareB;
+      font-size: 14px;
+
+      margin-left: 10px;
+    }
+  }
+
+}

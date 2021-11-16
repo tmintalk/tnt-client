@@ -38,8 +38,17 @@ const PostForm = () => {
   const dispatch = useDispatch();
 
   const onFinish = async (values) => {
+    const { description, date, item, about, price, image } = values;
+    const imageUrl = image.file.response.uri;
 
-    await axios.post('/posts', values)
+    await axios.post('/posts', {
+      description,
+      date,
+      item,
+      about,
+      price,
+      imageUrl
+    })
     formRef.current.resetFields();
 
     dispatch({
@@ -51,8 +60,6 @@ const PostForm = () => {
 
   return (
     <>
-
-
       <Form
         ref={formRef}
         initialValues={{ remember: true }}
@@ -125,20 +132,19 @@ const PostForm = () => {
 
         </div>
         <div className="post-upload-container">
-          <Upload {...props} className="post-upload-icon-container">
-            <Button icon={<IoImageOutline />}></Button>
-          </Upload>
-          {/* <div className="post-upload-lock-container">
-            <IoLockOpenOutline />
-            <div>People can check my profile</div>
-          </div> */}
+          <Form.Item
+            name="image"
+            rules={[{ required: true }]}
+          >
+            <Upload 
+              name="image"
+              className="post-upload-icon-container"
+              action={'http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com/uploads/post'}
+            >
+              <Button icon={<IoImageOutline />}></Button>
+            </Upload>
+          </Form.Item>
         </div>
-        {/* <Form.Item>
-          <Button type="primary" htmlType="submit">
-            작성
-          </Button>
-        </Form.Item> */}
-
       </Form>
     </>
   )

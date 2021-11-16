@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, Upload } from 'antd';
 import { Link } from 'react-router-dom';
 
 import './index.scss';
@@ -10,9 +10,11 @@ const SignupForm = () => {
   const [, setCookie] = useCookies(['Authorization']);
 
   const onFinish = async (values) => {
-    const { email, password, nickname } = values;
+    const { email, password, nickname, image } = values;
+    const thumbnailUrl = image?.file?.response?.uri;
 
     const res = await axios.post('/auth/join', {
+      thumbnailUrl,
       email,
       password,
       nickname
@@ -45,6 +47,17 @@ const SignupForm = () => {
             initialValues={{ remember: true }}
             onFinish={onFinish}
           >
+            <Form.Item
+              label="썸네일 이미지"
+              name="image"
+            >
+              <Upload 
+                name="image"
+                action={'http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com/uploads'}
+              >
+                <button>선택</button>
+              </Upload>
+            </Form.Item>
             <Form.Item
               label="Nickname"
               name="nickname"

@@ -7,13 +7,12 @@ import { Link } from "react-router-dom";
 import { IoHeart, IoChatboxOutline } from "react-icons/io5";
 import { getRoomId } from "../../actions/hash.js";
 import "./index.scss";
+import axios from "axios";
 
 const PostCard = (props) => {
   const { posts, user } = useSelector((state) => state);
   const [curUser, setCurUser] = useState();
   const dispatch = useDispatch();
-
-  const [showNameList, setShowNameList] = useState([]); // TODO: 서버랑 연결
 
   useState(() => {
     if (!posts.data) {
@@ -26,6 +25,7 @@ const PostCard = (props) => {
   useState(() => {
     if (user.data) {
       console.log("username", user.data.nickname);
+      //console.log("userId", user.data.id);
       setCurUser({
         name: user.data.nickname,
         picture:
@@ -34,22 +34,42 @@ const PostCard = (props) => {
     }
   }, [user.data]);
 
-  const onClickChat = async (id) => {
-    const temp_arr = [...showNameList, id];
-    temp_arr.push(id);
-    setShowNameList(temp_arr);
+  const createLike = async (id) => {
+    const resp = await axios.post(`/likes/${id}`)  
+    console.log(resp);
+
+    dispatch({
+      type: GET_POSTS_REQUEST,
+    });
   };
-  
+
+  const deleteLike = async (id) => {
+    const resp = await axios.delete(`/likes/${id}`)  
+    console.log(resp);
+
+    dispatch({
+      type: GET_POSTS_REQUEST,
+    });
+  };
 
   return (
     <>
       <div className="list-post-container">
-        <div className="list-post-profile"></div>
+        {props?.item?.User?.id == user?.data?.id ?
+        <Link to={`/mypage`}>
+          <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
+        </Link> :
+        <Link to={`/users/${props?.item?.User?.id}`}>
+          <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
+        </Link>
+        }
+      
         <div className="list-post-content">
           <div className="list-post-name">
-            {showNameList.includes(props?.item?.id) || props?.isShow
-              ? props?.item?.User?.nickname
-              : props?.item?.id}
+            
+            {props?.item?.like
+              ? <Link to={`/users/${props?.item?.User?.id}`}>{props?.item?.User?.nickname}</Link>
+              : <div>{props?.item?.id}</div>}
           </div>
           <div className="sentence">
             <div className="list-post-text">spent</div>
@@ -69,13 +89,15 @@ const PostCard = (props) => {
             <div className="list-post-kind">{props?.item?.about}</div>
           </div>
 
+          {props?.item?.imageUrl && <img src={props?.item?.imageUrl} alt="post" />}
+
           <div className="list-post-story">{props?.item?.description}</div>
           <div className="list-icon-container">
-            <div onClick={() => onClickChat(props?.item?.id)}>
-              {showNameList.includes(props?.item?.id) ? (
-                <IoHeart className="heart-active" />
+            <div>
+              {props?.item?.like ? (
+                <IoHeart onClick={() => deleteLike(props?.item?.id)} className="heart-active" />
               ) : (
-                <IoHeart className="heart-inactive" />
+                <IoHeart onClick={() => createLike(props?.item?.id)} className="heart-inactive" />
               )}
             </div>
             {curUser?.name !== props?.item?.User?.nickname && (
