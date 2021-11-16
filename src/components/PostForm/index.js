@@ -1,3 +1,4 @@
+import { useState } from "react";
 import axios from 'axios';
 
 import { Form, Input, Button, Select, DatePicker, InputNumber, Upload, message } from 'antd';
@@ -13,6 +14,7 @@ import {
   IoImageOutline,
   IoLockOpenOutline
 } from "react-icons/io5";
+import { contains, width } from "dom-helpers";
 
 const { Option } = Select;
 
@@ -36,6 +38,7 @@ const PostForm = () => {
   let history = useHistory()
   var formRef = createRef();
   const dispatch = useDispatch();
+  const [imageUrl, setImageUrl] = useState('');
 
   const onFinish = async (values) => {
     const { description, date, item, about, price, image } = values;
@@ -56,6 +59,14 @@ const PostForm = () => {
     })
 
     history.push('/')
+  }
+
+  const handleChange = (info) => {
+    console.log(info);
+    if (info.file.response) {
+      setImageUrl(info.file.response.uri)
+      console.log(info.file.response.uri)
+    }
   }
 
   return (
@@ -128,7 +139,9 @@ const PostForm = () => {
                 <Input.TextArea placeholder="상세설명" />
               </Form.Item>
             </div>
+            {imageUrl ? <img src={imageUrl} alt="avatar" style={{width:200, height:150}}/> : <></>}
           </div>
+          
 
         </div>
         <div className="post-upload-container">
@@ -140,8 +153,10 @@ const PostForm = () => {
               name="image"
               className="post-upload-icon-container"
               action={'http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com/uploads/post'}
+              onChange={handleChange}
+              showUploadList={false}
             >
-              <Button icon={<IoImageOutline />}></Button>
+              {imageUrl ? <Button icon={<IoImageOutline />}></Button> :<Button icon={<IoImageOutline />}></Button> }
             </Upload>
           </Form.Item>
         </div>

@@ -18,22 +18,26 @@
 }
 
 .signup-container{
-  height: 100%; 
+  height: 100vh; 
+  padding:60px 45px 45px 45px;
+
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+
+  background-color: black;
+  
 
   .signup-greeting-text{
     display: flex;
     flex-direction: column;
-    //height: 250px;
-    width: 100%;
-    background-color: black;
-    padding: 50px 24px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+
+    width: 100%;
+  
+    margin-bottom: 20px;
     .greeting-text-first{
       font-size: 24px;
       font-family: NanumSquareB;
@@ -54,13 +58,40 @@
     background-color: #cecece;
     margin: 20px 0px;
   }
+  .form-title{
+    color: white;
+
+    margin-top: 30px;
+  }
   .signup-form-container{
     width: 100%;
-    padding: 0px 24px;
-    //background-color: white;
+    // .avatar-uploader > .ant-upload {
+    //   width: 128px;
+    //   height: 128px;
+    // }
+    .ant-upload-picture-card-wrapper {
+      display: flex;
+      justify-content: center;
+      .ant-upload.ant-upload-select-picture-card{
+        border:1px rgb(108, 108, 108) dashed;
+        background-color: #ffffff20;
+
+        width:104px;
+        height:104px;
+        border-radius: 52px;
+        margin:0px;
+
+        color: white;
+        img{
+          width:104px;
+          height:104px;
+          border-radius: 52px;
+        }
+      }
+    }
     .ant-form-item-required{
       //background-color: olive;
-      color: black;
+      color: white;
     }
     .join-and-login{
       display: flex;

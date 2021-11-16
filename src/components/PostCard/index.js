@@ -66,7 +66,6 @@ const PostCard = (props) => {
       
         <div className="list-post-content">
           <div className="list-post-name">
-            
             {props?.item?.like
               ? <Link to={`/users/${props?.item?.User?.id}`}>{props?.item?.User?.nickname}</Link>
               : <div>{props?.item?.id}</div>}
