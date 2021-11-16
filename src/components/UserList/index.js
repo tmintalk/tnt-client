@@ -40,7 +40,7 @@ const UserList = () => {
           </div>
 
           <div className="full-container">
-            <div className="search-container">
+            {/* <div className="search-container">
               <div className="search-button" onClick={doSearch}>
                 <IoSearchOutline className="search-icon" />
               </div>
@@ -54,7 +54,7 @@ const UserList = () => {
                   onPressEnter={doSearch}
                 />                
               </div>
-            </div>
+            </div> */}
 
             <div className="user-ant-list">
               <div className="ant-list-user">
@@ -69,6 +69,9 @@ const UserList = () => {
                               <img className="list-friend-profile" src={item.thumbnailUrl} alt="thumbnail" />
                               <div className="list-friend-name">
                                 {item.nickname}
+                              </div>
+                              <div>
+                                {item?.sum}
                               </div>
                             </div>
                             <Link
