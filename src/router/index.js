@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { GET_ME_REQUEST } from "../reducers/user";
 import Header from "../components/Header";
@@ -22,6 +22,7 @@ import Post from "../pages/Post";
 import AddFriend from "../components/AddFriend";
 
 const Router = () => {
+  const { user } = useSelector(state => state);
   const dispatch = useDispatch();
   const [cookies] = useCookies(["Authorization"]);
 
@@ -54,7 +55,7 @@ const Router = () => {
         <Redirect to="/" />
       </Switch>
       {/* <Footer /> */}
-      <BottomNav />
+      {user.data && <BottomNav />}
     </Suspense>
   );
 };

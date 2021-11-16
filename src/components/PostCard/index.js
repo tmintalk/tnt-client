@@ -57,9 +57,10 @@ const PostCard = (props) => {
         <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
         <div className="list-post-content">
           <div className="list-post-name">
+            
             {props?.item?.like
-              ? props?.item?.User?.nickname
-              : props?.item?.id}
+              ? <Link to={`/users/${props?.item?.User?.id}`}>{props?.item?.User?.nickname}</Link>
+              : <div>{props?.item?.id}</div>}
           </div>
           <div className="sentence">
             <div className="list-post-text">spent</div>
