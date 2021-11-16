@@ -19,6 +19,7 @@
     flex-direction: column;
     justify-content: center;
 
+    
     .first-pattern{
       display: flex;
       align-items: center;
@@ -52,11 +53,11 @@
     }
 
     .partition{
-  height: 0.3px;
-  background-color: #cccccc;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+      height: 0.3px;
+      background-color: #cccccc;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
     .second-pattern{
       display: flex;
       align-items: center;
@@ -86,6 +87,30 @@
           color: #3746EA;
           font-family: NanumSquareEB;
         }
+      }
+    }
+
+    .cost-title-text{
+      font-family: NanumSquareR;
+      font-size: 14px;
+      color:#898A8D;
+    }
+    .cost-sentence{
+      display: flex;    
+      align-items: center;  
+
+      margin-top: 5px;
+      .cost-main-text{
+        font-family: NanumSquareEB;
+        font-size: 18px;
+        color:#7B61FF;
+      }
+      .cost-sub-text{
+        font-family: NanumSquareB;
+        font-size: 14px;
+        color:black;
+
+        margin-left: 3px;
       }
     }
   }

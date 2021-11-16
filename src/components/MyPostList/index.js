@@ -32,14 +32,14 @@ const MyPostList = () => {
 
   return (
     <>
-      {posts.data && (
+      {user?.data?.Posts && (
         <>
           <div className="mypostlist-title"> 내가 쓴 글 </div>
           <div className="mypost-ant-list">
             <List
               itemLayout="vertical"
               size="small"
-              dataSource={posts.data}
+              dataSource={user?.data?.Posts}
               renderItem={(item) => (
                 <List.Item
                   key={item.title}
