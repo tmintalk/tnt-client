@@ -1,7 +1,6 @@
 @import '../../index.css';
 
 .question-container{
-  height:260px;
   width: 100vw;
   background-color: black;
 
@@ -10,7 +9,7 @@
   justify-content: center;
   align-items: center;
 
-  padding:24px;
+  padding:84px 24px 24px 24px;
   .greeting-text{
     font-family: NanumSquareB;
     color: white;

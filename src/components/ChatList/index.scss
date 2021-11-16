@@ -7,73 +7,77 @@
   align-items: center;
   justify-content: center;
 }
-
-.chat-ant-list {
-  padding: 20px 0;
-  .ant-list-item {
-    border-radius: 8px;
-    box-shadow: 0px 0px 2px 0px #00000025;
-    padding: 16px;
-    margin-bottom: 10px;
-
-    display: flex;
-    &:hover {
-      background-color: #fafafa;
-    }
-
-    .list-friend-container {
-      width: 100%;
+.chat-list-full-container{
+  padding: 60px 24px 24px 24px;
+  //height:100vh;
+  min-height: 600px;
+  .chat-ant-list {
+    padding: 20px 0;
+    .ant-list-item {
+      border-radius: 8px;
+      box-shadow: 0px 0px 2px 0px #00000025;
+      padding: 16px;
+      margin-bottom: 10px;
 
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      &:hover {
+        background-color: #fafafa;
+      }
 
-      .list-profile-container {
+      .list-friend-container {
+        width: 100%;
+
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        .list-friend-profile {
-          width: 48px;
-          height: 48px;
-          border-radius: 24px;
-          background-color: black;
-        }
-        .list-chat-content {
-          width: calc(100vw - 250px);
-          margin-left: 24px;
-          display: flex;
-          justify-content: flex-start;
-          flex-direction: column;
 
-          .list-friend-name {
-            color: black;
-            font-family: NanumSquareB;
-            overflow: visible;
-            font-size: 14px;
+        .list-profile-container {
+          display: flex;
+          align-items: center;
+          .list-friend-profile {
+            width: 48px;
+            height: 48px;
+            border-radius: 24px;
+            background-color: black;
           }
-          .list-chat-text {
-            // width: 250px;
-            color: #353535;
+          .list-chat-content {
+            width: calc(100vw - 250px);
+            margin-left: 24px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+
+            .list-friend-name {
+              color: black;
+              font-family: NanumSquareB;
+              overflow: visible;
+              font-size: 14px;
+            }
+            .list-chat-text {
+              // width: 250px;
+              color: #353535;
+              font-family: NanumSquareR;
+              font-size: 14px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+        .chat-right-container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          .chat-date {
+            color: #9a9a9a;
             font-family: NanumSquareR;
-            font-size: 14px;
+            font-size: 12px;
+            margin-left: 10px;
+            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
           }
-        }
-      }
-      .chat-right-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        .chat-date {
-          color: #9a9a9a;
-          font-family: NanumSquareR;
-          font-size: 12px;
-          margin-left: 10px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        .chat-unread {
+          .chat-unread {
+          }
         }
       }
     }

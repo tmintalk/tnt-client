@@ -1,0 +1,12 @@
+.footer-container{
+  width: 100vw;
+  background-color: black;
+
+  padding: 24px 24px 104px 24px;
+  a{
+    color:white;
+    &:hover{
+      color:#7B61FF;
+    }
+  }
+}

@@ -112,7 +112,7 @@ const ChatList = () => {
     <>
       {sortedUsers && (
         <>          
-          <div className="full-container">
+          <div className="chat-list-full-container">
             <div className="chat-ant-list">
               <List
                 itemLayout="horizontal"

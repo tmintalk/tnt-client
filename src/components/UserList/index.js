@@ -36,7 +36,7 @@ const UserList = () => {
       {users && (
         <>         
 
-          <div className="full-container">
+          <div className="friend-list-full-container">
             {/* <div className="search-container">
               <div className="search-button" onClick={doSearch}>
                 <IoSearchOutline className="search-icon" />
@@ -64,11 +64,18 @@ const UserList = () => {
                           <div className="user-list-friend-container">
                             <div className="list-profile-container">
                               <img className="list-friend-profile" src={item.thumbnailUrl} alt="thumbnail" />
-                              <div className="list-friend-name">
-                                {item.nickname}
-                              </div>
-                              <div>
-                                {item?.sum}
+                              <div className="list-friend-content">
+                                <div className="list-friend-name">
+                                  {item.nickname}님은
+                                </div>
+                                <div className="list-friend-info">
+                                  <div className="list-friend-consume">
+                                    {item?.sum}
+                                  </div>
+                                  <div className="list-friend-subtext">
+                                    원 소비했어요!
+                                  </div>
+                                </div>
                               </div>
                             </div>
                             <Link

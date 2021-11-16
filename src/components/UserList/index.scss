@@ -21,8 +21,10 @@
   }
 }
 
-.full-container {
-  padding: 60px 24px 90px 24px;
+.friend-list-full-container {
+  padding: 60px 24px 24px 24px;
+  //height:100vh;
+  min-height: 600px;
   .search-container {
     width: 100%;
     padding: 24px 0 12px 0;
@@ -105,12 +107,26 @@
               border-radius: 24px;
               background-color: #e7e7e7;
             }
-            .list-friend-name {
-              color: black;
-              font-family: NanumSquareB;
-              font-size: 14px;
-
-              margin-left: 10px;
+            .list-friend-content{
+              margin-left: 20px;
+              .list-friend-name {
+                color: black;
+                font-family: NanumSquareB;
+                font-size: 14px;                
+              }
+              .list-friend-info{
+                display: flex;
+                .list-friend-consume{
+                  color: #7B61FF;
+                  font-family: NanumSquareR;
+                  font-size: 14px;                
+                }
+                .list-friend-subtext{
+                  color: #727272;
+                  font-family: NanumSquareR;
+                  font-size: 14px;                
+                }
+              }
             }
           }
 
