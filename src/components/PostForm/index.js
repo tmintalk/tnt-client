@@ -126,6 +126,10 @@ const PostForm = () => {
                   allowClear
                 >
                   <Option value="flex">Flex</Option>
+                  <Option value="satisfy">Satisfy</Option>
+                  <Option value="soso">SoSo</Option>
+                  <Option value="regret">Regret</Option>
+                  <Option value="terrible">Terrible</Option>
                   <Option value="etc">Etc</Option>
                 </Select>
               </Form.Item>
