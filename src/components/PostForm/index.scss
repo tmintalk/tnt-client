@@ -131,6 +131,11 @@
       padding:0
     }
   }
+  img{
+    width:200px;
+    height:150px;
+    object-fit: cover;
+  }
 }
 .post-upload-container{
   margin-left: 60px;
