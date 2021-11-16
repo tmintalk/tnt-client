@@ -20,7 +20,7 @@ const ChatMessage = ({ message, messages, index, friendInfo, thumbnailUrl }) => 
   useEffect(() => {
     isTimeDifferent();
     isTimeDifferent2();
-  }, []);
+  }, [messages]);
 
   const dateFrame = (date) => {
     let hours =
