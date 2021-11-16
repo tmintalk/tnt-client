@@ -1,15 +1,19 @@
 import React from "react";
 import "./index.css";
+import { Link } from "react-router-dom";
 
-const UserAvatar = ({ user }) => {
+const UserAvatar = ({ user, thumbnailUrl, friendInfo }) => {
   return (
     <>
-      <img
-        src={user.picture}
+      <Link to={`/users/${friendInfo?.id}`}>
+        <img
+        src={thumbnailUrl}
         alt={user.name}
         title={user.name}
         className={"avatar"}
       ></img>
+      </Link>
+      
     </>
   );
 };
