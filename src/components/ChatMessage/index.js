@@ -5,7 +5,7 @@ import "./index.css";
 import "./index.scss";
 import { Tag } from "antd";
 
-const ChatMessage = ({ message, messages, index, curUser }) => {
+const ChatMessage = ({ message, messages, index, friendInfo, thumbnailUrl }) => {
   const [isCurUser, setIsCurUser] = useState(false);
   const { user } = useSelector((state) => state);
   const [isdiffTime, setIsdiffTime] = useState(true);
@@ -102,7 +102,7 @@ const ChatMessage = ({ message, messages, index, curUser }) => {
         {!isCurUser &&
           (isdiffTime ? (
             <div className="chatMessage-avatar-container">
-              <UserAvatar user={message.user}></UserAvatar>
+              <UserAvatar user={message.user} friendInfo={friendInfo} thumbnailUrl={thumbnailUrl}></UserAvatar>
             </div>
           ) : (
             <div className="chatMessage-nonavatar-container"></div>

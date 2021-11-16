@@ -12,8 +12,10 @@ import useTyping from "../../useTyping";
 import NewMessageForm from "../NewMessageForm";
 import TypingMessage from "../TypingMessage";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Users from "../Users";
 import UserAvatar from "../UserAvatar";
+import axios from "axios";
 
 const ChatRoom = (props) => {
   const { user } = useSelector((state) => state);
@@ -29,13 +31,21 @@ const ChatRoom = (props) => {
   } = useChat(roomId);
   const [newMessage, setNewMessage] = useState("");
   const [friendName, setFriendName] = useState("");
+  const [friendInfo, setFriendInfo] = useState();
   const messagesEndRef = useRef();
   useEffect(() => {
     const splitNames = roomId?.split(" and ");
     const friend =
       splitNames[0] === user?.data?.nickname ? splitNames[1] : splitNames[0];
     setFriendName(friend);
-  }, [friendName]);
+    const fetchFriend = async () => {
+      const response = await axios.get(`users/find/${friend}`);
+      const result = response.data;
+      setFriendInfo(result);
+      console.log(result);
+    }
+    fetchFriend()
+  }, [user?.data]);
 
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({
@@ -89,6 +99,8 @@ const ChatRoom = (props) => {
                     messages={messages}
                     index={i}
                     curUser={curUser}
+                    friendInfo={friendInfo}
+                    thumbnailUrl={friendInfo?.thumbnailUrl}
                   ></ChatMessage>
                 </li>
               ))}
@@ -107,7 +119,9 @@ const ChatRoom = (props) => {
               <IoArrowBack className="back-icon" />
             </button>
             <div className="chatRoom-profile">
-              <div class="chatRoom-profile-photo"></div>
+            <Link to={`/users/${friendInfo?.id}`}>
+              <img src={friendInfo?.thumbnailUrl} class="chatRoom-profile-photo"></img>
+            </Link>
               <div class="chatRoom-counterperson"> {friendName} </div>
             </div>
             {/* <div class="chatRoom-menu">
