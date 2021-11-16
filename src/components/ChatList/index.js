@@ -133,7 +133,9 @@ const ChatList = () => {
                         <List.Item>
                           <div className="list-friend-container">
                             <div className="list-profile-container">
-                              <img src={item?.thumbnailUrl} alt="chag" className="list-friend-profile" />
+                              <Link to={`users/${item.id}`}>
+                              <img src={item?.thumbnailUrl} alt="chag" className="list-friend-profile" onClick={(e)=>e.stopPropagation}/>
+                              </Link>
                               <div className="list-chat-content">
                                 <div className="list-friend-name">
                                   {item.nickname}
