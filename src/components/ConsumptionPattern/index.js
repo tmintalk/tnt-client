@@ -1,13 +1,17 @@
+import { useSelector } from 'react-redux';
+
 import './index.scss'
 
 const ConsumptionPattern = () => {
+  const { user } = useSelector(state => state);
 
   return (
     <>
     {/* <h3> 소비패턴 할 차례야</h3> */}
     <div className="consumption-pattern-container"> 
       <div className="title">나의 소비패턴은?</div>
-      <div className="pattern-list-container">
+      <div>{user?.data?.sum}</div>
+      {/* <div className="pattern-list-container">
         <div className="first-pattern">
           <div className="first-character"></div>
           <div className="first-content-container">
@@ -25,7 +29,7 @@ const ConsumptionPattern = () => {
             <div className="second-title"> 별다방 단골손님 </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
     
    
