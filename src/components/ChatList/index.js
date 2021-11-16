@@ -111,9 +111,8 @@ const ChatList = () => {
   return (
     <>
       {sortedUsers && (
-        <>
-          <div className="user-header-container">채팅</div>
-          <div className="full-container">
+        <>          
+          <div className="chat-list-full-container">
             <div className="chat-ant-list">
               <List
                 itemLayout="horizontal"
@@ -175,6 +174,8 @@ const ChatList = () => {
               />
             </div>
           </div>
+          <div className="user-header-container">채팅</div>
+        
         </>
       )}
     </>

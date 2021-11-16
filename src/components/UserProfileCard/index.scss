@@ -1,46 +1,49 @@
-.profile-card-header-container {
+.friend-profile-card-header-container {
   width: 100vw;
   height: 60px;
-  background-color: white;
-  border-bottom: 1px solid #e7e7e7;
+  background-color: black;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  padding:0 10px;
   .back-btn {
     border: 0;
     outline: 0;
     background: transparent;
     cursor: pointer;
     .back-icon {
-      width: 35px;
-      height: 35px;
-      color: black;
+      width: 20px;
+      height: 20px;
+      color: white;
       align-items: center;
       justify-content: center;
     }
   }
   .header-text {
-    font-family: NanumSquareEB;
-    font-size: 32px;
+    font-family: NanumSquareB;
+    font-size: 16px;
   }
   .header-title {
     width: 190px;
     height: 60px;
   }
   .empty {
-    width: 47px;
+    width: 32px;
     height: 35px;
   }
 }
 
-.profile-container {
+.friend-profile-container {
   width: 100vw;
-  height: 275px;
   background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  padding: 0 0 30px 0;
 
   .friend-profile-photo {
     width: 124px;

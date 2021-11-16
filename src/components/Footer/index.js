@@ -1,10 +1,13 @@
 import { GithubOutlined } from '@ant-design/icons'
 
+import './index.scss'
+
 const Footer = () => {
   return (
     <>
-      <h1>Footer</h1>
-      <a href="https://github.com/TheStarkor"><GithubOutlined /></a>
+      <div className="footer-container">
+        <a href="https://github.com/TheStarkor"><GithubOutlined style={{color:'#ffffff'}}/> github link</a>
+      </div>
     </>
   );
 };

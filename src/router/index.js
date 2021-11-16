@@ -54,7 +54,7 @@ const Router = () => {
 
         <Redirect to="/" />
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
       {user.data && <BottomNav />}
     </Suspense>
   );
