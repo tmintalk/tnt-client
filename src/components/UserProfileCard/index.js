@@ -33,7 +33,7 @@ const UserProfileCard = (props) => {
             <div class="empty"></div>
           </div>
           <div className="profile-container">
-            <div className="friend-profile-photo"></div>
+            <img src={user?.thumbnailUrl} alt="thumbnail" className="firend-profile-photo" />
             {/* <Image
               width={200}
               src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
