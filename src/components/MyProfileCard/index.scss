@@ -3,12 +3,17 @@
   height: 60px;
   background-color: white;
   border-bottom: 1px solid #e7e7e7;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
   font-family: NanumSquareB;
   font-size: 16px;
+
+  position:fixed;
+  top:0;
+  z-index: 2;
   .myprofile-logoutButton {
     position: absolute;
     margin-right: 18px;
@@ -26,12 +31,11 @@
 
 .my-profile-container {
   width: 100vw;
-  height: 200px;
   background-color: black;
 
   display: flex;
   flex-direction: row;
-  padding: 24px;
+  padding: 100px 24px 44px 24px;
   align-items: center;
 
   .my-profile-photo {

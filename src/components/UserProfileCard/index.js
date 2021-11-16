@@ -19,7 +19,7 @@ const UserProfileCard = (props) => {
     <>
       {user && (
         <>
-          <div className="profile-card-header-container">
+          <div className="friend-profile-card-header-container">
             <button class="back-btn" type="button" onClick={props.goBack}>
               {" "}
               <IoArrowBack className="back-icon" />
@@ -32,7 +32,7 @@ const UserProfileCard = (props) => {
             />
             <div class="empty"></div>
           </div>
-          <div className="profile-container">
+          <div className="friend-profile-container">
             <img src={user?.thumbnailUrl} alt="thumbnail" className="firend-profile-photo" />
             {/* <Image
               width={200}

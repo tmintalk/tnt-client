@@ -5,6 +5,10 @@
   height: 60px;
   background-color: white;
   border-bottom: 1px solid #e7e7e7;
+
+  position:fixed;
+  top:0;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +22,7 @@
 }
 
 .full-container {
-  padding: 0 24px 90px 24px;
+  padding: 60px 24px 90px 24px;
   .search-container {
     width: 100%;
     padding: 24px 0 12px 0;

@@ -34,10 +34,7 @@ const UserList = () => {
   return (
     <>
       {users && (
-        <>
-          <div className="user-header-container">
-            친구 목록
-          </div>
+        <>         
 
           <div className="full-container">
             {/* <div className="search-container">
@@ -93,6 +90,10 @@ const UserList = () => {
                 />
               </div>
             </div>
+          </div>
+          
+          <div className="user-header-container">
+            친구 목록
           </div>
         </>
       )}

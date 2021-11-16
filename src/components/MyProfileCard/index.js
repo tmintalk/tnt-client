@@ -7,13 +7,7 @@ const MyProfileCard = () => {
   const { user } = useSelector((state) => state);
 
   return (
-    <>
-      <div className="myprofile-header-container">
-        내 프로필
-        <div className="myprofile-logoutButton">
-          <LogoutButton />
-        </div>
-      </div>
+    <>    
 
       <div className="my-profile-container">
         <img src={user?.data?.thumbnailUrl} alt="thumbnail" className="my-profile-photo" />
@@ -21,6 +15,13 @@ const MyProfileCard = () => {
           <div className="my-name">{`${user?.data?.nickname}`}</div>
           <div className="my-email"> {`${user?.data?.email}`} </div>
           {/* <div className="my-post">내가 쓴 글</div> */}
+        </div>
+      </div>
+
+      <div className="myprofile-header-container">
+        내 프로필
+        <div className="myprofile-logoutButton">
+          <LogoutButton />
         </div>
       </div>
     </>
