@@ -7,13 +7,12 @@ import { Link } from "react-router-dom";
 import { IoHeart, IoChatboxOutline } from "react-icons/io5";
 import { getRoomId } from "../../actions/hash.js";
 import "./index.scss";
+import axios from "axios";
 
 const PostCard = (props) => {
   const { posts, user } = useSelector((state) => state);
   const [curUser, setCurUser] = useState();
   const dispatch = useDispatch();
-
-  const [showNameList, setShowNameList] = useState([]); // TODO: 서버랑 연결
 
   useState(() => {
     if (!posts.data) {
@@ -34,10 +33,22 @@ const PostCard = (props) => {
     }
   }, [user.data]);
 
-  const onClickChat = async (id) => {
-    const temp_arr = [...showNameList, id];
-    temp_arr.push(id);
-    setShowNameList(temp_arr);
+  const createLike = async (id) => {
+    const resp = await axios.post(`/likes/${id}`)  
+    console.log(resp);
+
+    dispatch({
+      type: GET_POSTS_REQUEST,
+    });
+  };
+
+  const deleteLike = async (id) => {
+    const resp = await axios.delete(`/likes/${id}`)  
+    console.log(resp);
+
+    dispatch({
+      type: GET_POSTS_REQUEST,
+    });
   };
 
   return (
@@ -46,7 +57,7 @@ const PostCard = (props) => {
         <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
         <div className="list-post-content">
           <div className="list-post-name">
-            {showNameList.includes(props?.item?.id) || props?.isShow
+            {props?.item?.like
               ? props?.item?.User?.nickname
               : props?.item?.id}
           </div>
@@ -72,11 +83,11 @@ const PostCard = (props) => {
 
           <div className="list-post-story">{props?.item?.description}</div>
           <div className="list-icon-container">
-            <div onClick={() => onClickChat(props?.item?.id)}>
-              {showNameList.includes(props?.item?.id) ? (
-                <IoHeart className="heart-active" />
+            <div>
+              {props?.item?.like ? (
+                <IoHeart onClick={() => deleteLike(props?.item?.id)} className="heart-active" />
               ) : (
-                <IoHeart className="heart-inactive" />
+                <IoHeart onClick={() => createLike(props?.item?.id)} className="heart-inactive" />
               )}
             </div>
             {curUser?.name !== props?.item?.User?.nickname && (
