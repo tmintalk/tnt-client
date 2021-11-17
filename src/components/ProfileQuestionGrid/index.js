@@ -22,7 +22,7 @@ const ProfileQuestionGrid = () => {
         <div className="title"> 오늘의 질문에 이렇게 답했어요! </div>
         <div className="my-question-list-container">
           {
-            user.data?.Answers.length !== 0
+            (user.data && user.data.Answers && user.data.Answers.length !== 0)
             ?
             user.data.Answers.map(answer => (
               <ProfileAnswerCard
@@ -31,7 +31,7 @@ const ProfileQuestionGrid = () => {
               />
             ))
             // TODO: 유미야 고쳐죠
-            : <div>없음없음</div>
+            : <div className = "no-answer"> 아직 답변한 질문이 없어요.😥 </div>
           }
         </div>
       </div>

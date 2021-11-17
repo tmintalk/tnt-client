@@ -9,4 +9,12 @@
 
 .my-question-list-container{
   margin-bottom: 24px;  
+  .no-answer{
+    color: #898a8d;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(208, 208, 208);
+    margin: 15px 0px;
+    padding: 20px 24px;
+    background-color: white;
+  }
 }

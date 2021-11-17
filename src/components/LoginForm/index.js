@@ -24,13 +24,17 @@ const LoginForm = () => {
 
   return (
     <>
-    
       <div className="login-header-container"> 
-        <div className="login-signup-text"> Sign Up </div> 
+        <div className="login-signup-text"> SIGN IN </div> 
       </div>
       <div className="login-container">
-        <div className="login-greeting-text"> 안녕하세요! <br/> TnT 입니다</div>
-        <div className="login-greeting-text2"> 서비스 이용을 위해 로그인이 필요해요. </div>
+        <div className="login-greeting-text-all">
+          <div className="fake">
+            <div className="login-greeting-text"> 안녕하세요! <br/> TnT 입니다</div>
+            <div className="login-greeting-text2"> 서비스 이용을 위해 로그인이 필요해요. </div>
+          </div>
+          <div className="login">  </div>
+        </div>
         <div className="login-form-container">
           <Form
             initialValues={{ remember: true }}
@@ -53,11 +57,11 @@ const LoginForm = () => {
             <div className="login-and-join">
               <Form.Item>
                 <Button type="primary" htmlType="submit">
-                  로그인
+                  SIGN IN
                 </Button>
               </Form.Item>
               <Link to="/join">
-                <div className="login-link-to-join"> 회원가입 </div>
+                <div className="login-link-to-join"> JOIN </div>
               </Link>
             </div>
           </Form>
