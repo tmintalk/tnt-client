@@ -23,13 +23,15 @@ const UserProfileQuestionGrid = (props) => {
         <div className="title"> 오늘의 질문에 이렇게 답했어요! </div>
         <div className="my-question-list-container">
           {
-            user &&
+            (user && user.Answers.length !== 0) ?
               user?.Answers.map(answer => (
                 <ProfileAnswerCard
                   question={answer.Question.text}
                   answer={answer.answer}
                 />
               ))
+              : <div className = "no-answer"> 아직 답변한 질문이 없어요.😥 </div>
+
           }
         </div>
       </div>
