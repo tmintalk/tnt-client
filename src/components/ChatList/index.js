@@ -15,9 +15,9 @@ import {
 
 import "./index.scss";
 import { useSelector } from "react-redux";
-const SOCKET_SERVER_URL =
-  "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
-// const SOCKET_SERVER_URL = "http://localhost:5000";
+// const SOCKET_SERVER_URL =
+  // "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
+const SOCKET_SERVER_URL = "http://localhost:5000";
 const ChatList = () => {
   const [users, setUsers] = useState();
   const [sortedUsers, setSortedUsers] = useState([]);
@@ -46,6 +46,7 @@ const ChatList = () => {
         `${SOCKET_SERVER_URL}/chat/${user?.data?.nickname}/readCnt`
       );
       const result = response.data.myReadCnt;
+      console.log("fetchReadCnt", user?.data?.nickname,result);
       setMyReadCnt(result);
     };
     fetchReadCnt();
@@ -77,7 +78,7 @@ const ChatList = () => {
         splitNames[0] === user?.data?.nickname ? splitNames[1] : splitNames[0];
       return users.find((e) => e.nickname === friendName);
     });
-    console.log("matchUsers", matchUsers);
+    // console.log("matchUsers", matchUsers);
     setSortedUsers(matchUsers);
   }, [users, user?.data, messages]);
 
@@ -99,11 +100,16 @@ const ChatList = () => {
   const GetUnreadMessage = (roomId) => {
     const roomMessages = messages.filter((message) => message.room === roomId);
     const totalNum = roomMessages.length;
+    console.log("myReadCnt",myReadCnt)
     if (myReadCnt?.find((i) => i.roomId == roomId)) {
       const readNum = myReadCnt?.find((i) => i.roomId == roomId)?.messageCnt;
       setUnreadNum(totalNum - readNum);
+      console.log("totalNum",totalNum)
       return totalNum - readNum;
-    } else {
+    } else if(myReadCnt.length === 0){
+      return totalNum;
+    }
+    else{
       return null;
     }
   };

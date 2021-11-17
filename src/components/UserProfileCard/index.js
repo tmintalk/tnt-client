@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { IoChevronDown, IoArrowBack } from "react-icons/io5";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+import { getRoomId } from "../../actions/hash.js";
 
 import "./index.scss";
 
@@ -8,6 +10,7 @@ const UserProfileCard = (props) => {
   const [user, setUser] = useState();
 
   useEffect(() => {
+    console.log("cur user name", props.curUser.nickname)
     if (props.id) {
       axios.get(`/users/${props.id}`).then((res) => {
         setUser(res.data);
@@ -48,9 +51,17 @@ const UserProfileCard = (props) => {
                 <div className="following-text"> following </div>
                 <IoChevronDown className="following-icon" />
               </button>
+              <Link
+                to={`/chat/${
+                  props?.curUser?.nickname
+                    ? getRoomId(props?.curUser?.nickname, user?.nickname)
+                    : ""
+                }`}
+              >
               <button class="message-btn" type="button">
                 <div className="message-text">message </div>
               </button>
+              </Link>
             </div>
           </div>
         </>
