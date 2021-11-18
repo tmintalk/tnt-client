@@ -5,12 +5,26 @@ CS473 Introduction to Social Computing team TnT Design Project : [Website](http:
 ## Getting Started
 
 ### Start Front Server
-* Environment: [Node.js 14.17.6](https://nodejs.org/en/) \(npm\)
+[Node.js 14.17.6](https://nodejs.org/en/) \(npm\)
 ```
 $ cd tnt-client
 $ npm install
 $ npm run start
 ```
+
+## Environment
+- We use React.js, Node.js, MySQL
+- Built with
+  + antd
+  + fortawesome
+  + material-ui
+  + axios
+  + js-cookie
+  + redux
+  + redux-saga
+  + sass, scss
+  + socket.io
+  + web-vital
 
 ## Implementation
 
