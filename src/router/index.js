@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { GET_ME_REQUEST } from "../reducers/user";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import Join from "../pages/Join";
 import PublicRoute from "./publicRoute";
@@ -54,7 +53,6 @@ const Router = () => {
 
         <Redirect to="/" />
       </Switch>
-      <Footer />
       {user.data && <BottomNav />}
     </Suspense>
   );

@@ -5,11 +5,8 @@ import { List, Input } from "antd";
 import { Link } from "react-router-dom";
 import { getRoomId } from "../../actions/hash.js";
 
-import {
-  IoSearchOutline,
-  IoChatboxOutline,
-} from "react-icons/io5";
-import { useHistory } from 'react-router';
+import { IoSearchOutline, IoChatboxOutline } from "react-icons/io5";
+import { useHistory } from "react-router";
 
 import "./index.scss";
 import { useSelector } from "react-redux";
@@ -17,7 +14,7 @@ import { useSelector } from "react-redux";
 const UserList = () => {
   let history = useHistory();
   const [users, setUsers] = useState();
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const { user } = useSelector((state) => state);
 
   useState(() => {
@@ -28,14 +25,14 @@ const UserList = () => {
   }, []);
 
   const doSearch = () => {
-    history.push(`/find/${search}`)
-  }
+    history.push(`/find/${search}`);
+  };
 
+  console.log(users);
   return (
     <>
       {users && (
-        <>         
-
+        <>
           <div className="friend-list-full-container">
             {/* <div className="search-container">
               <div className="search-button" onClick={doSearch}>
@@ -61,36 +58,55 @@ const UserList = () => {
                   renderItem={(item) => (
                     <Link to={`/users/${item.id}`}>
                       <List.Item>
-                          <div className="user-list-friend-container">
-                            <div className="list-profile-container">
-                              <img className="list-friend-profile" src={item.thumbnailUrl} alt="thumbnail" />
-                              <div className="list-friend-content">
-                                <div className="list-friend-name">
-                                  {item.nickname}님은
-                                </div>
-                                <div className="list-friend-info">
-                                  <div className="list-friend-consume">
-                                    {item?.sum}
+                        <div className="user-list-friend-container">
+                          <div className="list-profile-container">
+                            <img
+                              className="list-friend-profile"
+                              src={item.thumbnailUrl}
+                              alt="thumbnail"
+                            />
+                            <div className="list-friend-content">
+                              {item?.Posts.length !== 0 ? (
+                                <>
+                                  <div className="list-friend-name">
+                                    {item.nickname}님은 최근 소비에
                                   </div>
-                                  <div className="list-friend-subtext">
-                                    원 소비했어요!
+                                  <div className="list-friend-info">
+                                    <div className="list-friend-consume">
+                                      {item?.Posts[item.Posts.length - 1].about}
+                                    </div>
+                                    <div className="list-friend-subtext">
+                                      감정을 느끼셨어요!
+                                    </div>
                                   </div>
-                                </div>
-                              </div>
+                                </>
+                              ) : (
+                                <>
+                                  <div className="list-friend-name">
+                                    {item.nickname}님이
+                                  </div>
+                                  <div className="list-friend-info">
+                                    <div className="list-friend-subtext">
+                                      아직까지 등록하신 소비가 없어요:)
+                                    </div>
+                                  </div>
+                                </>
+                              )}
                             </div>
-                            <Link
-                              to={`/chat/${
-                                user?.data
-                                  ? getRoomId(user.data.nickname, item.nickname)
-                                  : ""
-                              }`}
-                            >
-                              <div class="chat-btn" type="button">
-                                {" "}
-                                <IoChatboxOutline className="chatbox-icon" />
-                              </div>
-                            </Link>
                           </div>
+                          <Link
+                            to={`/chat/${
+                              user?.data
+                                ? getRoomId(user.data.nickname, item.nickname)
+                                : ""
+                            }`}
+                          >
+                            <div class="chat-btn" type="button">
+                              {" "}
+                              <IoChatboxOutline className="chatbox-icon" />
+                            </div>
+                          </Link>
+                        </div>
                       </List.Item>
                     </Link>
                   )}
@@ -98,10 +114,8 @@ const UserList = () => {
               </div>
             </div>
           </div>
-          
-          <div className="user-header-container">
-            친구 목록
-          </div>
+
+          <div className="user-header-container">친구 목록</div>
         </>
       )}
     </>

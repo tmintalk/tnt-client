@@ -64,18 +64,14 @@ const MyPostCard = (props) => {
               <IoHeart className="heart-active" />
             </div>
             <div className="liked-number">{props?.item?.count}</div>
-            {curUser?.name !== props?.item?.User?.nickname && (
-              <Link
-                to={`/chat/${
-                  curUser?.name && props?.item?.User?.nickname !== curUser?.name
-                    ? getRoomId(curUser?.name, props.item?.User?.nickname)
-                    : null
-                }`}
-              >
-                {/* <IoChatboxOutline className="chatbox-icon" /> */}
-              </Link>
-            )} 
           </div>
+          {props?.item?.Likes.length !== 0 && props.item.Likes.map(like => {
+            return (
+              <div>
+                {like.User.nickname} 님이 좋아하셨습니다.
+              </div>
+            )
+          })}
         </div>
       </div>
     </>
