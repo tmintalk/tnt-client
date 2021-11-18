@@ -16,7 +16,7 @@ const App = () => {
   axios.defaults.baseURL =
     "http://ec2-13-125-111-9.ap-northeast-2.compute.amazonaws.com";
   // axios.defaults.baseURL = "http://localhost:5000";
-  // axios.interceptors.request.use((config) => {
+  axios.interceptors.request.use((config) => {
     // TODO
     // if (process.env.REACT_APP_STAGE === 'dev') {
     //   config.baseURL = process.env.REACT_APP_DEV_BASE_URL
