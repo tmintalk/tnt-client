@@ -106,7 +106,7 @@ const ChatList = () => {
       setUnreadNum(totalNum - readNum);
       console.log("totalNum",totalNum)
       return totalNum - readNum;
-    } else if(myReadCnt.length === 0){
+    } else if(myReadCnt?.length === 0){
       return totalNum;
     }
     else{
