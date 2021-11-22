@@ -33,11 +33,17 @@ const MyPostCard = (props) => {
   return (
     <>
       <div className="myprofile-postcard">
-        <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
+        <img
+          src={`${
+            props?.item?.User?.thumbnailUrl
+              ? props?.item?.User?.thumbnailUrl
+              : "https://buob-profile.s3.ap-northeast-2.amazonaws.com/default/002.png"
+          }`}
+          alt="thumbnail"
+          className="list-post-profile"
+        />
         <div className="list-post-content">
-          <div className="list-post-name">
-            {props?.item?.User?.nickname}
-          </div>
+          <div className="list-post-name">{props?.item?.User?.nickname}</div>
           <div className="sentence">
             <div className="list-post-text">spent</div>
             {/* 금액데이터 */}
@@ -56,7 +62,9 @@ const MyPostCard = (props) => {
             <div className="list-post-kind">{props?.item?.about}</div>
           </div>
 
-          {props?.item?.imageUrl && <img src={props?.item?.imageUrl} alt="post" />}
+          {props?.item?.imageUrl && (
+            <img src={props?.item?.imageUrl} alt="post" />
+          )}
 
           <div className="list-post-story">{props?.item?.description}</div>
           <div className="list-icon-container">
@@ -65,13 +73,10 @@ const MyPostCard = (props) => {
             </div>
             <div className="liked-number">{props?.item?.count}</div>
           </div>
-          {props?.item?.Likes.length !== 0 && props.item.Likes.map(like => {
-            return (
-              <div>
-                {like.User.nickname} 님이 좋아하셨습니다.
-              </div>
-            )
-          })}
+          {props?.item?.Likes.length !== 0 &&
+            props.item.Likes.map((like) => {
+              return <div>{like.User.nickname} 님이 좋아하셨습니다.</div>;
+            })}
         </div>
       </div>
     </>

@@ -62,7 +62,12 @@ const UserList = () => {
                           <div className="list-profile-container">
                             <img
                               className="list-friend-profile"
-                              src={item.thumbnailUrl}
+                              // src={item.thumbnailUrl}
+                              src={`${
+                                item.thumbnailUrl
+                                  ? item.thumbnailUrl
+                                  : "https://buob-profile.s3.ap-northeast-2.amazonaws.com/default/002.png"
+                              }`}
                               alt="thumbnail"
                             />
                             <div className="list-friend-content">

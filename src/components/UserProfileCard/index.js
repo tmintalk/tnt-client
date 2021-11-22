@@ -38,7 +38,11 @@ const UserProfileCard = (props) => {
           </div>
           <div className="friend-profile-container">
             <img
-              src={user?.thumbnailUrl}
+              src={`${
+                user?.thumbnailUrl
+                  ? user?.thumbnailUrl
+                  : "https://buob-profile.s3.ap-northeast-2.amazonaws.com/default/002.png"
+              }`}
               alt="thumbnail"
               className="friend-profile-photo"
             />

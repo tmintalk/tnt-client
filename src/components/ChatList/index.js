@@ -141,7 +141,11 @@ const ChatList = () => {
                             <div className="list-profile-container">
                               <Link to={`users/${item.id}`}>
                                 <img
-                                  src={item?.thumbnailUrl}
+                                  src={`${
+                                    item?.thumbnailUrl
+                                      ? item?.thumbnailUrl
+                                      : "https://buob-profile.s3.ap-northeast-2.amazonaws.com/default/002.png"
+                                  }`}
                                   alt="chag"
                                   className="list-friend-profile"
                                   onClick={(e) => e.stopPropagation}

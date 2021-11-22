@@ -23,19 +23,19 @@ const PostCard = (props) => {
   }, [posts]);
 
   useState(() => {
-    if (user.data) {
-      console.log("username", user.data.nickname);
+    if (user?.data) {
+      console.log("username", user?.data?.nickname);
       //console.log("userId", user.data.id);
       setCurUser({
-        name: user.data.nickname,
+        name: user?.data?.nickname,
         picture:
           "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
       });
     }
-  }, [user.data]);
+  }, [user?.data]);
 
   const createLike = async (id) => {
-    const resp = await axios.post(`/likes/${id}`)  
+    const resp = await axios.post(`/likes/${id}`);
     console.log(resp);
 
     dispatch({
@@ -44,7 +44,7 @@ const PostCard = (props) => {
   };
 
   const deleteLike = async (id) => {
-    const resp = await axios.delete(`/likes/${id}`)  
+    const resp = await axios.delete(`/likes/${id}`);
     console.log(resp);
 
     dispatch({
@@ -55,23 +55,51 @@ const PostCard = (props) => {
   return (
     <>
       <div className="list-post-container">
-        {
-          props?.item?.like ?
-            props?.item?.User?.id === user?.data?.id ?
-              <Link to={`/mypage`}>
-                <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
-              </Link> :
-              <Link to={`/users/${props?.item?.User?.id}`}>
-                <img src={props?.item?.User?.thumbnailUrl} alt="thumbnail" className="list-post-profile" />
-              </Link>
-          : <img src="https://tmi-image.s3.ap-northeast-2.amazonaws.com/profile.png" alt="tumbnail" className="list-post-profile" />
-        }
-      
+        {props?.item?.like ? (
+          props?.item?.User?.id === user?.data?.id ? (
+            <Link to={`/mypage`}>
+              <img
+                // src={props?.item?.User?.thumbnailUrl}
+                src={`${
+                  user?.data?.id
+                    ? user?.data?.thumbnailUrl
+                    : "https://buob-profile.s3.ap-northeast-2.amazonaws.com/default/002.png"
+                }`}
+                alt="thumbnail"
+                className="list-post-profile"
+              />
+            </Link>
+          ) : (
+            <Link to={`/users/${props?.item?.User?.id}`}>
+              <img
+                // src={props?.item?.User?.thumbnailUrl}
+                src={`${
+                  props?.item?.User?.thumbnailUrl
+                    ? props?.item?.User?.thumbnailUrl
+                    : "https://buob-profile.s3.ap-northeast-2.amazonaws.com/default/002.png"
+                }`}
+                alt="thumbnail"
+                className="list-post-profile"
+              />
+            </Link>
+          )
+        ) : (
+          <img
+            src="https://tmi-image.s3.ap-northeast-2.amazonaws.com/profile.png"
+            alt="tumbnail"
+            className="list-post-profile"
+          />
+        )}
+
         <div className="list-post-content">
           <div className="list-post-name">
-            {props?.item?.like
-              ? <Link to={`/users/${props?.item?.User?.id}`}>{props?.item?.User?.nickname}</Link>
-              : <div>{props?.item?.id}</div>}
+            {props?.item?.like ? (
+              <Link to={`/users/${props?.item?.User?.id}`}>
+                {props?.item?.User?.nickname}
+              </Link>
+            ) : (
+              <div>{props?.item?.id}</div>
+            )}
           </div>
           <div className="sentence">
             <div className="list-post-text">spent</div>
@@ -91,15 +119,23 @@ const PostCard = (props) => {
             <div className="list-post-kind">{props?.item?.about}</div>
           </div>
 
-          {props?.item?.imageUrl && <img src={props?.item?.imageUrl} alt="post" />}
+          {props?.item?.imageUrl && (
+            <img src={props?.item?.imageUrl} alt="post" />
+          )}
 
           <div className="list-post-story">{props?.item?.description}</div>
           <div className="list-icon-container">
             <div>
               {props?.item?.like ? (
-                <IoHeart onClick={() => deleteLike(props?.item?.id)} className="heart-active" />
+                <IoHeart
+                  onClick={() => deleteLike(props?.item?.id)}
+                  className="heart-active"
+                />
               ) : (
-                <IoHeart onClick={() => createLike(props?.item?.id)} className="heart-inactive" />
+                <IoHeart
+                  onClick={() => createLike(props?.item?.id)}
+                  className="heart-inactive"
+                />
               )}
             </div>
             {curUser?.name !== props?.item?.User?.nickname && (

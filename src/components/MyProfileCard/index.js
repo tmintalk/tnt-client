@@ -10,7 +10,11 @@ const MyProfileCard = () => {
     <>
       <div className="my-profile-container">
         <img
-          src={user?.data?.thumbnailUrl}
+          src={`${
+            user?.data?.thumbnailUrl
+              ? user?.data?.thumbnailUrl
+              : "https://buob-profile.s3.ap-northeast-2.amazonaws.com/default/002.png"
+          }`}
           alt="thumbnail"
           className="my-profile-photo"
         />

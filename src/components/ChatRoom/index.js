@@ -43,8 +43,8 @@ const ChatRoom = (props) => {
       const result = response.data;
       setFriendInfo(result);
       console.log(result);
-    }
-    fetchFriend()
+    };
+    fetchFriend();
   }, [user?.data]);
 
   useEffect(() => {
@@ -119,9 +119,16 @@ const ChatRoom = (props) => {
               <IoArrowBack className="back-icon" />
             </button>
             <div className="chatRoom-profile">
-            <Link to={`/users/${friendInfo?.id}`}>
-              <img src={friendInfo?.thumbnailUrl} class="chatRoom-profile-photo"></img>
-            </Link>
+              <Link to={`/users/${friendInfo?.id}`}>
+                <img
+                  src={`${
+                    friendInfo?.thumbnailUrl
+                      ? friendInfo?.thumbnailUrl
+                      : "https://buob-profile.s3.ap-northeast-2.amazonaws.com/default/002.png"
+                  }`}
+                  class="chatRoom-profile-photo"
+                ></img>
+              </Link>
               <div class="chatRoom-counterperson"> {friendName} </div>
             </div>
             {/* <div class="chatRoom-menu">
