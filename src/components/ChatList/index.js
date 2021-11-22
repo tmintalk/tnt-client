@@ -30,7 +30,7 @@ const ChatList = () => {
     (async () => {
       const resp = await axios.get(`${SOCKET_SERVER_URL}/users`);
       setUsers(resp.data);
-      console.log(resp.data);
+      //console.log(resp.data);
     })();
   }, []);
 
@@ -38,6 +38,7 @@ const ChatList = () => {
     const fetchMessages = async () => {
       const response = await axios.get(`${SOCKET_SERVER_URL}/chat/allMessages`);
       const result = response.data.messages;
+      console.log("allMessages", response.data.messages);
       setMessages(result);
     };
     fetchMessages();
@@ -46,7 +47,7 @@ const ChatList = () => {
         `${SOCKET_SERVER_URL}/chat/${user?.data?.nickname}/readCnt`
       );
       const result = response.data.myReadCnt;
-      console.log("fetchReadCnt", user?.data?.nickname, result);
+      //console.log("fetchReadCnt", user?.data?.nickname, result);
       setMyReadCnt(result);
     };
     fetchReadCnt();
@@ -102,11 +103,11 @@ const ChatList = () => {
   const GetUnreadMessage = (roomId) => {
     const roomMessages = messages.filter((message) => message.room === roomId);
     const totalNum = roomMessages.length;
-    console.log("myReadCnt", myReadCnt);
+    //console.log("myReadCnt", myReadCnt);
     if (myReadCnt?.find((i) => i.roomId == roomId)) {
       const readNum = myReadCnt?.find((i) => i.roomId == roomId)?.messageCnt;
       setUnreadNum(totalNum - readNum);
-      console.log("totalNum", totalNum);
+      //console.log("totalNum", totalNum);
       return totalNum - readNum;
     } else if (myReadCnt?.length === 0) {
       return totalNum;
