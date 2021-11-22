@@ -5,7 +5,13 @@ import "./index.css";
 import "./index.scss";
 import { Tag } from "antd";
 
-const ChatMessage = ({ message, messages, index, friendInfo, thumbnailUrl }) => {
+const ChatMessage = ({
+  message,
+  messages,
+  index,
+  friendInfo,
+  thumbnailUrl,
+}) => {
   const [isCurUser, setIsCurUser] = useState(false);
   const { user } = useSelector((state) => state);
   const [isdiffTime, setIsdiffTime] = useState(true);
@@ -35,7 +41,7 @@ const ChatMessage = ({ message, messages, index, friendInfo, thumbnailUrl }) => 
       const dateStr =
         date.getFullYear() +
         "년 " +
-        date.getMonth() +
+        (date.getMonth() + 1) +
         "월 " +
         date.getDate() +
         "일 ";
@@ -91,7 +97,7 @@ const ChatMessage = ({ message, messages, index, friendInfo, thumbnailUrl }) => 
         <div className="chatMessage-newDate-container">
           <div className="chatMessage-newDate">
             {newDate(new Date(message.timeStamp))}
-          </div>  
+          </div>
         </div>
       ) : null}
       <div
@@ -102,7 +108,11 @@ const ChatMessage = ({ message, messages, index, friendInfo, thumbnailUrl }) => 
         {!isCurUser &&
           (isdiffTime ? (
             <div className="chatMessage-avatar-container">
-              <UserAvatar user={message.user} friendInfo={friendInfo} thumbnailUrl={thumbnailUrl}></UserAvatar>
+              <UserAvatar
+                user={message.user}
+                friendInfo={friendInfo}
+                thumbnailUrl={thumbnailUrl}
+              ></UserAvatar>
             </div>
           ) : (
             <div className="chatMessage-nonavatar-container"></div>
