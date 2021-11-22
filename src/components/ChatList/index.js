@@ -46,7 +46,7 @@ const ChatList = () => {
         `${SOCKET_SERVER_URL}/chat/${user?.data?.nickname}/readCnt`
       );
       const result = response.data.myReadCnt;
-      console.log("fetchReadCnt", user?.data?.nickname,result);
+      console.log("fetchReadCnt", user?.data?.nickname, result);
       setMyReadCnt(result);
     };
     fetchReadCnt();
@@ -94,22 +94,23 @@ const ChatList = () => {
     if (roomMessages.length <= 0) return null;
     else {
       let date = new Date(roomMessages[len - 1].timeStamp);
-      return date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate();
+      return (
+        date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate()
+      );
     }
   };
   const GetUnreadMessage = (roomId) => {
     const roomMessages = messages.filter((message) => message.room === roomId);
     const totalNum = roomMessages.length;
-    console.log("myReadCnt",myReadCnt)
+    console.log("myReadCnt", myReadCnt);
     if (myReadCnt?.find((i) => i.roomId == roomId)) {
       const readNum = myReadCnt?.find((i) => i.roomId == roomId)?.messageCnt;
       setUnreadNum(totalNum - readNum);
-      console.log("totalNum",totalNum)
+      console.log("totalNum", totalNum);
       return totalNum - readNum;
-    } else if(myReadCnt?.length === 0){
+    } else if (myReadCnt?.length === 0) {
       return totalNum;
-    }
-    else{
+    } else {
       return null;
     }
   };
@@ -117,7 +118,7 @@ const ChatList = () => {
   return (
     <>
       {sortedUsers && (
-        <>          
+        <>
           <div className="chat-list-full-container">
             <div className="chat-ant-list">
               <List
@@ -139,7 +140,12 @@ const ChatList = () => {
                           <div className="list-friend-container">
                             <div className="list-profile-container">
                               <Link to={`users/${item.id}`}>
-                              <img src={item?.thumbnailUrl} alt="chag" className="list-friend-profile" onClick={(e)=>e.stopPropagation}/>
+                                <img
+                                  src={item?.thumbnailUrl}
+                                  alt="chag"
+                                  className="list-friend-profile"
+                                  onClick={(e) => e.stopPropagation}
+                                />
                               </Link>
                               <div className="list-chat-content">
                                 <div className="list-friend-name">
@@ -181,7 +187,6 @@ const ChatList = () => {
             </div>
           </div>
           <div className="user-header-container">채팅</div>
-        
         </>
       )}
     </>
