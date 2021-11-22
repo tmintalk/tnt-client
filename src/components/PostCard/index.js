@@ -61,7 +61,7 @@ const PostCard = (props) => {
               <img
                 // src={props?.item?.User?.thumbnailUrl}
                 src={`${
-                  user?.data?.id
+                  user?.data?.thumbnailUrl
                     ? user?.data?.thumbnailUrl
                     : "https://buob-profile.s3.ap-northeast-2.amazonaws.com/default/002.png"
                 }`}
@@ -83,6 +83,19 @@ const PostCard = (props) => {
               />
             </Link>
           )
+        ) : props?.item?.User?.id === user?.data?.id ? (
+          <Link to={`/mypage`}>
+            <img
+              // src={props?.item?.User?.thumbnailUrl}
+              src={`${
+                user?.data?.thumbnailUrl
+                  ? user?.data?.thumbnailUrl
+                  : "https://buob-profile.s3.ap-northeast-2.amazonaws.com/default/002.png"
+              }`}
+              alt="thumbnail"
+              className="list-post-profile"
+            />
+          </Link>
         ) : (
           <img
             src="https://tmi-image.s3.ap-northeast-2.amazonaws.com/profile.png"
