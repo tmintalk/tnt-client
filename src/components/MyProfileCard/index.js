@@ -7,10 +7,13 @@ const MyProfileCard = () => {
   const { user } = useSelector((state) => state);
 
   return (
-    <>    
-
+    <>
       <div className="my-profile-container">
-        <img src={user?.data?.thumbnailUrl} alt="thumbnail" className="my-profile-photo" />
+        <img
+          src={user?.data?.thumbnailUrl}
+          alt="thumbnail"
+          className="my-profile-photo"
+        />
         <div className="my-profile-content">
           <div className="my-name">{`${user?.data?.nickname}`}</div>
           <div className="my-email"> {`${user?.data?.email}`} </div>
