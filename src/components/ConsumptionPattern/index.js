@@ -1,9 +1,25 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import './index.scss'
 
-const ConsumptionPattern = () => {
-  const { user } = useSelector(state => state);
+const ConsumptionPattern = (props) => {
+  const [sum, setSum] = useState(0);
+
+  useEffect(() => {
+    if (props.id) {
+      axios.get(`/users/${props.id}`)
+        .then(res => {
+          let sum = 0;
+          res.data?.Posts.map(post => {
+            sum = sum + post.price
+          });
+
+          setSum(sum);
+        })
+    }
+  }, [props?.id])
 
   return (
     <>
@@ -13,7 +29,7 @@ const ConsumptionPattern = () => {
       <div className="pattern-list-container">
         <div className="cost-title-text">당신은 지금까지</div>
         <div className="cost-sentence">
-          <div className="cost-main-text">{user?.data?.sum}</div>
+          <div className="cost-main-text">{sum}</div>
           <div className="cost-sub-text">원을 쓰셨군요!</div>
         </div>
         

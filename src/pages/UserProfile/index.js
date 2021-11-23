@@ -13,7 +13,7 @@ const FriendProfile = (props) => {
   return (
     <>
       <UserProfileCard id={id} goBack={goBack} curUser={user?.data} />
-      <ConsumptionPattern />
+      <ConsumptionPattern id={id} />
       <UserProfileQuestionGrid id={id} />
     </>
   );

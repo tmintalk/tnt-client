@@ -7,14 +7,27 @@ import ProfileAnswerCard from "../ProfileAnswerCard";
 
 const ProfileQuestionGrid = () => {
   const { user } = useSelector(state => state)
-  const [, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("/questions")
-      .then((res) => setQuestions(res.data))
-      .catch((err) => console.error(err));
-  }, []);
+    if (user?.data?.Answers) {
+      let questions = {};
+
+      if (user?.data?.Answers?.length !== 0) {
+        user?.data?.Answers?.map(answer => {
+          let text = answer?.Question?.text;
+          if (questions.hasOwnProperty(answer?.Question?.text)) {
+            questions[text].push(answer?.answer);
+          } else {
+            questions[text] = [answer?.answer];
+          }
+        })
+  
+        setQuestions([questions]);
+      }
+    }
+    
+  }, [user?.data?.Answers]);
 
   return (
     <>
@@ -22,14 +35,17 @@ const ProfileQuestionGrid = () => {
         <div className="title"> 오늘의 질문에 이렇게 답했어요! </div>
         <div className="my-question-list-container">
           {
-            (user.data && user.data.Answers && user.data.Answers.length !== 0)
+            (questions !== 0)
             ?
-            user.data.Answers.map(answer => (
-              <ProfileAnswerCard
-                question={answer.Question.text}
-                answer={answer.answer}
-              />
-            ))
+            questions.map(question => {
+              let key = Object.keys(question)[0]
+              return(
+                <ProfileAnswerCard
+                  question={key}
+                  answers={question[key]}
+                />
+              )
+            })
             // TODO: 유미야 고쳐죠
             : <div className = "no-answer"> 아직 답변한 질문이 없어요.😥 </div>
           }
