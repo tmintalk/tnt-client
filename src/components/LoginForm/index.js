@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, Alert } from 'antd';
 import { Link } from 'react-router-dom';
 
 import './index.scss';
@@ -9,17 +10,25 @@ import './index.scss';
 
 const LoginForm = () => {
   const [, setCookie] = useCookies(['Authorization']);
+  const [isLogging, setLogging] = useState(false);
+  const [isError, setError] = useState(false);
 
   const onFinish = async (values) => {
     const { email, password } = values;
-
-    const res = await axios.post('/auth/login', {
-      email,
-      password,
-    })
-
-    setCookie('Authorization', res.data.token, { path: '/', maxAge: 24 * 60 * 60 });
-    window.location.href = "/"  
+    setLogging(true);
+    try {
+      const res = await axios.post('/auth/login', {
+        email,
+        password,
+      })
+  
+      setCookie('Authorization', res.data.token, { path: '/', maxAge: 24 * 60 * 60 });
+      window.location.href = "/"  
+    } catch (error) {
+      console.log(error);
+      setLogging(false);
+      setError(true);
+    }
   }
 
   return (
@@ -54,9 +63,10 @@ const LoginForm = () => {
             >
               <Input.Password />
             </Form.Item>
+            {isError && <Alert message="이메일 혹은 비밀번호가 올바르지 않습니다." type="error" />}
             <div className="login-and-join">
               <Form.Item>
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" loading={isLogging}>
                   SIGN IN
                 </Button>
               </Form.Item>

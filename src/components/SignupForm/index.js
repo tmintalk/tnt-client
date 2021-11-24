@@ -2,33 +2,37 @@ import { useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 
-import { Form, Input, Button, Upload, message } from "antd";
+import { Form, Input, Button, Upload, Alert } from "antd";
 import { Link } from "react-router-dom";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined } from "@ant-design/icons";
 
 import "./index.scss";
 
 const SignupForm = () => {
   const [, setCookie] = useCookies(["Authorization"]);
-  const [loading, setLoading] = useState();
+  const [isError, setError] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
 
   const onFinish = async (values) => {
-    const { email, password, nickname, image } = values;
-    const thumbnailUrl = image?.file?.response?.uri;
-
-    const res = await axios.post("/auth/join", {
-      thumbnailUrl,
-      email,
-      password,
-      nickname,
-    });
-
-    setCookie("Authorization", res.data.token, {
-      path: "/",
-      maxAge: 24 * 60 * 60,
-    });
-    window.location.href = "/";
+    try {
+      const { email, password, nickname, image } = values;
+      const thumbnailUrl = image?.file?.response?.uri;
+  
+      const res = await axios.post("/auth/join", {
+        thumbnailUrl,
+        email,
+        password,
+        nickname,
+      });
+  
+      setCookie("Authorization", res.data.token, {
+        path: "/",
+        maxAge: 24 * 60 * 60,
+      });
+      window.location.href = "/";
+    } catch (error) {
+      setError(true);
+    }
   };
 
   const handleChange = (info) => {
@@ -102,6 +106,7 @@ const SignupForm = () => {
             >
               <Input.Password />
             </Form.Item>
+            {isError && <Alert message="닉네임이 중복됩니다." type="error" />}
             <div className="join-and-login">
               <Form.Item>
                 <Button type="primary" htmlType="submit">
