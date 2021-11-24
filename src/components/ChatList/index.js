@@ -38,7 +38,10 @@ const ChatList = () => {
     const fetchMessages = async () => {
       const response = await axios.get(`${SOCKET_SERVER_URL}/chat/allMessages`);
       const result = response.data.messages;
-      console.log("allMessages", response.data.messages);
+      //총 메세지 수 체크
+      console.log("allMessages", result);
+      const roomSet = new Set(result.map((m) => m.room));
+      console.log("allRooms", roomSet);
       setMessages(result);
     };
     fetchMessages();
