@@ -1,14 +1,23 @@
+import { useState } from "react";
 import { Route, Redirect } from "react-router-dom";
 
 import isLogin from "../services/isLogin";
 
 const PublicRoute = ({ component: Component, ...rest }) => {
-  console.log(isLogin());
+  const [loggedIn, setLoggedIn] = useState(false);
+  
+  async function check () {
+    let loggedIn = await isLogin();
+    setLoggedIn(loggedIn);
+  }
+
+  check();
+
   return (
     <Route
       {...rest}
       render={(props) =>
-        isLogin() ? (
+        loggedIn ? (
           <Redirect to="/" />
         ) : (
           <Component {...props} />
