@@ -46,7 +46,7 @@ const ProfileAnswerCard = (props) => {
         </div>
         {isOpened ?
           <div className="question-answer-container">
-            <div className="question-answer">{props?.answer}</div>
+            {props.answers?.map(answer => (<div className="question-answer">{answer}</div>))}
           </div>
           : <></>
         }
