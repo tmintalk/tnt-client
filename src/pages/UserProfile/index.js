@@ -1,8 +1,7 @@
-import {useState } from "react";
 import UserProfileCard from "../../components/UserProfileCard";
-import ConsumptionPattern from "../../components/ConsumptionPattern";
 import UserProfileQuestionGrid from "../../components/UserProfileQuestionGrid";
 import { useSelector } from "react-redux";
+import FriendConsumptionPattern from "../../components/FriendConsumptionPattern";
 
 const FriendProfile = (props) => {
   const { id } = props.match.params;
@@ -13,7 +12,7 @@ const FriendProfile = (props) => {
   return (
     <>
       <UserProfileCard id={id} goBack={goBack} curUser={user?.data} />
-      <ConsumptionPattern id={id} />
+      <FriendConsumptionPattern id={id} />
       <UserProfileQuestionGrid id={id} />
     </>
   );

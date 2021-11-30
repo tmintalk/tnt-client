@@ -1,0 +1,117 @@
+.consumption-pattern-container{
+  padding:24px;
+  
+  .title{
+    font-family: NanumSquareEB;
+    font-size: 15px;
+    color: black;
+  }
+
+  .pattern-list-container{    
+    box-shadow: 1px 1px 5px rgb(208, 208, 208);
+    background-color: white;
+    border-radius: 8px;
+    
+    padding: 24px;
+    margin-top: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
+    .first-pattern{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .first-character{
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        background-color: #C4C4C4;
+      }
+
+      .first-content-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        margin: 0 16px;
+        .first-comment{
+          font-size: 12px;
+          color: #898A8D;
+          font-family: NanumSquareR;
+        }
+        .first-title{
+          font-size: 20px;
+          color: #3746EA;
+          font-family: NanumSquareEB;
+        }
+      }
+    }
+
+    .partition{
+      height: 0.3px;
+      background-color: #cccccc;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .second-pattern{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .second-character{
+        width: 44px;
+        height: 44px;
+        border-radius: 22px;
+        background-color: #C4C4C4;
+      }
+
+      .second-content-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        margin: 0 16px;
+        .second-comment{
+          font-size: 12px;
+          color: #898A8D;
+          font-family: NanumSquareR;
+        }
+        .second-title{
+          font-size: 18px;
+          color: #3746EA;
+          font-family: NanumSquareEB;
+        }
+      }
+    }
+
+    .cost-title-text{
+      font-family: NanumSquareR;
+      font-size: 14px;
+      color:#898A8D;
+    }
+    .cost-sentence{
+      display: flex;    
+      align-items: center;  
+
+      margin-top: 5px;
+      .cost-main-text{
+        font-family: NanumSquareEB;
+        font-size: 18px;
+        color:#7B61FF;
+      }
+      .cost-sub-text{
+        font-family: NanumSquareB;
+        font-size: 14px;
+        color:black;
+
+        margin-left: 3px;
+      }
+    }
+  }
+}
