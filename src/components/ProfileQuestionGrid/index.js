@@ -38,12 +38,18 @@ const ProfileQuestionGrid = () => {
             (questions !== 0)
             ?
             questions.map(question => {
-              let key = Object.keys(question)[0]
+              let key = Object.keys(question)
+
               return(
-                <ProfileAnswerCard
-                  question={key}
-                  answers={question[key]}
-                />
+                <>
+                  {key.map(k => (
+                    <ProfileAnswerCard
+                      key={`profile-${k}`}
+                      question={k}
+                      answers={question[k]}
+                    />
+                  ))}
+                </>
               )
             })
             // TODO: 유미야 고쳐죠
